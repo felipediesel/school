@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  modality_id: 
+  name: MyString
+  color: MyString
+  position: 1
+
+two:
+  modality_id: 
+  name: MyString
+  color: MyString
+  position: 1

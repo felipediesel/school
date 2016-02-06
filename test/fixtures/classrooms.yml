@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  modality_id: 
+  teacher_id: 
+  room_id: 
+  day_of_week: 1
+  start_at: 9.99
+  duration: 1
+  personal: false
+  comment: MyText
+
+two:
+  name: MyString
+  modality_id: 
+  teacher_id: 
+  room_id: 
+  day_of_week: 1
+  start_at: 9.99
+  duration: 1
+  personal: false
+  comment: MyText

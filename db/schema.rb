@@ -49,16 +49,10 @@ ActiveRecord::Schema.define(version: 20160206172553) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "rooms", force: :cascade do |t|
-    t.string   "name"
-    t.text     "comment"
-    t.integer  "position",   default: 0, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "students", force: :cascade do |t|
+  create_table "people", force: :cascade do |t|
     t.string   "code"
+    t.boolean  "student",              default: false
+    t.boolean  "teacher",              default: false
     t.string   "name"
     t.string   "document1"
     t.string   "document2"
@@ -77,8 +71,16 @@ ActiveRecord::Schema.define(version: 20160206172553) do
     t.string   "blood_type"
     t.string   "profession"
     t.text     "comment"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string   "name"
+    t.text     "comment"
+    t.integer  "position",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -91,25 +93,5 @@ ActiveRecord::Schema.define(version: 20160206172553) do
 
   add_index "subscriptions", ["classroom_id"], name: "index_subscriptions_on_classroom_id"
   add_index "subscriptions", ["student_id"], name: "index_subscriptions_on_student_id"
-
-  create_table "teachers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "document1"
-    t.string   "document2"
-    t.string   "birthday"
-    t.string   "street"
-    t.string   "district"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "cellphone"
-    t.string   "email"
-    t.string   "blood_type"
-    t.text     "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end

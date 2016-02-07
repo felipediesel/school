@@ -24,19 +24,19 @@ modality.levels.create name: 'Marrom', color: '#5F3731', position: 7
 modality.levels.create name: 'Vermelha', color: '#E33624', position: 8
 modality.levels.create name: 'Preto', color: '#000000', position: 9
 
-Teacher.create name: 'Bruce Lee'
-Teacher.create name: 'Miyagi'
+Teacher.create code: '1', name: 'Bruce Lee'
+Teacher.create code: '2', name: 'Miyagi'
 
-Student.create code: '1', name: 'Daniel San'
-Student.create code: '2', name: 'Dre Parker'
-Student.create code: '3', name: 'John'
-Student.create code: '4', name: 'Paul'
-Student.create code: '5', name: 'George'
-Student.create code: '6', name: 'Ringo'
-Student.create code: '7', name: 'Mick'
-Student.create code: '8', name: 'Keith'
-Student.create code: '9', name: 'Ron'
-Student.create code: '10', name: 'Charlie'
+Student.create code: '3', name: 'Daniel San'
+Student.create code: '4', name: 'Dre Parker'
+Student.create code: '5', name: 'John'
+Student.create code: '6', name: 'Paul'
+Student.create code: '7', name: 'George'
+Student.create code: '8', name: 'Ringo'
+Student.create code: '9', name: 'Mick'
+Student.create code: '10', name: 'Keith'
+Student.create code: '11', name: 'Ron'
+Student.create code: '12', name: 'Charlie'
 
 Room.create name: 'Principal', position: 0
 Room.create name: 'Segundo Piso', position: 1

@@ -18,6 +18,9 @@
       <%= render 'layouts/nav' %>
     </div>
     <div class="col-sm-8 col-lg-10">
+      <%- flash.each do |key, body| -%>
+        <%= alert key, body %>
+      <%- end %>
       <%= yield %>
     </div>
   </div>

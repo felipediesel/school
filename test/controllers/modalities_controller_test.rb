@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ModalitiesControllerTest < ActionController::TestCase
   setup do
-    @modality = modalities(:one)
+    @modality = modalities(:jiujitsu)
   end
 
   test "should get index" do
@@ -18,7 +18,7 @@ class ModalitiesControllerTest < ActionController::TestCase
 
   test "should create modality" do
     assert_difference('Modality.count') do
-      post :create, modality: { description: @modality.description, name: @modality.name }
+      post :create, modality: { name: @modality.name }
     end
 
     assert_redirected_to modality_path(assigns(:modality))
@@ -35,7 +35,7 @@ class ModalitiesControllerTest < ActionController::TestCase
   end
 
   test "should update modality" do
-    patch :update, id: @modality, modality: { description: @modality.description, name: @modality.name }
+    patch :update, id: @modality, modality: { name: @modality.name }
     assert_redirected_to modality_path(assigns(:modality))
   end
 

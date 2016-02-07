@@ -1,9 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyText
+jiujitsu:
+  name: Jiu-Jitsu
 
-two:
-  name: MyString
-  description: MyText
+muaythai:
+  name: Muay Thai
+

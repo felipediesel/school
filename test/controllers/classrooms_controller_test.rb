@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ClassroomsControllerTest < ActionController::TestCase
   setup do
-    @classroom = classrooms(:one)
+    @classroom = classrooms(:jiujitsu)
   end
 
   test "should get index" do
@@ -18,7 +18,7 @@ class ClassroomsControllerTest < ActionController::TestCase
 
   test "should create classroom" do
     assert_difference('Classroom.count') do
-      post :create, classroom: { comment: @classroom.comment, day_of_week: @classroom.day_of_week, duration: @classroom.duration, modality_id: @classroom.modality_id, name: @classroom.name, personal: @classroom.personal, room_id: @classroom.room_id, start_at: @classroom.start_at, teacher_id: @classroom.teacher_id }
+      post :create, classroom: { day_of_week: @classroom.day_of_week, duration: @classroom.duration, modality_id: @classroom.modality_id, name: @classroom.name, personal: @classroom.personal, room_id: @classroom.room_id, start_at: @classroom.start_at, teacher_id: @classroom.teacher_id }
     end
 
     assert_redirected_to classroom_path(assigns(:classroom))
@@ -35,7 +35,7 @@ class ClassroomsControllerTest < ActionController::TestCase
   end
 
   test "should update classroom" do
-    patch :update, id: @classroom, classroom: { comment: @classroom.comment, day_of_week: @classroom.day_of_week, duration: @classroom.duration, modality_id: @classroom.modality_id, name: @classroom.name, personal: @classroom.personal, room_id: @classroom.room_id, start_at: @classroom.start_at, teacher_id: @classroom.teacher_id }
+    patch :update, id: @classroom, classroom: { day_of_week: @classroom.day_of_week, duration: @classroom.duration, modality_id: @classroom.modality_id, name: @classroom.name, personal: @classroom.personal, room_id: @classroom.room_id, start_at: @classroom.start_at, teacher_id: @classroom.teacher_id }
     assert_redirected_to classroom_path(assigns(:classroom))
   end
 

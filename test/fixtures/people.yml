@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+lee:
+  code: 1
+  name: Bruce Lee
+  teacher: true
+
+miyagi:
+  code: 2
+  name: Miyagi
+  teacher: true
+
+daniel:
+  code: 3
+  name: Daniel San
+  student: true
+
+dre:
+  code: 4
+  name: Dre Parker
+  student: true

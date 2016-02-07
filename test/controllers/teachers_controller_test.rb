@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TeachersControllerTest < ActionController::TestCase
   setup do
-    @teacher = teachers(:one)
+    @teacher = people(:lee)
   end
 
   test "should get index" do
@@ -18,7 +18,7 @@ class TeachersControllerTest < ActionController::TestCase
 
   test "should create teacher" do
     assert_difference('Teacher.count') do
-      post :create, teacher: { birthday: @teacher.birthday, blood_type: @teacher.blood_type, cellphone: @teacher.cellphone, city: @teacher.city, comment: @teacher.comment, country: @teacher.country, district: @teacher.district, document1: @teacher.document1, document2: @teacher.document2, email: @teacher.email, name: @teacher.name, phone: @teacher.phone, state: @teacher.state, street: @teacher.street, zip: @teacher.zip }
+      post :create, teacher: { name: @teacher.name, code: 6 }
     end
 
     assert_redirected_to teacher_path(assigns(:teacher))
@@ -35,7 +35,7 @@ class TeachersControllerTest < ActionController::TestCase
   end
 
   test "should update teacher" do
-    patch :update, id: @teacher, teacher: { birthday: @teacher.birthday, blood_type: @teacher.blood_type, cellphone: @teacher.cellphone, city: @teacher.city, comment: @teacher.comment, country: @teacher.country, district: @teacher.district, document1: @teacher.document1, document2: @teacher.document2, email: @teacher.email, name: @teacher.name, phone: @teacher.phone, state: @teacher.state, street: @teacher.street, zip: @teacher.zip }
+    patch :update, id: @teacher, teacher: { name: @teacher.name, code: @teacher.code }
     assert_redirected_to teacher_path(assigns(:teacher))
   end
 

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StudentsControllerTest < ActionController::TestCase
   setup do
-    @student = students(:one)
+    @student = people(:daniel)
   end
 
   test "should get index" do
@@ -18,7 +18,7 @@ class StudentsControllerTest < ActionController::TestCase
 
   test "should create student" do
     assert_difference('Student.count') do
-      post :create, student: { birthday: @student.birthday, blood_type: @student.blood_type, cellphone: @student.cellphone, city: @student.city, code: @student.code, comment: @student.comment, country: @student.country, district: @student.district, document1: @student.document1, document2: @student.document2, email: @student.email, name: @student.name, phone: @student.phone, profession: @student.profession, responsible_document: @student.responsible_document, responsible_name: @student.responsible_name, state: @student.state, street: @student.street, zip: @student.zip }
+      post :create, student: { name: @student.name, code: 5 } # code validates uniqueness
     end
 
     assert_redirected_to student_path(assigns(:student))
@@ -35,7 +35,7 @@ class StudentsControllerTest < ActionController::TestCase
   end
 
   test "should update student" do
-    patch :update, id: @student, student: { birthday: @student.birthday, blood_type: @student.blood_type, cellphone: @student.cellphone, city: @student.city, code: @student.code, comment: @student.comment, country: @student.country, district: @student.district, document1: @student.document1, document2: @student.document2, email: @student.email, name: @student.name, phone: @student.phone, profession: @student.profession, responsible_document: @student.responsible_document, responsible_name: @student.responsible_name, state: @student.state, street: @student.street, zip: @student.zip }
+    patch :update, id: @student, student: { name: @student.name, code: @student.code }
     assert_redirected_to student_path(assigns(:student))
   end
 

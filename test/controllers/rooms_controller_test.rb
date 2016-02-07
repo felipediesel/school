@@ -2,7 +2,7 @@ require 'test_helper'
 
 class RoomsControllerTest < ActionController::TestCase
   setup do
-    @room = rooms(:one)
+    @room = rooms(:main)
   end
 
   test "should get index" do
@@ -18,7 +18,7 @@ class RoomsControllerTest < ActionController::TestCase
 
   test "should create room" do
     assert_difference('Room.count') do
-      post :create, room: { comment: @room.comment, name: @room.name, position: @room.position }
+      post :create, room: { name: @room.name }
     end
 
     assert_redirected_to room_path(assigns(:room))
@@ -35,7 +35,7 @@ class RoomsControllerTest < ActionController::TestCase
   end
 
   test "should update room" do
-    patch :update, id: @room, room: { comment: @room.comment, name: @room.name, position: @room.position }
+    patch :update, id: @room, room: { name: @room.name }
     assert_redirected_to room_path(assigns(:room))
   end
 

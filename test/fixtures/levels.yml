@@ -1,13 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  modality_id: 
-  name: MyString
-  color: MyString
+jiujitsu_white:
+  name: Branca
+  modality: jiujitsu
+  color: "#FFFFFF"
+  position: 0
+jiujitsu_blue:
+  name: Azul
+  modality: jiujitsu
+  color: '#3772B6'
   position: 1
+jiujitsu_purple:
+  name: Roxa
+  modality: jiujitsu
+  color: '#8E34D4'
+  position: 2
 
-two:
-  modality_id: 
-  name: MyString
-  color: MyString
+muaythai_white:
+  name: 'Branca'
+  modality: muaythai
+  color: '#FFFFFF'
+  position: 0
+muaythai_red:
+  name: 'Vermelha'
+  modality: muaythai
+  color: '#D33E23'
   position: 1

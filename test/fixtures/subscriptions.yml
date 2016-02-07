@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  student_id: 
-  classroom_id: 
-  comment: MyText
+  student: daniel
+  classroom: jiujitsu
 
 two:
-  student_id: 
-  classroom_id: 
-  comment: MyText
+  student: daniel
+  classroom: muaythai
+
+three:
+  student: dre
+  classroom: jiujitsu

@@ -1,23 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  modality_id: 
-  teacher_id: 
-  room_id: 
+jiujitsu:
+  name: Jiu-Jitsu
+  modality: jiujitsu
+  teacher: lee
+  room: main
   day_of_week: 1
-  start_at: 9.99
-  duration: 1
-  personal: false
-  comment: MyText
-
-two:
-  name: MyString
-  modality_id: 
-  teacher_id: 
-  room_id: 
+  start_at: 20
+  duration: 3600
+muaythai:
+  name: Muay Thai
+  modality: muaythai
+  teacher: miyagi
+  room: secondary
   day_of_week: 1
-  start_at: 9.99
-  duration: 1
+  start_at: 21
+  duration: 3600
   personal: false
-  comment: MyText

@@ -8,10 +8,10 @@ class PersonTest < ActiveSupport::TestCase
   end
 
   test "should have uniq code" do
-    person = Person.create code: '1', name: 'John'
+    person = Person.create code: '10', name: 'John'
     assert person.valid?
 
-    person2 = Person.new code: '1'
+    person2 = Person.new code: '10'
 
     assert_not person2.valid?
     assert_includes person2.errors.keys, :code, "Code should be uniq"

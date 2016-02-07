@@ -2,18 +2,15 @@
 
 <h1>Listing Classrooms</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Modality</th>
       <th>Teacher</th>
       <th>Room</th>
-      <th>Day of week</th>
-      <th>Start at</th>
+      <th>When</th>
       <th>Duration</th>
-      <th>Personal</th>
-      <th>Comment</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,14 +19,15 @@
     <% @classrooms.each do |classroom| %>
       <tr>
         <td><%= classroom.name %></td>
-        <td><%= classroom.modality %></td>
-        <td><%= classroom.teacher %></td>
-        <td><%= classroom.room %></td>
-        <td><%= classroom.day_of_week %></td>
-        <td><%= classroom.start_at %></td>
-        <td><%= classroom.duration %></td>
-        <td><%= classroom.personal %></td>
-        <td><%= classroom.comment %></td>
+        <td><%= classroom.modality.name %></td>
+        <td><%= classroom.teacher.name %></td>
+        <td><%= classroom.room.name %></td>
+        <td>
+          <%= week_day classroom.day_of_week %>
+          at
+          <%= classroom.start_at %>
+        </td>
+        <td><%= classroom.duration / 3600 %> hours</td>
         <td><%= link_to 'Show', classroom %></td>
         <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
         <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>

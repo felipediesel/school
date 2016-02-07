@@ -2,28 +2,12 @@
 
 <h1>Listing Students</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Code</th>
       <th>Name</th>
-      <th>Document1</th>
-      <th>Document2</th>
-      <th>Birthday</th>
-      <th>Responsible name</th>
-      <th>Responsible document</th>
-      <th>Street</th>
-      <th>District</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Country</th>
-      <th>Zip</th>
-      <th>Phone</th>
-      <th>Cellphone</th>
-      <th>Email</th>
-      <th>Blood type</th>
-      <th>Profession</th>
-      <th>Comment</th>
+      <th>Classrooms</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -33,23 +17,7 @@
       <tr>
         <td><%= student.code %></td>
         <td><%= student.name %></td>
-        <td><%= student.document1 %></td>
-        <td><%= student.document2 %></td>
-        <td><%= student.birthday %></td>
-        <td><%= student.responsible_name %></td>
-        <td><%= student.responsible_document %></td>
-        <td><%= student.street %></td>
-        <td><%= student.district %></td>
-        <td><%= student.city %></td>
-        <td><%= student.state %></td>
-        <td><%= student.country %></td>
-        <td><%= student.zip %></td>
-        <td><%= student.phone %></td>
-        <td><%= student.cellphone %></td>
-        <td><%= student.email %></td>
-        <td><%= student.blood_type %></td>
-        <td><%= student.profession %></td>
-        <td><%= student.comment %></td>
+        <td><%= student.classrooms.pluck(:name).to_sentence %></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'dashboard#index'
+
   resources :classrooms
   resources :rooms
   resources :students

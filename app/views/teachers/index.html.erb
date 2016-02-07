@@ -2,24 +2,10 @@
 
 <h1>Listing Teachers</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Document1</th>
-      <th>Document2</th>
-      <th>Birthday</th>
-      <th>Street</th>
-      <th>District</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Country</th>
-      <th>Zip</th>
-      <th>Phone</th>
-      <th>Cellphone</th>
-      <th>Email</th>
-      <th>Blood type</th>
-      <th>Comment</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,20 +14,6 @@
     <% @teachers.each do |teacher| %>
       <tr>
         <td><%= teacher.name %></td>
-        <td><%= teacher.document1 %></td>
-        <td><%= teacher.document2 %></td>
-        <td><%= teacher.birthday %></td>
-        <td><%= teacher.street %></td>
-        <td><%= teacher.district %></td>
-        <td><%= teacher.city %></td>
-        <td><%= teacher.state %></td>
-        <td><%= teacher.country %></td>
-        <td><%= teacher.zip %></td>
-        <td><%= teacher.phone %></td>
-        <td><%= teacher.cellphone %></td>
-        <td><%= teacher.email %></td>
-        <td><%= teacher.blood_type %></td>
-        <td><%= teacher.comment %></td>
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>

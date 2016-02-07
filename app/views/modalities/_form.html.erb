@@ -1,16 +1,4 @@
 <%= form_for(@modality) do |f| %>
-  <% if @modality.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@modality.errors.count, "error") %> prohibited this modality from being saved:</h2>
-
-      <ul>
-      <% @modality.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

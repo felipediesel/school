@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    models:
+      classroom:
+        one: Turma
+        other: Turmas
+    attributes:
+      classroom:
+        name: Nome
+        modality: Modalidade
+        modality_id: Modalidade
+        teacher: Professor
+        teacher_id: Professor
+        room: Sala
+        room_id: Sala
+        day_of_week: Dia da semana
+        start_at: Dia da semana
+        duration: Duração
+        personal: Personal
+        comment: Observação

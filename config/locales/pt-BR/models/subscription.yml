@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      subscription:
+        one: Inscrição
+        other: Inscrições
+    attributes:
+      subscription:
+        student_id: Aluno
+        student: Aluno
+        classroom_id: Turma
+        classroom: Turma
+        comment: Observação

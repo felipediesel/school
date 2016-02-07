@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def week_day(number)
-    Date::DAYNAMES[number]
+    I18n.t("date.day_names")[number]
   end
 
   def show_flash

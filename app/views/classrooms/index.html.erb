@@ -1,15 +1,14 @@
-
-<h1>Listing Classrooms</h1>
+<h1><%= Classroom.model_name.human count: 2 %></h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Modality</th>
-      <th>Teacher</th>
-      <th>Room</th>
-      <th>When</th>
-      <th>Duration</th>
+      <th><%= Classroom.human_attribute_name :name %></th>
+      <th><%= Classroom.human_attribute_name :modality %></th>
+      <th><%= Classroom.human_attribute_name :teacher %></th>
+      <th><%= Classroom.human_attribute_name :room %></th>
+      <th><%= Classroom.human_attribute_name :day_of_week %></th>
+      <th><%= Classroom.human_attribute_name :duration %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -37,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Classroom', new_classroom_path %>
+<%= link_to t('text.new'), new_classroom_path %>

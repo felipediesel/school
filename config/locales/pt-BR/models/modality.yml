@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      modality:
+        one: Modalidade
+        other: Modalidades
+    attributes:
+      modality:
+        name: Nome
+        description: Descrição

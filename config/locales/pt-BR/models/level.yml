@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      level:
+        one: Grau
+        other: Graus
+    attributes:
+      level:
+        modality_id: Modalidade
+        modality: Modalidade
+        name: Nome
+        color: Cor

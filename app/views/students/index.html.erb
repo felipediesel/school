@@ -1,12 +1,11 @@
-
-<h1>Listing Students</h1>
+<h1><%= Student.model_name.human count: 2 %></h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Classrooms</th>
+      <th><%= Student.human_attribute_name :code %></th>
+      <th><%= Student.human_attribute_name :name %></th>
+      <th><%= Classroom.model_name.human count: 2 %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Student', new_student_path %>
+<%= link_to t('text.new'), new_student_path %>

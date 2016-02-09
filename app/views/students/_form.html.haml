@@ -1,0 +1,41 @@
+= simple_form_for @student do |f|
+  .row
+    .col-md-3= f.input :code
+    .col-md-9= f.input :name
+  .row
+    .col-md-6= f.input :document1
+    .col-md-6= f.input :document2
+  .row
+    .col-md-6= f.input :birthday, { include_blank: true, default: nil }
+
+  #responsible_fields
+    %hr
+    .row
+      .col-md-6= f.input :responsible_name
+      .col-md-6= f.input :responsible_document
+
+  %hr
+
+  = f.input :street
+  .row
+    .col-md-6= f.input :district
+    .col-md-6= f.input :city
+  .row
+    .col-md-3= f.input :zip
+    .col-md-3= f.input :state
+    .col-md-6= f.input :country
+
+  %hr
+
+  .row
+    .col-md-6= f.input :phone
+    .col-md-6= f.input :cellphone
+  .row
+    .col-md-6= f.input :email
+    .col-md-6= f.input :blood_type, collection: blood_types_options
+  .row
+    .col-md-6= f.input :profession
+
+  = f.input :comment
+
+  = f.button :submit, class: 'btn-primary'

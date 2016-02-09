@@ -1,5 +1,7 @@
 = simple_form_for @teacher do |f|
-  = f.input :name
+  .row
+    .col-md-3= f.input :code
+    .col-md-9= f.input :name
   .row
     .col-md-6= f.input :document1
     .col-md-6= f.input :document2

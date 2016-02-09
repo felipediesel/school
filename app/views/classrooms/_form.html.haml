@@ -1,0 +1,14 @@
+= simple_form_for @classroom do |f|
+  .row
+    .col-md-6= f.input :name
+    .col-md-6= f.association :modality, include_blank: false
+  .row
+    .col-md-6= f.association :teacher, include_blank: false
+    .col-md-6= f.association :room, include_blank: false
+  .row
+    .col-md-6= f.input :day_of_week, collection: day_of_week_options, include_blank: false
+    .col-md-3= f.input :start_at_formatted
+    .col-md-3= f.input :duration_in_hours_formatted
+  = f.input :personal
+  = f.input :comment
+  = f.button :submit, class: 'btn-primary'

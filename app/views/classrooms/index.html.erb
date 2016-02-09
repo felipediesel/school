@@ -23,9 +23,9 @@
         <td>
           <%= week_day classroom.day_of_week %>
           at
-          <%= classroom.start_at %>
+          <%= classroom.start_at_formatted %>
         </td>
-        <td><%= classroom.duration / 3600 %> hours</td>
+        <td><%= classroom.duration_in_hours_formatted %></td>
         <td><%= link_to 'Show', classroom %></td>
         <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
         <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>

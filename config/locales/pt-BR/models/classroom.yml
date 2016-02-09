@@ -14,7 +14,9 @@ pt-BR:
         room: Sala
         room_id: Sala
         day_of_week: Dia da semana
-        start_at: Dia da semana
+        start_at: Hora de Início
+        start_at_formatted: Hora de Início
         duration: Duração
+        duration_in_hours_formatted: Duração (horas)
         personal: Personal
         comment: Observação

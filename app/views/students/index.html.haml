@@ -1,0 +1,22 @@
+.content-header
+  %nav= link_to t('text.new'), new_student_path, class: 'btn btn-primary-outline'
+  %h1= Student.model_name.human count: 2
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Student.human_attribute_name :code
+      %th= Student.human_attribute_name :name
+      %th= Classroom.model_name.human count: 2
+      %th
+
+  %tbody
+    - @students.each do |student|
+      %tr
+        %td= student.code
+        %td= student.name
+        %td= student.classrooms.pluck(:name).to_sentence
+
+        %td.actions
+          = link_to t('text.show'), student
+          = link_to_destroy student

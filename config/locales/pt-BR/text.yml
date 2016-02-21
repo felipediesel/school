@@ -1,6 +1,11 @@
 pt-BR:
   text:
     new: Adicionar
+    show: Visualizar
+    edit: Alterar
+    destroy: Excluir
+    destroy_confirm: Você tem certeza?
+    at: as
 
   nav:
     dashboard: Resumo

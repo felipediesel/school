@@ -1,0 +1,27 @@
+.content-header
+  %nav= link_to t('text.new'), new_classroom_path, class: 'btn btn-primary-outline'
+  %h1= Classroom.model_name.human count: 2
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Classroom.human_attribute_name :name
+      %th= Classroom.human_attribute_name :modality
+      %th= Classroom.human_attribute_name :teacher
+      %th= Classroom.human_attribute_name :room
+      %th= Classroom.human_attribute_name :day_of_week
+      %th= Classroom.human_attribute_name :duration
+      %th
+
+  %tbody
+    - @classrooms.each do |classroom|
+      %tr
+        %td= classroom.name
+        %td= classroom.modality.name
+        %td= classroom.teacher.name
+        %td= classroom.room.name
+        %td= "#{abbr_week_day classroom.day_of_week} #{t 'text.at'} #{classroom.start_at_formatted}"
+        %td= classroom.duration_in_hours_formatted
+        %td.actions
+          = link_to t('text.edit'), edit_classroom_path(classroom)
+          = link_to_destroy classroom

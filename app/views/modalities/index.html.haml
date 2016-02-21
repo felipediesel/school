@@ -1,0 +1,17 @@
+.content-header
+  %nav= link_to t('text.new'), new_modality_path, class: 'btn btn-primary-outline'
+  %h1= Modality.model_name.human count: 2
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Modality.human_attribute_name :name
+      %th
+
+  %tbody
+    - @modalities.each do |modality|
+      %tr
+        %td= modality.name
+        %td.actions
+          = link_to t('text.edit'), edit_modality_path(modality)
+          = link_to_destroy modality

@@ -27,7 +27,10 @@ modality.levels.create name: 'Preto', color: '#000000', position: 9
 Teacher.create code: '1', name: 'Bruce Lee'
 Teacher.create code: '2', name: 'Miyagi'
 
-Student.create code: '3', name: 'Daniel San'
+t = Teacher.create code: '3', name: 'Daniel San'
+t.student = true
+t.save
+
 Student.create code: '4', name: 'Dre Parker'
 Student.create code: '5', name: 'John'
 Student.create code: '6', name: 'Paul'

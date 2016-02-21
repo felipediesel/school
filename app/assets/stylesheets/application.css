@@ -13,3 +13,13 @@
  *= require bootstrap
  *= require_self
  */
+
+td.actions {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.content-header nav {
+  float: right;
+  margin-top: .3rem;
+}

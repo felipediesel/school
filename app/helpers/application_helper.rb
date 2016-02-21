@@ -5,6 +5,10 @@ module ApplicationHelper
     end
   end
 
+  def abbr_week_day(number)
+    I18n.t("date.abbr_day_names")[number]
+  end
+
   def week_day(number)
     I18n.t("date.day_names")[number]
   end
@@ -26,5 +30,9 @@ module ApplicationHelper
 
       alert('danger', html.html_safe, close: true)
     end
+  end
+
+  def link_to_destroy(object)
+    link_to t('text.destroy'), object, method: :delete, data: { confirm: t('text.destroy_confirm') }, class: 'text-danger'
   end
 end

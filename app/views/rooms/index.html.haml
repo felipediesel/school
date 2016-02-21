@@ -1,0 +1,17 @@
+.content-header
+  %nav= link_to t('text.new'), new_room_path, class: 'btn btn-primary-outline'
+  %h1= Room.model_name.human count: 2
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Room.human_attribute_name :name
+      %th
+
+  %tbody
+    - @rooms.each do |room|
+      %tr
+        %td= room.name
+        %td.actions
+          = link_to t('text.edit'), edit_room_path(room)
+          = link_to_destroy room

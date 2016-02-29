@@ -1,0 +1,6 @@
+pt-BR:
+  students:
+    edit:
+      title: Alterar Estudante
+    new:
+      title: Adicionar Estudante

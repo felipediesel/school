@@ -1,0 +1,6 @@
+pt-BR:
+  classrooms:
+    edit:
+      title: Alterar Turma
+    new:
+      title: Adicionar Turma

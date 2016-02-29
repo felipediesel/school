@@ -1,0 +1,6 @@
+pt-BR:
+  rooms:
+    edit:
+      title: Alterar Sala
+    new:
+      title: Adicionar Sala

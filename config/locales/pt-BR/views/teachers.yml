@@ -1,0 +1,6 @@
+pt-BR:
+  teachers:
+    edit:
+      title: Alterar Professor
+    new:
+      title: Adicionar Professor

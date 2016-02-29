@@ -1,0 +1,23 @@
+!!!
+%html
+%head
+  %meta{ charset: "utf-8" }
+  %meta{ 'http-equiv' => "X-UA-Compatible", content: "IE=edge" }
+  %meta{ name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no" }
+  %title School
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+%body
+
+.container
+  .row
+    .col-sm-4.col-lg-2
+      %h1= link_to 'School', root_url
+      = render 'layouts/nav'
+    #content.col-sm-8.col-lg-10
+      = show_flash
+      = show_errors
+
+      = yield

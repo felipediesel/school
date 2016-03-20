@@ -7,9 +7,11 @@ class ModalitiesController < ApplicationController
     @modalities = Modality.all
   end
 
-  # GET /modalities/1
   # GET /modalities/1.json
   def show
+  respond_to do |format|
+      format.json
+    end
   end
 
   # GET /modalities/new

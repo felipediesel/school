@@ -14,6 +14,11 @@
  *= require_self
  */
 
+.blank .content {
+  font-style: italic;
+  color: #999;
+}
+
 td.actions {
   white-space: nowrap;
   text-align: right;

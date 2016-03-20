@@ -7,9 +7,11 @@ class ClassroomsController < ApplicationController
     @classrooms = Classroom.all
   end
 
-  # GET /classrooms/1
   # GET /classrooms/1.json
   def show
+  respond_to do |format|
+      format.json
+    end
   end
 
   # GET /classrooms/new

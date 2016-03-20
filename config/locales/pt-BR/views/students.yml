@@ -1,6 +1,8 @@
 pt-BR:
   students:
     edit:
-      title: Alterar Estudante
+      title: Alterar Aluno
     new:
-      title: Adicionar Estudante
+      title: Adicionar Aluno
+    show:
+      title: "Aluno: %{name}"

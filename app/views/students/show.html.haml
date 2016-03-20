@@ -1,0 +1,39 @@
+.content-header
+  %nav
+    = link_to t('text.edit'), edit_student_path(@student), class: 'btn btn-primary'
+    = link_to t('text.back'), students_path, class: 'btn btn-secondary'
+  %h1= t '.title', name: @student.name
+
+= show_for @student do |s|
+  .row
+    .col-md-3= s.attribute :code
+    .col-md-9= s.attribute :name
+  .row
+    .col-md-6= s.attribute :document1
+    .col-md-6= s.attribute :document2
+  .row
+    .col-md-6= s.attribute :birthday
+    .col-md-6= s.attribute :document2
+
+  %hr
+  .row
+    .col-md-6= s.attribute :responsible_name
+    .col-md-6= s.attribute :responsible_document
+
+  %hr
+  = s.attribute :street
+  .row
+    .col-md-6= s.attribute :district
+    .col-md-6= s.attribute :city
+  .row
+    .col-md-3= s.attribute :zip
+    .col-md-3= s.attribute :state
+    .col-md-6= s.attribute :country
+  .row
+    .col-md-6= s.attribute :phone
+    .col-md-6= s.attribute :cellphone
+  .row
+    .col-md-6= s.attribute :email
+    .col-md-6= s.attribute :blood_type
+  .row
+    .col-md-6= s.attribute :profession

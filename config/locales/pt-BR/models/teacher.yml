@@ -6,6 +6,7 @@ pt-BR:
         other: Professores
     attributes:
       teacher:
+        code: Código
         name: Nome
         document1: RG
         document2: CPF

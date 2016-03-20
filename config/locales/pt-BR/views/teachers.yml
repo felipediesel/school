@@ -4,3 +4,5 @@ pt-BR:
       title: Alterar Professor
     new:
       title: Adicionar Professor
+    show:
+      title: "Professor: %{name}"

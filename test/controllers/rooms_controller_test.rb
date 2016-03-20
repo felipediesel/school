@@ -25,7 +25,7 @@ class RoomsControllerTest < ActionController::TestCase
   end
 
   test "should show room" do
-    get :show, id: @room
+    get :show, id: @room, format: :json
     assert_response :success
   end
 

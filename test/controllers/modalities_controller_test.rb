@@ -24,8 +24,8 @@ class ModalitiesControllerTest < ActionController::TestCase
     assert_redirected_to modality_path(assigns(:modality))
   end
 
-  test "should show modality" do
-    get :show, id: @modality
+  test "should not show modality in html" do
+    get :show, id: @modality, format: :json
     assert_response :success
   end
 

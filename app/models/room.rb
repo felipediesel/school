@@ -1,4 +1,4 @@
-class Room < ActiveRecord::Base
+class Room < ApplicationRecord
   include SetPosition
 
   has_many :classrooms

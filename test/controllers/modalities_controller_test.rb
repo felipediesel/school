@@ -18,30 +18,30 @@ class ModalitiesControllerTest < ActionController::TestCase
 
   test "should create modality" do
     assert_difference('Modality.count') do
-      post :create, modality: { name: @modality.name }
+      post :create, params: { modality: { name: @modality.name } }
     end
 
     assert_redirected_to modality_path(assigns(:modality))
   end
 
   test "should not show modality in html" do
-    get :show, id: @modality, format: :json
+    get :show, params: { id: @modality }, format: :json
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @modality
+    get :edit, params: { id: @modality }
     assert_response :success
   end
 
   test "should update modality" do
-    patch :update, id: @modality, modality: { name: @modality.name }
+    patch :update, params: { id: @modality, modality: { name: @modality.name } }
     assert_redirected_to modality_path(assigns(:modality))
   end
 
   test "should destroy modality" do
     assert_difference('Modality.count', -1) do
-      delete :destroy, id: @modality
+      delete :destroy, params: { id: @modality }
     end
 
     assert_redirected_to modalities_path

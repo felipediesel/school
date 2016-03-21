@@ -18,30 +18,30 @@ class ClassroomsControllerTest < ActionController::TestCase
 
   test "should create classroom" do
     assert_difference('Classroom.count') do
-      post :create, classroom: { day_of_week: @classroom.day_of_week, duration: @classroom.duration, modality_id: @classroom.modality_id, name: @classroom.name, personal: @classroom.personal, room_id: @classroom.room_id, start_at: @classroom.start_at, teacher_id: @classroom.teacher_id }
+      post :create, params: { classroom: { day_of_week: @classroom.day_of_week, duration: @classroom.duration, modality_id: @classroom.modality_id, name: @classroom.name, personal: @classroom.personal, room_id: @classroom.room_id, start_at: @classroom.start_at, teacher_id: @classroom.teacher_id } }
     end
 
     assert_redirected_to classroom_path(assigns(:classroom))
   end
 
   test "should show classroom" do
-    get :show, id: @classroom, format: :json
+    get :show, params: { id: @classroom }, format: :json
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @classroom
+    get :edit, params: { id: @classroom }
     assert_response :success
   end
 
   test "should update classroom" do
-    patch :update, id: @classroom, classroom: { day_of_week: @classroom.day_of_week, duration: @classroom.duration, modality_id: @classroom.modality_id, name: @classroom.name, personal: @classroom.personal, room_id: @classroom.room_id, start_at: @classroom.start_at, teacher_id: @classroom.teacher_id }
+    patch :update, params: { id: @classroom, classroom: { day_of_week: @classroom.day_of_week, duration: @classroom.duration, modality_id: @classroom.modality_id, name: @classroom.name, personal: @classroom.personal, room_id: @classroom.room_id, start_at: @classroom.start_at, teacher_id: @classroom.teacher_id } }
     assert_redirected_to classroom_path(assigns(:classroom))
   end
 
   test "should destroy classroom" do
     assert_difference('Classroom.count', -1) do
-      delete :destroy, id: @classroom
+      delete :destroy, params: { id: @classroom }
     end
 
     assert_redirected_to classrooms_path

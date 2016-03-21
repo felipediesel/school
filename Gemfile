@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.6'
+gem 'rails', '5.0.0.beta3'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -9,7 +9,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'turbolinks', '~> 5.0.0.beta'
+gem 'coffee-script'
 gem 'jbuilder', '~> 2.0'
 
 gem 'simple_form'
@@ -25,5 +26,11 @@ end
 
 group :development do
   gem 'web-console', '~> 2.0'
+  gem 'listen'
   gem 'spring'
+  gem 'puma'
+end
+
+group :test do
+  gem 'rails-controller-testing'
 end

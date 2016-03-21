@@ -18,30 +18,30 @@ class TeachersControllerTest < ActionController::TestCase
 
   test "should create teacher" do
     assert_difference('Teacher.count') do
-      post :create, teacher: { name: @teacher.name, code: 6 }
+      post :create, params: { teacher: { name: @teacher.name, code: 6 } }
     end
 
     assert_redirected_to teacher_path(assigns(:teacher))
   end
 
   test "should show teacher" do
-    get :show, id: @teacher
+    get :show, params: { id: @teacher }
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @teacher
+    get :edit, params: { id: @teacher }
     assert_response :success
   end
 
   test "should update teacher" do
-    patch :update, id: @teacher, teacher: { name: @teacher.name, code: @teacher.code }
+    patch :update, params: { id: @teacher, teacher: { name: @teacher.name, code: @teacher.code } }
     assert_redirected_to teacher_path(assigns(:teacher))
   end
 
   test "should destroy teacher" do
     assert_difference('Teacher.count', -1) do
-      delete :destroy, id: @teacher
+      delete :destroy, params: { id: @teacher }
     end
 
     assert_redirected_to teachers_path

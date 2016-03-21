@@ -1,4 +1,4 @@
-class Level < ActiveRecord::Base
+class Level < ApplicationRecord
   include SetPosition
 
   belongs_to :modality

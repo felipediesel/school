@@ -1,4 +1,4 @@
-class Classroom < ActiveRecord::Base
+class Classroom < ApplicationRecord
   include TimeFormatter
 
   belongs_to :modality

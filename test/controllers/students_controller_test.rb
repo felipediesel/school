@@ -18,30 +18,30 @@ class StudentsControllerTest < ActionController::TestCase
 
   test "should create student" do
     assert_difference('Student.count') do
-      post :create, student: { name: @student.name, code: 5 } # code validates uniqueness
+      post :create, params: { student: { name: @student.name, code: 5 } } # code validates uniqueness
     end
 
     assert_redirected_to student_path(assigns(:student))
   end
 
   test "should show student" do
-    get :show, id: @student
+    get :show, params: { id: @student }
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @student
+    get :edit, params: { id: @student }
     assert_response :success
   end
 
   test "should update student" do
-    patch :update, id: @student, student: { name: @student.name, code: @student.code }
+    patch :update, params: { id: @student, student: { name: @student.name, code: @student.code } }
     assert_redirected_to student_path(assigns(:student))
   end
 
   test "should destroy student" do
     assert_difference('Student.count', -1) do
-      delete :destroy, id: @student
+      delete :destroy, params: { id: @student }
     end
 
     assert_redirected_to students_path

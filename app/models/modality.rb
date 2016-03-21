@@ -1,4 +1,4 @@
-class Modality < ActiveRecord::Base
+class Modality < ApplicationRecord
   has_many :levels
   has_many :classrooms
 

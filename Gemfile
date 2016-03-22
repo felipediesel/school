@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'simple_form'
 gem 'country_select'
 gem 'show_for'
+gem 'devise', github: 'plataformatec/devise'
 gem 'haml'
 
 gem 'sdoc', '~> 0.4.0', group: :doc

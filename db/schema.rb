@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206172553) do
+ActiveRecord::Schema.define(version: 20160321202235) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string   "name"
@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20160206172553) do
     t.integer  "teacher_id"
     t.integer  "room_id"
     t.integer  "day_of_week", limit: 1
-    t.decimal  "start_at",              default: 0.0
+    t.decimal  "start_at",              default: "0.0"
     t.integer  "duration",              default: 3600
     t.boolean  "personal"
     t.text     "comment"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   add_index "classrooms", ["modality_id"], name: "index_classrooms_on_modality_id"
@@ -93,5 +93,24 @@ ActiveRecord::Schema.define(version: 20160206172553) do
 
   add_index "subscriptions", ["classroom_id"], name: "index_subscriptions_on_classroom_id"
   add_index "subscriptions", ["student_id"], name: "index_subscriptions_on_student_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",                   default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

@@ -54,3 +54,5 @@ Student.all.each do |student|
   student.subscriptions.create classroom: Classroom.offset(rand(Classroom.count)).first
   student.subscriptions.create classroom: Classroom.offset(rand(Classroom.count)).first
 end
+
+User.create name: 'Felipe', email: 'felipediesel@gmail.com', password: '12345678'

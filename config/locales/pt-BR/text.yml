@@ -7,6 +7,7 @@ pt-BR:
     destroy_confirm: Você tem certeza?
     at: as
     back: Voltar
+    sign_out: Sair
 
   nav:
     dashboard: Resumo

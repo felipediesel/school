@@ -5,3 +5,5 @@
   = nav_item Classroom.model_name.human(count: 2), classrooms_path
   = nav_item Modality.model_name.human(count: 2), modalities_path
   = nav_item Room.model_name.human(count: 2), rooms_path
+  = nav_item User.model_name.human(count: 2), users_path
+  %li.nav-item= link_to t('text.sign_out'), destroy_user_session_path, method: :delete, class: 'nav-link'

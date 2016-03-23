@@ -35,3 +35,10 @@ end
 group :test do
   gem 'rails-controller-testing'
 end
+
+group :product do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+ruby "2.3.0"

@@ -4,7 +4,7 @@
   %meta{ charset: "utf-8" }
   %meta{ 'http-equiv' => "X-UA-Compatible", content: "IE=edge" }
   %meta{ name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no" }
-  %title Rails.configuration.app['name']
+  %title School
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
@@ -14,7 +14,7 @@
 .container
   .row
     .col-sm-4.col-sm-offset-4
-      %h2= link_to Rails.configuration.app['name'], root_url
+      %h2= link_to "School", root_url
       = show_flash
       = show_errors
 

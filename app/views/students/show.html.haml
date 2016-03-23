@@ -1,8 +1,8 @@
 .content-header
   %nav
-    = link_to t('text.edit'), edit_student_path(@student), class: 'btn btn-primary'
-    = link_to t('text.back'), students_path, class: 'btn btn-secondary'
-  %h1= t '.title', name: @student.name
+    = link_to t('text.edit'), edit_student_path(@student), class: 'btn btn-primary-outline btn-sm'
+    = link_to t('text.back'), students_path, class: 'btn btn-secondary btn-sm'
+  %h2= title t('.title', name: @student.name)
 
 = show_for @student do |s|
   .row

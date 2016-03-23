@@ -35,4 +35,14 @@ module ApplicationHelper
   def link_to_destroy(object)
     link_to t('text.destroy'), object, method: :delete, data: { confirm: t('text.destroy_confirm') }, class: 'text-danger'
   end
+
+  def title(text = '')
+    text = t('.title') if text.blank?
+
+    @title = text
+  end
+
+  def show_title
+    @title
+  end
 end

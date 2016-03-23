@@ -2,6 +2,8 @@ pt-BR:
   students:
     edit:
       title: Alterar Aluno
+    index:
+      title: Alunos
     new:
       title: Adicionar Aluno
     show:

@@ -4,20 +4,28 @@
   %meta{ charset: "utf-8" }
   %meta{ 'http-equiv' => "X-UA-Compatible", content: "IE=edge" }
   %meta{ name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no" }
-  %title School
+  %title
+    = Rails.configuration.app['name']
+    = " - #{show_title}" if show_title.present?
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 
 %body
+  %nav.navbar.navbar-full{class: Rails.configuration.app['navbar_class'] }
+    %button.navbar-toggler.hidden-sm-up.pull-xs-left{ type: "button", data: { toggle: "collapse", target: "#main-nav" } } &#9776;
+    .container
+      = link_to Rails.configuration.app['name'], root_url, class: 'navbar-brand'
+      %ul.nav.navbar-nav.pull-xs-right
+        %li.nav-item.nav-item-text= current_user.name
+        %li.nav-item= link_to t('text.sign_out'), destroy_user_session_path, method: :delete, class: 'nav-link'
 
-.container
-  .row
-    .col-sm-4.col-lg-2
-      %h1= link_to 'School', root_url
-      = render 'layouts/nav'
-    #content.col-sm-8.col-lg-10
-      = show_flash
-      = show_errors
+  #container.container
+    .row
+      .col-sm-4.col-lg-2
+        = render 'layouts/nav'
+      #content.col-sm-8.col-lg-10
+        = show_flash
+        = show_errors
 
-      = yield
+        = yield

@@ -1,0 +1,9 @@
+default: &default
+  navbar_class: navbar-dark bg-primary # navbar-light bg-faded
+  name: School
+
+development:
+  <<: *default
+
+production:
+  <<: *default

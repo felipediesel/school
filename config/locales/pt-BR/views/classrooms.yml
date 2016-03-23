@@ -2,5 +2,7 @@ pt-BR:
   classrooms:
     edit:
       title: Alterar Turma
+    index:
+      title: Turmas
     new:
       title: Adicionar Turma

@@ -2,5 +2,7 @@ pt-BR:
   users:
     edit:
       title: Alterar Usuário
+    index:
+      title: Usuários
     new:
       title: Adicionar Usuário

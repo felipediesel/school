@@ -2,5 +2,7 @@ pt-BR:
   modalities:
     edit:
       title: Alterar Modalidade
+    index:
+      title: Modalidades
     new:
       title: Adicionar Modalidade

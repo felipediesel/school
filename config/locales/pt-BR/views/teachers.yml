@@ -2,6 +2,8 @@ pt-BR:
   teachers:
     edit:
       title: Alterar Professor
+    index:
+      title: Professores
     new:
       title: Adicionar Professor
     show:

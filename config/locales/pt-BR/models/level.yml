@@ -2,11 +2,25 @@ pt-BR:
   activerecord:
     models:
       level:
-        one: Grau
-        other: Graus
+        one: Graduação
+        other: Graduações
     attributes:
       level:
         modality_id: Modalidade
         modality: Modalidade
         name: Nome
         color: Cor
+  level_colors:
+      Amarelo: '#F1CF46'
+      Azul Claro: '#1393D7'
+      Azul Escuro: '#1C3479'
+      Azul: '#0E30EF'
+      Azul: '#3772B6'
+      Branco: '#FFFFFF'
+      Cinza: '#BBB9BC'
+      Laranja: '#F1CF46'
+      Marrom: '#5C3C1B'
+      Preto: '#000000'
+      Roxo: '#8E34D4'
+      Verde: '#439543'
+      Vermelho: '#D33E23'

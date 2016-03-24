@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap
+//= require nested_fields
+
+$(function () {
+  nested_fields();
+});

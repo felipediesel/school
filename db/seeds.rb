@@ -3,14 +3,14 @@ modality.levels.create name: 'Branca', color: '#FFFFFF', position: 0
 modality.levels.create name: 'Azul', color: '#3772B6', position: 1
 modality.levels.create name: 'Roxa', color: '#8E34D4', position: 2
 modality.levels.create name: 'Marrom', color: '#5C3C1B', position: 3
-modality.levels.create name: 'Preto', color: '#000000', position: 4
+modality.levels.create name: 'Preta', color: '#000000', position: 4
 
 modality = Modality.create name: 'Muay Thai'
 modality.levels.create name: 'Branca', color: '#FFFFFF', position: 0
 modality.levels.create name: 'Vermelha', color: '#D33E23', position: 1
 modality.levels.create name: 'Azul Claro', color: '#1393D7', position: 2
 modality.levels.create name: 'Azul Escuro', color: '#1C3479', position: 3
-modality.levels.create name: 'Preto', color: '#000000', position: 4
+modality.levels.create name: 'Preta', color: '#000000', position: 4
 
 modality = Modality.create name: 'Tae Kwon Do'
 modality.levels.create name: 'Branca', color: '#FFFFFF', position: 0
@@ -22,7 +22,7 @@ modality.levels.create name: 'Roxa', color: '#9532BF', position: 5
 modality.levels.create name: 'Azul', color: '#0E30EF', position: 6
 modality.levels.create name: 'Marrom', color: '#5F3731', position: 7
 modality.levels.create name: 'Vermelha', color: '#E33624', position: 8
-modality.levels.create name: 'Preto', color: '#000000', position: 9
+modality.levels.create name: 'Preta', color: '#000000', position: 9
 
 Teacher.create code: '1', name: 'Bruce Lee'
 Teacher.create code: '2', name: 'Miyagi'

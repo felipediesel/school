@@ -17,6 +17,7 @@ class ModalitiesController < ApplicationController
   # GET /modalities/new
   def new
     @modality = Modality.new
+    @modality.levels.build
   end
 
   # GET /modalities/1/edit
@@ -30,7 +31,7 @@ class ModalitiesController < ApplicationController
 
     respond_to do |format|
       if @modality.save
-        format.html { redirect_to @modality, notice: 'Modality was successfully created.' }
+        format.html { redirect_to :modalities, notice: t('.notice', name: @modality.name) }
         format.json { render :show, status: :created, location: @modality }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class ModalitiesController < ApplicationController
   def update
     respond_to do |format|
       if @modality.update(modality_params)
-        format.html { redirect_to @modality, notice: 'Modality was successfully updated.' }
+        format.html { redirect_to :modalities, notice: t('.notice', name: @modality.name) }
         format.json { render :show, status: :ok, location: @modality }
       else
         format.html { render :edit }
@@ -58,7 +59,7 @@ class ModalitiesController < ApplicationController
   def destroy
     @modality.destroy
     respond_to do |format|
-      format.html { redirect_to modalities_url, notice: 'Modality was successfully destroyed.' }
+      format.html { redirect_to :modalities, notice: t('.notice', name: @modality.name) }
       format.json { head :no_content }
     end
   end
@@ -71,6 +72,6 @@ class ModalitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def modality_params
-      params.require(:modality).permit(:name, :description)
+      params.require(:modality).permit(:name, :description, levels_attributes: [ :id, :name, :color, :position, :_destroy ])
     end
 end

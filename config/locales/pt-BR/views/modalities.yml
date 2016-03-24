@@ -4,5 +4,12 @@ pt-BR:
       title: Alterar Modalidade
     index:
       title: Modalidades
+      destroy_confirm: Deseja excluir esta modalidade?
     new:
       title: Adicionar Modalidade
+    create:
+      notice: Modalidade %{name} criada.
+    update:
+      notice: Modalidade %{name} atualizada.
+    destroy:
+      notice: Modalidade %{name} excluída.

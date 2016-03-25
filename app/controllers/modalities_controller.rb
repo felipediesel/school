@@ -29,13 +29,13 @@ class ModalitiesController < ApplicationController
   def create
     @modality = Modality.new(modality_params)
 
-    modality_respond @modality.save, @modality, :new
+    modality_respond @modality.save, :new
   end
 
   # PATCH/PUT /modalities/1
   # PATCH/PUT /modalities/1.json
   def update
-    modality_respond @modality.update(modality_params), @modality, :edit
+    modality_respond @modality.update(modality_params), :edit
   end
 
   # DELETE /modalities/1

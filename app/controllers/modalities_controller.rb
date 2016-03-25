@@ -9,7 +9,7 @@ class ModalitiesController < ApplicationController
 
   # GET /modalities/1.json
   def show
-  respond_to do |format|
+    respond_to do |format|
       format.json
     end
   end
@@ -29,29 +29,13 @@ class ModalitiesController < ApplicationController
   def create
     @modality = Modality.new(modality_params)
 
-    respond_to do |format|
-      if @modality.save
-        format.html { redirect_to :modalities, notice: t('.notice', name: @modality.name) }
-        format.json { render :show, status: :created, location: @modality }
-      else
-        format.html { render :new }
-        format.json { render json: @modality.errors, status: :unprocessable_entity }
-      end
-    end
+    modality_respond @modality.save, @modality, :new
   end
 
   # PATCH/PUT /modalities/1
   # PATCH/PUT /modalities/1.json
   def update
-    respond_to do |format|
-      if @modality.update(modality_params)
-        format.html { redirect_to :modalities, notice: t('.notice', name: @modality.name) }
-        format.json { render :show, status: :ok, location: @modality }
-      else
-        format.html { render :edit }
-        format.json { render json: @modality.errors, status: :unprocessable_entity }
-      end
-    end
+    modality_respond @modality.update(modality_params), @modality, :edit
   end
 
   # DELETE /modalities/1
@@ -73,5 +57,18 @@ class ModalitiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def modality_params
       params.require(:modality).permit(:name, :description, levels_attributes: [ :id, :name, :color, :position, :_destroy ])
+    end
+
+    def modality_respond(saved, error_view = :edit)
+      controller_name = @modality.model_name.plural.to_sym
+      respond_to do |format|
+        if saved
+          format.html { redirect_to controller_name, notice: t('.notice', name: @modality.name) }
+          format.json { render :show, status: :ok, location: @modality }
+        else
+          format.html { render error_view }
+          format.json { render json: @modality.errors, status: :unprocessable_entity }
+        end
+      end
     end
 end

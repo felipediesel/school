@@ -21,7 +21,7 @@ class ModalitiesControllerTest < ActionController::TestCase
       post :create, params: { modality: { name: @modality.name } }
     end
 
-    assert_redirected_to modality_path(assigns(:modality))
+    assert_redirected_to modalities_path
   end
 
   test "should not show modality in html" do
@@ -36,7 +36,7 @@ class ModalitiesControllerTest < ActionController::TestCase
 
   test "should update modality" do
     patch :update, params: { id: @modality, modality: { name: @modality.name } }
-    assert_redirected_to modality_path(assigns(:modality))
+    assert_redirected_to modalities_path
   end
 
   test "should destroy modality" do

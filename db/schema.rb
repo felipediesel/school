@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321202235) do
+ActiveRecord::Schema.define(version: 20160326122323) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string   "name"
@@ -70,10 +70,13 @@ ActiveRecord::Schema.define(version: 20160321202235) do
     t.string   "email"
     t.string   "blood_type"
     t.string   "profession"
+    t.string   "status",               default: "active"
     t.text     "comment"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
+
+  add_index "people", ["status"], name: "index_people_on_status"
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
@@ -82,6 +85,19 @@ ActiveRecord::Schema.define(version: 20160321202235) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "student_levels", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "modality_id"
+    t.integer  "level_id"
+    t.date     "date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "student_levels", ["level_id"], name: "index_student_levels_on_level_id"
+  add_index "student_levels", ["modality_id"], name: "index_student_levels_on_modality_id"
+  add_index "student_levels", ["student_id"], name: "index_student_levels_on_student_id"
 
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "student_id"

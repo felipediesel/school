@@ -60,10 +60,9 @@ class ModalitiesController < ApplicationController
     end
 
     def modality_respond(saved, error_view = :edit)
-      controller_name = @modality.model_name.plural.to_sym
       respond_to do |format|
         if saved
-          format.html { redirect_to controller_name, notice: t('.notice', name: @modality.name) }
+          format.html { redirect_to :modalities, notice: t('.notice', name: @modality.name) }
           format.json { render :show, status: :ok, location: @modality }
         else
           format.html { render error_view }

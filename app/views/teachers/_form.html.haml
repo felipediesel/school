@@ -26,7 +26,10 @@
     .col-md-6= f.input :cellphone
   .row
     .col-md-6= f.input :email
-    .col-md-6= f.input :blood_type, collection: blood_types_options
+    .col-md-6= f.input :blood_type, collection: person_blood_types_options
+  .row
+    .col-md-6= f.input :profession
+    .col-md-6= f.input :status, collection: person_status_options_for_select, include_blank: false
 
   = f.input :comment
 

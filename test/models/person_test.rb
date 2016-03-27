@@ -2,9 +2,9 @@ require 'test_helper'
 
 class PersonTest < ActiveSupport::TestCase
   test "should have required validators" do
-    person = Person.new
+    person = Person.new status: nil
     assert_not person.valid?
-    assert_equal [:name], person.errors.keys
+    assert_equal person.errors.keys, [:name, :status ]
   end
 
   test "should have uniq code" do
@@ -15,5 +15,9 @@ class PersonTest < ActiveSupport::TestCase
 
     assert_not person2.valid?
     assert_includes person2.errors.keys, :code, "Code should be uniq"
+  end
+
+  test "should translate person's status" do
+    assert_equal people(:lee).human_status, "Ativo"
   end
 end

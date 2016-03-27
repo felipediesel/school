@@ -4,18 +4,22 @@ lee:
   code: 1
   name: Bruce Lee
   teacher: true
+  status: active
 
 miyagi:
   code: 2
   name: Miyagi
   teacher: true
+  status: active
 
 daniel:
   code: 3
   name: Daniel San
   student: true
+  status: active
 
 dre:
   code: 4
   name: Dre Parker
   student: true
+  status: inactive

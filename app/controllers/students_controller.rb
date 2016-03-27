@@ -26,29 +26,13 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
 
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
-      else
-        format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
-    end
+    student_respond @student.save, :new
   end
 
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
-    respond_to do |format|
-      if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
-        format.json { render :show, status: :ok, location: @student }
-      else
-        format.html { render :edit }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
-    end
+    student_respond @student.update(student_params), :edit
   end
 
   # DELETE /students/1
@@ -56,7 +40,7 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
+      format.html { redirect_to students_url, notice: t('.notice', name: @student.name) }
       format.json { head :no_content }
     end
   end
@@ -70,5 +54,17 @@ class StudentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
       params.require(:student).permit(:code, :name, :document1, :document2, :birthday, :responsible_name, :responsible_document, :street, :district, :city, :state, :country, :zip, :phone, :cellphone, :email, :blood_type, :profession, :comment)
+    end
+
+    def student_respond(saved, error_view = :edit)
+      respond_to do |format|
+        if saved
+          format.html { redirect_to :students, notice: t('.notice', name: @student.name) }
+          format.json { render :show, status: :ok, location: @student }
+        else
+          format.html { render error_view }
+          format.json { render json: @student.errors, status: :unprocessable_entity }
+        end
+      end
     end
 end

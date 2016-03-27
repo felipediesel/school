@@ -2,11 +2,15 @@ require 'test_helper'
 
 class StudentTest < ActiveSupport::TestCase
   test "should have subscriptions" do
-    assert Student.reflect_on_association(:subscriptions).macro == :has_many, "Student should has many :subscriptions"
+    assert Student.reflect_on_association(:subscriptions).macro == :has_many, "Student should has many subscriptions"
   end
 
   test "should have classrooms" do
     assert Student.reflect_on_association(:classrooms).macro == :has_many, "Student should has many classrooms"
+  end
+
+  test "should have levels" do
+    assert Student.reflect_on_association(:levels).macro == :has_many, "Student should has many levels"
   end
 
   test "should have responsible if is under 18" do

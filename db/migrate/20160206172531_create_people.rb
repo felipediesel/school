@@ -21,6 +21,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :email
       t.string :blood_type
       t.string :profession
+      t.string :status, index: true, default: 'active'
       t.text :comment
 
       t.timestamps null: false

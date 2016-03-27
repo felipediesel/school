@@ -21,7 +21,7 @@ class StudentsControllerTest < ActionController::TestCase
       post :create, params: { student: { name: @student.name, code: 5 } } # code validates uniqueness
     end
 
-    assert_redirected_to student_path(assigns(:student))
+    assert_redirected_to students_path
   end
 
   test "should show student" do
@@ -36,7 +36,7 @@ class StudentsControllerTest < ActionController::TestCase
 
   test "should update student" do
     patch :update, params: { id: @student, student: { name: @student.name, code: @student.code } }
-    assert_redirected_to student_path(assigns(:student))
+    assert_redirected_to students_path
   end
 
   test "should destroy student" do

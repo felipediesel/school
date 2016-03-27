@@ -6,19 +6,4 @@ pt-BR:
         other: Professores
     attributes:
       teacher:
-        code: Código
-        name: Nome
-        document1: RG
-        document2: CPF
-        birthday: Data de Nascimento
-        street: Endereço
-        district: Bairro
-        city: Cidade
-        state: Estado
-        country: País
-        zip: CEP
-        phone: Fone
-        cellphone: Celular
-        email: Email
-        blood_type: Tipo sanguíneo
-        comment: Observação
+        #

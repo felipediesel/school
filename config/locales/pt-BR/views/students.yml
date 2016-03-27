@@ -8,3 +8,9 @@ pt-BR:
       title: Adicionar Aluno
     show:
       title: "Aluno: %{name}"
+    create:
+      notice: Aluno %{name} criado.
+    update:
+      notice: Aluno %{name} atualizado.
+    destroy:
+      notice: Aluno %{name} excluído.

@@ -1,0 +1,26 @@
+.content-header
+  %nav
+    = link_to t('text.edit'), edit_student_path(@student), class: 'btn btn-primary-outline btn-sm'
+    = link_to t('text.back'), students_path, class: 'btn btn-secondary btn-sm'
+  %h2= title t('.title', name: @student.name)
+
+= render 'students/show_nav', active: 'levels'
+
+
+.row
+  - @student_levels.each do |modality, levels|
+    .col-md-6
+      .card
+        .card-header
+          %h5.card-title
+            = modality.name
+            %small= link_to t('text.new'), new_student_student_level_path(@student, modality_id: modality.id)
+        %ul.list-group.list-group-flush
+          - levels.each do |level|
+            %li.list-group-item
+              = level.level.name
+              \:
+              = l level.date
+              %small
+                = link_to t('text.edit'), [:edit, @student, level]
+                = link_to_destroy [@student, level]

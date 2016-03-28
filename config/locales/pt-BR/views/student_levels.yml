@@ -1,0 +1,15 @@
+pt-BR:
+  student_levels:
+    index:
+      title: "Aluno: %{name} - Graduações"
+      destroy_confirm: Deseja excluir esta graduação?
+    new:
+      title: Adicionar Graduação
+    edit:
+      title: Alterar Graduação
+    create:
+      notice: Graduação criada.
+    update:
+      notice: Graduação atualizada.
+    destroy:
+      notice: Graduação excluída.

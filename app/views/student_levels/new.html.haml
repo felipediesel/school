@@ -1,0 +1,5 @@
+.content-header
+  %nav= link_to t('text.back'), [@student, :student_levels], class: 'btn btn-secondary btn-sm'
+  %h2= title t('.title', name: @student.name)
+
+= render 'form'

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: daniel
+  modality: jiujitsu
+  level: jiujitsu_white
+  date: 2015-02-22
+
+two:
+  student: daniel
+  modality: jiujitsu
+  level: jiujitsu_blue
+  date: 2016-03-26

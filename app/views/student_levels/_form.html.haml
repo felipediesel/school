@@ -1,0 +1,10 @@
+= show_for @student_level do |l|
+  = l.association :student
+  = l.association :modality
+
+= simple_form_for [@student, @student_level] do |f|
+  = f.hidden_field :modality_id
+
+  = f.association :level, collection: f.object.modality.levels, include_blank: false
+  = f.input :date
+  = f.button :submit, class: 'btn-primary'

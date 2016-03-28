@@ -1,0 +1,3 @@
+%ul.nav.nav-tabs.m-b-2.m-t-1
+  %li.nav-item= link_to t('.data'), @student, class: "nav-link #{' active' if active == 'data'}"
+  %li.nav-item= link_to t('.levels'), [ @student, :student_levels ], class: "nav-link #{' active' if active == 'levels'}"

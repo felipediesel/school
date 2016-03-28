@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :classrooms
   resources :rooms
-  resources :students
+  resources :students do
+    resources :student_levels, path: :levels
+  end
   resources :teachers
   resources :modalities
   resources :users, except: [ :show ]

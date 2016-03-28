@@ -8,6 +8,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :document1
       t.string :document2
       t.date :birthday
+      t.string :status, index: true, default: 'active'
       t.string :responsible_name
       t.string :responsible_document
       t.string :street
@@ -21,7 +22,6 @@ class CreatePeople < ActiveRecord::Migration
       t.string :email
       t.string :blood_type
       t.string :profession
-      t.string :status, index: true, default: 'active'
       t.text :comment
 
       t.timestamps null: false

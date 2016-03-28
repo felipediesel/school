@@ -49,10 +49,20 @@ Classroom.create name: 'Jiu-Jitsu Men', modality: Modality.first, teacher: Teach
 Classroom.create name: 'Muay Thai Women', modality: Modality.second, teacher: Teacher.first, room: Room.first, day_of_week: 1, start_at:21, duration:3600, personal: false
 Classroom.create name: 'Muay Thai Men', modality: Modality.second, teacher: Teacher.second, room: Room.second, day_of_week: 2, start_at:19, duration:3600, personal: false
 
-
 Student.all.each do |student|
   student.subscriptions.create classroom: Classroom.offset(rand(Classroom.count)).first
   student.subscriptions.create classroom: Classroom.offset(rand(Classroom.count)).first
+end
+
+Student.all.each do |student|
+  student.subscriptions.each do |subscription|
+    modality = subscription.classroom.modality
+    level1 = modality.levels.first
+    level2 = modality.levels.offset(rand(1..modality.levels.count)).first
+
+    student.levels.create modality: modality, level: level1, date: rand(365).days.ago
+    student.levels.create modality: modality, level: level2, date: rand(365).days.ago
+  end
 end
 
 User.create name: 'Felipe', email: 'felipediesel@gmail.com', password: '12345678'

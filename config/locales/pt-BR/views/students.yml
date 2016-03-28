@@ -8,6 +8,9 @@ pt-BR:
       title: Adicionar Aluno
     show:
       title: "Aluno: %{name}"
+    show_nav:
+      data: Dados
+      levels: Graduações
     create:
       notice: Aluno %{name} criado.
     update:

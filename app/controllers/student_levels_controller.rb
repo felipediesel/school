@@ -2,46 +2,55 @@ class StudentLevelsController < ApplicationController
   before_action :set_student
   before_action :set_level, only: [:show, :edit, :update, :destroy]
 
-  # GET /levels
-  # GET /levels.json
+  # GET /students/1/levels
+  # GET /students/1/levels.json
   def index
-    @levels = @student.levels.joins(:modality).order('modalities.name', date: :desc).group_by { |l| l.modality }
+    @student_levels = @student.levels.joins(:modality).order('modalities.name', date: :desc)
+
+    respond_to do |format|
+      format.html do
+         @student_levels = @student_levels.group_by { |l| l.modality }
+      end
+      format.json
+    end
   end
 
-  # GET /levels/1
-  # GET /levels/1.json
+  # GET /students/1/levels/1.json
   def show
+    respond_to do |format|
+      format.json
+    end
   end
 
-  # GET /levels/new
+  # GET /students/1/levels/new
   def new
-    @level = StudentLevel.new
+    @student_level = @student.levels.new modality_id: params[:modality_id]
   end
 
-  # GET /levels/1/edit
+  # GET /students/1/levels/1/edit
   def edit
   end
 
-  # POST /levels
-  # POST /levels.json
+  # POST /students/1/levels
+  # POST /students/1/levels.json
   def create
-    @level = StudentLevel.new(level_params)
+    @student_level = @student.levels.new(student_level_params)
 
-    student_level_respond @level.save, :new
+    student_level_respond @student_level.save, :new
   end
 
-  # PATCH/PUT /levels/1
-  # PATCH/PUT /levels/1.json
+  # PATCH/PUT /students/1/levels/1
+  # PATCH/PUT /students/1/levels/1.json
   def update
-    student_level_respond @level.update(level_params), :edit
+    student_level_respond @student_level.update(student_level_params), :edit
   end
 
-  # DELETE /levels/1
-  # DELETE /levels/1.json
+  # DELETE /students/1/levels/1
+  # DELETE /students/1/levels/1.json
   def destroy
-    @level.destroy
+    @student_level.destroy
     respond_to do |format|
-      format.html { redirect_to levels_url, notice: t('.notice', name: @level.name) }
+      format.html { redirect_to [@student, :student_levels], notice: t('.notice') }
       format.json { head :no_content }
     end
   end
@@ -52,22 +61,22 @@ class StudentLevelsController < ApplicationController
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_level
-      @level = @student.levels.find(params[:id])
+      @student_level = @student.levels.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def level_params
-      params.require(:level).permit(:modality, :level, :date)
+    def student_level_params
+      params.require(:student_level).permit(:modality_id, :level_id, :date)
     end
 
     def student_level_respond(saved, error_view = :edit)
       respond_to do |format|
         if saved
-          format.html { redirect_to :levels, notice: t('.notice') }
-          format.json { render :show, status: :ok, location: @level }
+          format.html { redirect_to [@student, :student_levels], notice: t('.notice') }
+          format.json { render :show, status: :ok, location: @student_level }
         else
           format.html { render error_view }
-          format.json { render json: @level.errors, status: :unprocessable_entity }
+          format.json { render json: @student_level.errors, status: :unprocessable_entity }
         end
       end
     end

@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      student_level:
+        one: Graduação
+        other: Graduações
+    attributes:
+      student_level:
+        student: Aluno
+        student_id: Aluno
+        modality_id: Modalidade
+        modality: Modalidade
+        level: Nome
+        level_id: Nome
+        date: Data

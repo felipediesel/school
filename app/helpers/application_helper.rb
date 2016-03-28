@@ -1,9 +1,12 @@
 module ApplicationHelper
-  def nav_item(body, controller, options = {})
-    options[:url] ||= controller
+  def nav_item(body, controllers, options = {})
+    controllers = [ controllers ] if ! controllers.is_a? Array
+    options[:url] ||= controllers.first.to_sym
+
+    controllers.map!(&:to_s)
 
     content_tag :li, class: 'nav-item' do
-      link_to body, options[:url], class: "nav-link#{ ' active' if controller_name.to_s == controller.to_s }"
+      link_to body, options[:url], class: "nav-link#{ ' active' if controllers.include? controller_name.to_s}"
     end
   end
 

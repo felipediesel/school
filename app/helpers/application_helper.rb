@@ -1,7 +1,9 @@
 module ApplicationHelper
-  def nav_item(body, url, options = {})
+  def nav_item(body, controller, options = {})
+    options[:url] ||= controller
+
     content_tag :li, class: 'nav-item' do
-      link_to body, url, class: "nav-link #{ 'active' if current_page? url }"
+      link_to body, options[:url], class: "nav-link#{ ' active' if controller_name.to_s == controller.to_s }"
     end
   end
 

@@ -1,8 +1,8 @@
 %ul#main-nav.nav.nav-pills.nav-stacked.collapse.navbar-toggleable-xs
-  = nav_item t('nav.dashboard'), root_path
-  = nav_item Student.model_name.human(count: 2), students_path
-  = nav_item Teacher.model_name.human(count: 2), teachers_path
-  = nav_item Classroom.model_name.human(count: 2), classrooms_path
-  = nav_item Modality.model_name.human(count: 2), modalities_path
-  = nav_item Room.model_name.human(count: 2), rooms_path
-  = nav_item User.model_name.human(count: 2), users_path
+  = nav_item t('nav.dashboard'), :dashboard, url: root_path
+  = nav_item Student.model_name.human(count: 2), [ :students, :student_levels ]
+  = nav_item Teacher.model_name.human(count: 2), :teachers
+  = nav_item Classroom.model_name.human(count: 2), :classrooms
+  = nav_item Modality.model_name.human(count: 2), :modalities
+  = nav_item Room.model_name.human(count: 2), :rooms
+  = nav_item User.model_name.human(count: 2), :users

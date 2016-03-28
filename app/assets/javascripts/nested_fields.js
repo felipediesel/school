@@ -2,13 +2,13 @@
   "use strict";
 
   var _ = function () {
-    $(document).on('click', 'form .remove_fields', function(event) {
+    $('form .remove_fields').on('click', function(event) {
       $(this).prev('input[type=hidden]').val('1');
       $(this).closest('fieldset').hide();
       event.preventDefault();
     });
 
-    $(document).on('click', 'form .add_fields', function(event) {
+    $('form .add_fields').on('click', function(event) {
       var regexp = new RegExp($(this).data('id'), 'g'),
         time = new Date().getTime();
 

@@ -11,7 +11,7 @@
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 
-%body
+%body{ id: controller_name, class: action_name }
   %nav.navbar.navbar-full.navbar-dark.bg-primary
     %button.navbar-toggler.hidden-sm-up.pull-xs-left{ type: "button", data: { toggle: "collapse", target: "#main-nav" } } &#9776;
     .container

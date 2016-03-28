@@ -15,8 +15,13 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap
+//= require init
+//= require_directory ./controllers
 //= require nested_fields
 
-$(function () {
-  nested_fields();
-});
+App.ready = function () {
+
+};
+App.change = function () {
+
+};

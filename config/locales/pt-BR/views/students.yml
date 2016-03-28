@@ -11,6 +11,7 @@ pt-BR:
     show_nav:
       data: Dados
       levels: Graduações
+      subscriptions: Turmas
     create:
       notice: Aluno %{name} criado.
     update:

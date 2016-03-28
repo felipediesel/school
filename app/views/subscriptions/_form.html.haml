@@ -1,0 +1,6 @@
+= show_for @subscription do |l|
+  = l.association :student
+
+= simple_form_for [@student, @subscription] do |f|
+  = f.association :classroom, include_blank: false
+  = f.button :submit, class: 'btn-primary'

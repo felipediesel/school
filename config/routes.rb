@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :rooms
   resources :students do
     resources :student_levels, path: :levels
+    resources :subscriptions
   end
   resources :teachers
   resources :modalities

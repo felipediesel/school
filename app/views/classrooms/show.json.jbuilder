@@ -1,1 +1,3 @@
-json.extract! @classroom, :id, :name, :modality_id, :teacher_id, :room_id, :day_of_week, :start_at, :duration, :personal, :comment, :created_at, :updated_at
+json.extract! @classroom, :id, :title, :modality_id, :duration, :personal, :comment, :created_at, :updated_at
+json.schedules @classroom.schedules, :teacher_id, :room_id, :week_day, :start_at, :created_at, :updated_at
+

@@ -4,5 +4,12 @@ pt-BR:
       title: Alterar Turma
     index:
       title: Turmas
+      destroy_confirm: Deseja excluir esta turma?
     new:
       title: Adicionar Turma
+    create:
+      notice: Turma %{name} criada.
+    update:
+      notice: Turma %{name} atualizada.
+    destroy:
+      notice: Turma %{name} excluída.

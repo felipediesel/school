@@ -2,21 +2,23 @@ class Classroom < ApplicationRecord
   include TimeFormatter
 
   belongs_to :modality
-  belongs_to :teacher
-  belongs_to :room
+
+  has_many :schedules, -> { order(:week_day, :start_at) }, class_name: 'ClassroomSchedule'
   has_many :subscriptions
 
-  validates :name, presence: true
+  validates :title, presence: true
   validates :modality, presence: true
-  validates :teacher, presence: true
-  validates :room, presence: true
-  validates :day_of_week, presence: true
-  validates :start_at, presence: true
   validates :duration, presence: true
 
   mattr_accessor :duration_in_hours
 
   time_format :start_at, :duration_in_hours
+
+  accepts_nested_attributes_for :schedules, allow_destroy: true
+
+  def name
+    "#{modality.name} #{title}"
+  end
 
   def duration_in_hours
     duration.to_f / 3600
@@ -26,3 +28,8 @@ class Classroom < ApplicationRecord
     self.duration = value.to_f * 3600
   end
 end
+
+
+
+
+

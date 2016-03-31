@@ -1,14 +1,23 @@
 = simple_form_for @classroom do |f|
   .row
-    .col-md-6= f.input :name
     .col-md-6= f.association :modality, include_blank: false
+    .col-md-6= f.input :title
   .row
-    .col-md-6= f.association :teacher, include_blank: false
-    .col-md-6= f.association :room, include_blank: false
-  .row
-    .col-md-6= f.input :day_of_week, collection: day_of_week_options, include_blank: false
-    .col-md-3= f.input :start_at_formatted
-    .col-md-3= f.input :duration_in_hours_formatted
-  = f.input :personal
+    .col-md-4= f.input :duration_in_hours_formatted
+
+  %h5
+    = ClassroomSchedule.model_name.human(count: 2)
+    %small= link_to_add_fields t('text.new'), f, :schedules
+
+  #schedules_fields
+    .row
+      .col-md-3= ClassroomSchedule.human_attribute_name :teacher
+      .col-md-3= ClassroomSchedule.human_attribute_name :room
+      .col-md-3= ClassroomSchedule.human_attribute_name :week_day
+      .col-md-2= ClassroomSchedule.human_attribute_name :start_at_formatted
+
+    = f.simple_fields_for :schedules do |fs|
+      = render 'schedule_fields', f: fs
+
   = f.input :comment
   = f.button :submit, class: 'btn-primary'

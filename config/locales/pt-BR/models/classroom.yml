@@ -4,19 +4,23 @@ pt-BR:
       classroom:
         one: Turma
         other: Turmas
+      classroom_schedule:
+        one: Horário
+        other: Horários
     attributes:
       classroom:
-        name: Nome
+        title: Nome
         modality: Modalidade
         modality_id: Modalidade
+        personal: Personal
+        duration: Duração
+        duration_in_hours_formatted: Duração (horas)
+        comment: Observação
+      classroom_schedule:
         teacher: Professor
         teacher_id: Professor
         room: Sala
         room_id: Sala
-        day_of_week: Dia da semana
+        week_day: Dia da semana
         start_at: Hora de Início
         start_at_formatted: Hora de Início
-        duration: Duração
-        duration_in_hours_formatted: Duração (horas)
-        personal: Personal
-        comment: Observação

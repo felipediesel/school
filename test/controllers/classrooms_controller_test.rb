@@ -3,6 +3,7 @@ require 'test_helper'
 class ClassroomsControllerTest < ActionController::TestCase
   setup do
     @classroom = classrooms(:jiujitsu)
+    @schedule = classroom_schedules(:jiujitsu)
   end
 
   test "should get index" do
@@ -18,10 +19,15 @@ class ClassroomsControllerTest < ActionController::TestCase
 
   test "should create classroom" do
     assert_difference('Classroom.count') do
-      post :create, params: { classroom: { day_of_week: @classroom.day_of_week, duration: @classroom.duration, modality_id: @classroom.modality_id, name: @classroom.name, personal: @classroom.personal, room_id: @classroom.room_id, start_at: @classroom.start_at, teacher_id: @classroom.teacher_id } }
+      process :create, method: :post, params: { classroom: {
+        title: @classroom.title, modality_id: @classroom.modality, duration: @classroom.duration , schedules_attributes: {
+          '0' => { teacher_id: @schedule.teacher_id, room_id: @schedule.room_id, week_day: @schedule.week_day, start_at: @schedule.start_at}
+        }
+      }}
+
     end
 
-    assert_redirected_to classroom_path(assigns(:classroom))
+    assert_redirected_to classrooms_path
   end
 
   test "should show classroom" do
@@ -35,8 +41,12 @@ class ClassroomsControllerTest < ActionController::TestCase
   end
 
   test "should update classroom" do
-    patch :update, params: { id: @classroom, classroom: { day_of_week: @classroom.day_of_week, duration: @classroom.duration, modality_id: @classroom.modality_id, name: @classroom.name, personal: @classroom.personal, room_id: @classroom.room_id, start_at: @classroom.start_at, teacher_id: @classroom.teacher_id } }
-    assert_redirected_to classroom_path(assigns(:classroom))
+    process :update, method: :post, params: { id: @classroom, classroom: {
+        title: @classroom.title, modality_id: @classroom.modality, duration: @classroom.duration, schedules_attributes: {
+          '0' => { teacher_id: @schedule.teacher_id, room_id: @schedule.room_id, week_day: @schedule.week_day, start_at: @schedule.start_at }
+        }
+      }}
+    assert_redirected_to classrooms_path
   end
 
   test "should destroy classroom" do

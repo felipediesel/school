@@ -1,19 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 jiujitsu:
-  name: Jiu-Jitsu
+  title: Men
   modality: jiujitsu
-  teacher: lee
-  room: main
-  day_of_week: 1
-  start_at: 20
   duration: 3600
 muaythai:
-  name: Muay Thai
+  title: Men
   modality: muaythai
-  teacher: miyagi
-  room: secondary
-  day_of_week: 1
-  start_at: 21
   duration: 3600
-  personal: false

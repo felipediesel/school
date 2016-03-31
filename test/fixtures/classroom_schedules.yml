@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+jiujitsu:
+  classroom: jiujitsu
+  teacher: lee
+  room: main
+  week_day: 1
+  start_at: 20
+muaythai:
+  classroom: muaythai
+  teacher: miyagi
+  room: secondary
+  week_day: 1
+  start_at: 21

@@ -4,7 +4,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms
   # GET /classrooms.json
   def index
-    @classrooms = Classroom.all
+    @classrooms = Classroom.joins(:modality).order('modalities.name', :title)
   end
 
   # GET /classrooms/1.json
@@ -30,7 +30,7 @@ class ClassroomsController < ApplicationController
 
     respond_to do |format|
       if @classroom.save
-        format.html { redirect_to @classroom, notice: 'Classroom was successfully created.' }
+        format.html { redirect_to classrooms_url, notice: t('.notice', name: @classroom.name) }
         format.json { render :show, status: :created, location: @classroom }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ClassroomsController < ApplicationController
   def update
     respond_to do |format|
       if @classroom.update(classroom_params)
-        format.html { redirect_to @classroom, notice: 'Classroom was successfully updated.' }
+        format.html { redirect_to classrooms_url, notice: t('.notice', name: @classroom.name) }
         format.json { render :show, status: :ok, location: @classroom }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class ClassroomsController < ApplicationController
   def destroy
     @classroom.destroy
     respond_to do |format|
-      format.html { redirect_to classrooms_url, notice: 'Classroom was successfully destroyed.' }
+      format.html { redirect_to classrooms_url, notice: t('.notice', name: @classroom.name) }
       format.json { head :no_content }
     end
   end
@@ -71,6 +71,8 @@ class ClassroomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def classroom_params
-      params.require(:classroom).permit(:name, :modality_id, :teacher_id, :room_id, :day_of_week, :start_at, :start_at_formatted, :duration, :duration_in_hours_formatted, :personal, :comment)
+      params.require(:classroom).permit(:title, :modality_id, :personal, :comment, :duration, :duration_in_hours_formatted, schedules_attributes: [
+        :id, :teacher_id, :room_id, :week_day, :start_at, :start_at_formatted, :_destroy
+      ])
     end
 end

@@ -1,0 +1,11 @@
+%fieldset[f.object]
+  .row
+    .col-md-3= f.association :teacher, label: false, include_blank: false
+    .col-md-3= f.association :room, label: false, include_blank: false
+    .col-md-3= f.input :week_day, collection: week_day_options, label: false, include_blank: false
+    .col-md-2= f.input :start_at_formatted, label: false
+    .col-md-1
+      = f.hidden_field :_destroy
+      = link_to "&times;".html_safe, '#', class: "remove_fields btn btn-danger btn-block"
+
+

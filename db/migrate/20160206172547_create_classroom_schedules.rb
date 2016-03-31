@@ -10,6 +10,6 @@ class CreateClassroomSchedules < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    add_foreign_key :classrooms, :people, column: :teacher_id
+    add_foreign_key :classroom_schedules, :people, column: :teacher_id
   end
 end

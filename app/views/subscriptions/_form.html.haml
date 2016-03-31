@@ -1,6 +1,9 @@
 = show_for @subscription do |l|
   = l.association :student
+  = l.association :classroom
 
 = simple_form_for [@student, @subscription] do |f|
-  = f.association :classroom, include_blank: false
+  = f.hidden_field :classroom_id
+  .row
+    .col-md-4= f.association :schedule, collection: f.object.classroom.schedules, label_method: :abbr_week_day_with_start_at, include_blank: false
   = f.button :submit, class: 'btn-primary'

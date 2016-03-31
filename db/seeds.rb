@@ -45,13 +45,28 @@ Room.create name: 'Principal', position: 0
 Room.create name: 'Segundo Piso', position: 1
 Room.create name: 'Externo', position: 2
 
-Classroom.create name: 'Jiu-Jitsu Men', modality: Modality.first, teacher: Teacher.first, room: Room.first, day_of_week: 1, start_at:20, duration:3600, personal: false
-Classroom.create name: 'Muay Thai Women', modality: Modality.second, teacher: Teacher.first, room: Room.first, day_of_week: 1, start_at:21, duration:3600, personal: false
-Classroom.create name: 'Muay Thai Men', modality: Modality.second, teacher: Teacher.second, room: Room.second, day_of_week: 2, start_at:19, duration:3600, personal: false
+classroom = Classroom.create title: 'Masculino', modality: Modality.first, personal: false, duration: 3600
+classroom.schedules.create teacher: Teacher.first, room: Room.first, week_day: 1, start_at: 20.5
+classroom.schedules.create teacher: Teacher.first, room: Room.first, week_day: 2, start_at: 20.5
+
+classroom = Classroom.create title: 'Infantil', modality: Modality.first, personal: false, duration: 3600
+classroom.schedules.create teacher: Teacher.first, room: Room.first, week_day: 1, start_at: 21.5
+classroom.schedules.create teacher: Teacher.first, room: Room.first, week_day: 2, start_at: 21.5
+
+classroom = Classroom.create title: 'Feminino', modality: Modality.second, personal: false, duration: 5400
+classroom.schedules.create teacher: Teacher.second, room: Room.first, week_day: 3, start_at: 20
+classroom.schedules.create teacher: Teacher.second, room: Room.second, week_day: 4, start_at: 20
+
+classroom = Classroom.create title: 'Masculino', modality: Modality.second, personal: false, duration: 3600
+classroom.schedules.create teacher: Teacher.first, room: Room.first, week_day: 3, start_at: 21
+classroom.schedules.create teacher: Teacher.first, room: Room.first, week_day: 4, start_at: 21
 
 Student.all.each do |student|
-  student.subscriptions.create classroom: Classroom.offset(rand(Classroom.count)).first
-  student.subscriptions.create classroom: Classroom.offset(rand(Classroom.count)).first
+  3.times do
+    classroom = Classroom.offset(rand(Classroom.count)).first
+    student.subscriptions.create classroom: classroom, schedule: classroom.schedules.first
+    student.subscriptions.create classroom: classroom, schedule: classroom.schedules.second
+  end
 end
 
 Student.all.each do |student|

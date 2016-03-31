@@ -10,4 +10,6 @@ pt-BR:
         student: Aluno
         classroom_id: Turma
         classroom: Turma
+        schedule_id: Horário
+        schedule: Horário
         comment: Observação

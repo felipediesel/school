@@ -4,5 +4,5 @@ class Modality < ApplicationRecord
 
   validates :name, presence: true
 
-  accepts_nested_attributes_for :levels, reject_if: proc { |attributes| attributes['name'].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :levels, allow_destroy: true, reject_if: proc { |attributes| attributes['name'].blank? }
 end

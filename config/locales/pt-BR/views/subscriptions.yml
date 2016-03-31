@@ -1,15 +1,5 @@
 pt-BR:
   subscriptions:
     index:
-      title: "Aluno: %{name} - Turmas"
-      destroy_confirm: Deseja tirar este aluno desta turma?
-    new:
-      title: Adicionar Turma
-    edit:
-      title: Alterar Turma
-    create:
-      notice: Turma criada.
-    update:
-      notice: Turma atualizada.
-    destroy:
-      notice: Turma excluída.
+      title: "Aluno: %{name} - Horários"
+      start_at: Início

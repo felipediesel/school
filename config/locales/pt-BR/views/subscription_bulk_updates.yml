@@ -1,0 +1,6 @@
+pt-BR:
+  subscription_bulk_updates:
+    new:
+      title: "Aluno: %{name} - Alterar Horários"
+    create:
+      notice: Horários alterados.

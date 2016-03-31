@@ -1,0 +1,17 @@
+.content-header
+  %nav= link_to t('text.back'), [@student, :subscriptions], class: 'btn btn-secondary btn-sm'
+  %h2= title t('.title', name: @student.name)
+
+%p.lead Selecione os horários que este aluno participa:
+
+= form_tag [ @student, :subscription_bulk_updates ] do
+
+  %table.table.table-striped
+    %tbody
+      - @schedules.each do |schedule|
+        %tr
+          %td= check_box_tag 'subscription_bulk_updates[]', schedule.id, @subscription_schedules.include?(schedule)
+          %td= schedule.classroom.name
+          %td= schedule.abbr_week_day_with_start_at
+
+  = submit_tag "Gravar", class: 'btn btn-primary'

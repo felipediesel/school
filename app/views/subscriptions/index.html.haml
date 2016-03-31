@@ -1,26 +1,19 @@
 .content-header
   %nav
-    = link_to t('text.edit'), edit_student_path(@student), class: 'btn btn-primary-outline btn-sm'
+    = link_to t('text.edit'), new_student_subscription_bulk_updates_path(@student), class: 'btn btn-primary-outline btn-sm'
     = link_to t('text.back'), students_path, class: 'btn btn-secondary btn-sm'
   %h2= title t('.title', name: @student.name)
 
 = render 'students/show_nav', active: 'subscriptions'
 
-.row
-  - @subscriptions.each do |modality, subscriptions|
-    .col-md-6
-      .card
-        .card-header
-          %h5.card-title
-            = modality.name
-            %small= link_to t('text.new'), new_student_subscription_path(@student, modality_id: modality.id)
-        %ul.list-group.list-group-flush
-          - subscriptions.each do |subscription|
-            %li.list-group-item
-              = subscription.classroom.name
-              \:
-              = "#{abbr_week_day subscription.classroom.day_of_week} #{t 'text.at'} #{subscription.classroom.start_at_formatted}"
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Classroom.model_name.human count: 2
+      %th= t '.start_at'
 
-              %small
-                = link_to t('text.edit'), [:edit, @student, subscription]
-                = link_to_destroy [@student, subscription]
+  %tbody
+  - @subscriptions.each do |subscription|
+    %tr
+      %td= subscription.classroom.name
+      %td= subscription.schedule.abbr_week_day_with_start_at

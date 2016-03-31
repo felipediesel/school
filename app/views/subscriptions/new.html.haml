@@ -2,4 +2,7 @@
   %nav= link_to t('text.back'), [@student, :subscriptions], class: 'btn btn-secondary btn-sm'
   %h2= title t('.title', name: @student.name)
 
-= render 'form'
+.row
+  - @schedules.each do |schedule|
+    .col-md-4.m-b-2
+      = link_to "#{schedule.classroom.name} - #{schedule.abbr_week_day_with_start_at}", student_subscriptions_path(@student, subscription: { classroom_id: schedule.classroom_id, schedule_id: schedule.id }), method: :create, class: 'btn btn-secondary btn-block'

@@ -11,25 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326122323) do
+ActiveRecord::Schema.define(version: 20160328194741) do
 
-  create_table "classrooms", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "modality_id"
+  create_table "classroom_schedules", force: :cascade do |t|
+    t.integer  "classroom_id"
     t.integer  "teacher_id"
     t.integer  "room_id"
-    t.integer  "day_of_week", limit: 1
-    t.decimal  "start_at",              default: "0.0"
-    t.integer  "duration",              default: 3600
+    t.integer  "week_day",     default: 1
+    t.decimal  "start_at",     default: "19.0"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "classroom_schedules", ["classroom_id"], name: "index_classroom_schedules_on_classroom_id"
+  add_index "classroom_schedules", ["room_id"], name: "index_classroom_schedules_on_room_id"
+  add_index "classroom_schedules", ["teacher_id"], name: "index_classroom_schedules_on_teacher_id"
+
+  create_table "classrooms", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "modality_id"
     t.boolean  "personal"
+    t.integer  "duration",    default: 3600
     t.text     "comment"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "classrooms", ["modality_id"], name: "index_classrooms_on_modality_id"
-  add_index "classrooms", ["room_id"], name: "index_classrooms_on_room_id"
-  add_index "classrooms", ["teacher_id"], name: "index_classrooms_on_teacher_id"
 
   create_table "levels", force: :cascade do |t|
     t.integer  "modality_id"
@@ -57,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160326122323) do
     t.string   "document1"
     t.string   "document2"
     t.date     "birthday"
+    t.string   "status",               default: "active"
     t.string   "responsible_name"
     t.string   "responsible_document"
     t.string   "street"
@@ -70,7 +79,6 @@ ActiveRecord::Schema.define(version: 20160326122323) do
     t.string   "email"
     t.string   "blood_type"
     t.string   "profession"
-    t.string   "status",               default: "active"
     t.text     "comment"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
@@ -102,12 +110,12 @@ ActiveRecord::Schema.define(version: 20160326122323) do
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "student_id"
     t.integer  "classroom_id"
-    t.text     "comment"
+    t.integer  "schedule_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  add_index "subscriptions", ["classroom_id"], name: "index_subscriptions_on_classroom_id"
+  add_index "subscriptions", ["schedule_id"], name: "index_subscriptions_on_schedule_id"
   add_index "subscriptions", ["student_id"], name: "index_subscriptions_on_student_id"
 
   create_table "users", force: :cascade do |t|

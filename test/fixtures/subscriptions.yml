@@ -3,11 +3,14 @@
 one:
   student: daniel
   classroom: jiujitsu
+  schedule: jiujitsu
 
 two:
   student: daniel
   classroom: muaythai
+  schedule: muaythai
 
 three:
   student: dre
   classroom: jiujitsu
+  schedule: jiujitsu

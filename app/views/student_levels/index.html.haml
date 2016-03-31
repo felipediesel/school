@@ -6,7 +6,6 @@
 
 = render 'students/show_nav', active: 'levels'
 
-
 .row
   - @student_levels.each do |modality, levels|
     .col-md-6
@@ -24,3 +23,5 @@
               %small
                 = link_to t('text.edit'), [:edit, @student, level]
                 = link_to_destroy [@student, level]
+    - if cycle('1', '2') == '2'
+      .clearfix

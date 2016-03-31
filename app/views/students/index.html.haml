@@ -1,7 +1,7 @@
 .content-header
   %nav= link_to t('text.new'), new_student_path, class: 'btn btn-primary-outline btn-sm'
   %h2= title
-  
+
 %table.table.table-striped
   %thead
     %tr
@@ -15,8 +15,7 @@
       %tr
         %td= student.code
         %td= student.name
-        %td= student.classrooms.pluck(:name).to_sentence
-
+        %td= student.classrooms.map(&:name).uniq.to_sentence
         %td.actions
           = link_to t('text.show'), student
           = link_to_destroy student

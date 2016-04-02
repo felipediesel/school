@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160326122323) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "classroom_schedules", force: :cascade do |t|
     t.integer  "classroom_id"
     t.integer  "teacher_id"
@@ -23,9 +26,9 @@ ActiveRecord::Schema.define(version: 20160326122323) do
     t.datetime "updated_at",                    null: false
   end
 
-  add_index "classroom_schedules", ["classroom_id"], name: "index_classroom_schedules_on_classroom_id"
-  add_index "classroom_schedules", ["room_id"], name: "index_classroom_schedules_on_room_id"
-  add_index "classroom_schedules", ["teacher_id"], name: "index_classroom_schedules_on_teacher_id"
+  add_index "classroom_schedules", ["classroom_id"], name: "index_classroom_schedules_on_classroom_id", using: :btree
+  add_index "classroom_schedules", ["room_id"], name: "index_classroom_schedules_on_room_id", using: :btree
+  add_index "classroom_schedules", ["teacher_id"], name: "index_classroom_schedules_on_teacher_id", using: :btree
 
   create_table "classrooms", force: :cascade do |t|
     t.string   "title"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160326122323) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "classrooms", ["modality_id"], name: "index_classrooms_on_modality_id"
+  add_index "classrooms", ["modality_id"], name: "index_classrooms_on_modality_id", using: :btree
 
   create_table "levels", force: :cascade do |t|
     t.integer  "modality_id"
@@ -48,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160326122323) do
     t.datetime "updated_at",                      null: false
   end
 
-  add_index "levels", ["modality_id"], name: "index_levels_on_modality_id"
+  add_index "levels", ["modality_id"], name: "index_levels_on_modality_id", using: :btree
 
   create_table "modalities", force: :cascade do |t|
     t.string   "name"
@@ -84,7 +87,7 @@ ActiveRecord::Schema.define(version: 20160326122323) do
     t.datetime "updated_at",                              null: false
   end
 
-  add_index "people", ["status"], name: "index_people_on_status"
+  add_index "people", ["status"], name: "index_people_on_status", using: :btree
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
@@ -103,9 +106,9 @@ ActiveRecord::Schema.define(version: 20160326122323) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "student_levels", ["level_id"], name: "index_student_levels_on_level_id"
-  add_index "student_levels", ["modality_id"], name: "index_student_levels_on_modality_id"
-  add_index "student_levels", ["student_id"], name: "index_student_levels_on_student_id"
+  add_index "student_levels", ["level_id"], name: "index_student_levels_on_level_id", using: :btree
+  add_index "student_levels", ["modality_id"], name: "index_student_levels_on_modality_id", using: :btree
+  add_index "student_levels", ["student_id"], name: "index_student_levels_on_student_id", using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "student_id"
@@ -115,8 +118,8 @@ ActiveRecord::Schema.define(version: 20160326122323) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "subscriptions", ["schedule_id"], name: "index_subscriptions_on_schedule_id"
-  add_index "subscriptions", ["student_id"], name: "index_subscriptions_on_student_id"
+  add_index "subscriptions", ["schedule_id"], name: "index_subscriptions_on_schedule_id", using: :btree
+  add_index "subscriptions", ["student_id"], name: "index_subscriptions_on_student_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "", null: false
@@ -134,7 +137,18 @@ ActiveRecord::Schema.define(version: 20160326122323) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "classroom_schedules", "classrooms"
+  add_foreign_key "classroom_schedules", "people", column: "teacher_id"
+  add_foreign_key "classroom_schedules", "rooms"
+  add_foreign_key "classrooms", "modalities"
+  add_foreign_key "levels", "modalities"
+  add_foreign_key "student_levels", "levels"
+  add_foreign_key "student_levels", "modalities"
+  add_foreign_key "student_levels", "people", column: "student_id"
+  add_foreign_key "subscriptions", "classroom_schedules", column: "schedule_id"
+  add_foreign_key "subscriptions", "classrooms"
+  add_foreign_key "subscriptions", "people", column: "student_id"
 end

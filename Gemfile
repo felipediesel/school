@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '5.0.0.beta3'
-gem 'sqlite3', group: [:development, :test]
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+
+gem 'pg'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -38,8 +39,7 @@ group :test do
   gem 'rails-controller-testing'
 end
 
-group :product do
-  gem 'pg'
+group :production do
   gem 'rails_12factor'
 end
 

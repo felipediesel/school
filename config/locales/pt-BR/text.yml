@@ -5,6 +5,7 @@ pt-BR:
     destroy: Excluir
     destroy_confirm: Você tem certeza?
     edit: Alterar
+    empty: Nenhum registro foi encontrado.
     filter: Filtrar
     new: Adicionar
     show: Visualizar

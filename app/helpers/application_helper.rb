@@ -50,4 +50,12 @@ module ApplicationHelper
   def show_title
     @title
   end
+
+  def display_when_present(collection, &block)
+    if collection.present?
+      capture(&block)
+    else
+      content_tag :p, t(".empty", default: t('text.empty')), class: 'text-muted'
+    end
+  end
 end

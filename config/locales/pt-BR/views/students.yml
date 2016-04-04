@@ -4,6 +4,7 @@ pt-BR:
       title: Alterar Aluno
     index:
       title: Alunos
+      empty: Nenhum aluno foi encontrado.
     new:
       title: Adicionar Aluno
     show:

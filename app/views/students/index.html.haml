@@ -9,11 +9,12 @@
 
   %h2= title
 
-%table.table.table-hover
-  %thead
-    %tr
-      %th.text-xs-center= Student.human_attribute_name :code
-      %th= Student.human_attribute_name :name
-      %th= Classroom.model_name.human count: 2
-      %th= Student.human_attribute_name :status
-  %tbody= render @students
+= display_when_present @students do
+  %table.table.table-hover
+    %thead
+      %tr
+        %th.text-xs-center= Student.human_attribute_name :code
+        %th= Student.human_attribute_name :name
+        %th= Classroom.model_name.human count: 2
+        %th= Student.human_attribute_name :status
+    %tbody= render @students

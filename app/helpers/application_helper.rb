@@ -44,11 +44,13 @@ module ApplicationHelper
   def title(text = '')
     text = t('.title') if text.blank?
 
-    @title = text
+    content_for :title, text
+
+    text
   end
 
   def show_title
-    @title
+    content_for :title
   end
 
   def display_when_present(collection, &block)

@@ -9,7 +9,9 @@ class Person < ApplicationRecord
     self.class.human_status status
   end
 
-  def self.human_status(status_name)
-    I18n.t status_name, scope: [:activerecord, :attributes, :person, :statuses]
+  def self.human_status(status_name, options = {})
+    options[:scope] ||= [:activerecord, :attributes, :person, :statuses]
+    options[:count] ||= 1
+    I18n.t status_name, options
   end
 end

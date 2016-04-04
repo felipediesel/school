@@ -20,7 +20,13 @@ pt-BR:
         profession: Profissão
         status: Situação
         statuses:
-          active: Ativo
-          suspended: Suspenso
-          inactive: Inativo
+          active:
+            one: Ativo
+            other: Ativos
+          suspended:
+            one: Suspenso
+            other: Suspensos
+          inactive:
+            one: Inativo
+            other: Inativos
         comment: Observação

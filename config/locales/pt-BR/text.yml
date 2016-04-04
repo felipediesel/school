@@ -1,12 +1,13 @@
 pt-BR:
   text:
-    new: Adicionar
-    show: Visualizar
-    edit: Alterar
-    destroy: Excluir
-    destroy_confirm: Você tem certeza?
     at: as
     back: Voltar
+    destroy: Excluir
+    destroy_confirm: Você tem certeza?
+    edit: Alterar
+    filter: Filtrar
+    new: Adicionar
+    show: Visualizar
     sign_out: Sair
 
   nav:

@@ -1,21 +1,19 @@
 .content-header
-  %nav= link_to t('text.new'), new_student_path, class: 'btn btn-primary-outline btn-sm'
+  %nav
+    .btn-group
+      = button_tag t('text.filter'), type: "button", id: 'dropdown-stateses', class: 'btn btn-secondary btn-sm dropdown-toggle', aria: { expanded: "false", haspopup: "true"}, "data-toggle" => "dropdown"
+      .dropdown-menu{"aria-labelledby" => "dropdown-stateses"}
+        - Student::STATUSES.each do |status|
+          = link_to Student.human_status(status), students_path(status: status), class: 'dropdown-item'
+    = link_to t('text.new'), new_student_path, class: 'btn btn-primary-outline btn-sm'
+
   %h2= title
 
-%table.table.table-striped
+%table.table.table-hover
   %thead
     %tr
-      %th= Student.human_attribute_name :code
+      %th.text-xs-center= Student.human_attribute_name :code
       %th= Student.human_attribute_name :name
       %th= Classroom.model_name.human count: 2
-      %th
-
-  %tbody
-    - @students.each do |student|
-      %tr
-        %td= student.code
-        %td= student.name
-        %td= student.classrooms.map(&:name).uniq.to_sentence
-        %td.actions
-          = link_to t('text.show'), student
-          = link_to_destroy student
+      %th= Student.human_attribute_name :status
+  %tbody= render @students

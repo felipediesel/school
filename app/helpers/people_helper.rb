@@ -12,4 +12,10 @@ module PeopleHelper
       [value, key]
     end
   end
+
+  def person_status_label(person)
+    label = { 'active' => 'success', 'suspended' => 'warning', 'inactive' => 'default' }[person.status]
+
+    content_tag :span, person.human_status, class: "label label-#{label}"
+  end
 end

@@ -15,7 +15,9 @@
     .col-md-6= s.attribute :document2
   .row
     .col-md-6= s.attribute :birthday
-    .col-md-6= s.attribute :status
+    .col-md-6
+      = s.attribute :status do
+        = person_status_label @student
 
   - if @student.under_18?
     %hr

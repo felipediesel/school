@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :classrooms
   resources :rooms
-  resources :students do
+  resources :students, except: [ :destroy ] do
     resources :student_levels, path: :levels
     resources :subscriptions, only: [ :index, :show, :create, :destroy ]
     resource :subscription_bulk_updates, only: [ :new, :create ]

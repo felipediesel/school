@@ -6,6 +6,10 @@ class Person < ApplicationRecord
   validates :status, presence: true, inclusion: { in: STATUSES }
 
   def human_status
-    I18n.t status, scope: [:activerecord, :attributes, :person, :statuses]
+    self.class.human_status status
+  end
+
+  def self.human_status(status_name)
+    I18n.t status_name, scope: [:activerecord, :attributes, :person, :statuses]
   end
 end

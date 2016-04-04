@@ -1,10 +1,13 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update]
 
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @status = params.fetch(:status, 'active')
+    redirect :students if !Student::STATUSES.include? @status
+
+    @students = Student.where(status: @status).includes(classrooms: :modality).order(:name)
   end
 
   # GET /students/1
@@ -35,16 +38,6 @@ class StudentsController < ApplicationController
     student_respond @student.update(student_params), :edit
   end
 
-  # DELETE /students/1
-  # DELETE /students/1.json
-  def destroy
-    @student.destroy
-    respond_to do |format|
-      format.html { redirect_to students_url, notice: t('.notice', name: @student.name) }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
@@ -53,7 +46,7 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:code, :name, :document1, :document2, :birthday, :responsible_name, :responsible_document, :street, :district, :city, :state, :country, :zip, :phone, :cellphone, :email, :blood_type, :profession, :comment)
+      params.require(:student).permit(:code, :name, :document1, :document2, :birthday, :status, :responsible_name, :responsible_document, :street, :district, :city, :state, :country, :zip, :phone, :cellphone, :email, :blood_type, :profession, :comment)
     end
 
     def student_respond(saved, error_view = :edit)

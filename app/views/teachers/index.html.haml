@@ -1,20 +1,15 @@
 .content-header
-  %nav= link_to t('text.new'), new_teacher_path, class: 'btn btn-primary-outline btn-sm'
-  %h2= title
+  %nav
+    = person_filter_dropdown
+    = link_to t('text.new'), new_teacher_path, class: 'btn btn-primary-outline btn-sm'
+  %h2= "#{title} #{Teacher.human_status @status, count: 2}"
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th= Teacher.human_attribute_name :code
-      %th= Teacher.human_attribute_name :name
-      %th
-
-  %tbody
-    - @teachers.each do |teacher|
+= display_when_present @teachers do
+  %table.table.table-hover
+    %thead
       %tr
-        %td= teacher.code
-        %td= teacher.name
-
-        %td.actions
-          = link_to t('text.show'), teacher
-          = link_to_destroy teacher
+        %th.text-xs-center= Teacher.human_attribute_name :code
+        %th= Teacher.human_attribute_name :name
+        %th= Classroom.model_name.human count: 2
+        %th= Teacher.human_attribute_name :status
+    %tbody= render @teachers

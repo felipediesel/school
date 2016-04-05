@@ -8,8 +8,8 @@ module PeopleHelper
   end
 
   def person_status_options_for_select
-    t('activerecord.attributes.person.statuses').collect do |key, value|
-      [value, key]
+    Person::STATUSES.collect do |status|
+      [Person::human_status(status), status]
     end
   end
 
@@ -17,5 +17,23 @@ module PeopleHelper
     label = { 'active' => 'success', 'suspended' => 'warning', 'inactive' => 'default' }[person.status]
 
     content_tag :span, person.human_status, class: "label label-#{label}"
+  end
+
+  def person_filter_dropdown
+    button_options = {
+      type: "button",
+      id: 'dropdown-stateses',
+      class: 'btn btn-secondary btn-sm dropdown-toggle',
+      aria: { expanded: "false", haspopup: "true"},
+      data: { toggle: "dropdown"}
+    }
+    content_tag :div, class: 'btn-group' do
+      button_tag(t('text.filter'), button_options) +
+      content_tag(:div, class: 'dropdown-menu', "aria-labelledby" => "dropdown-stateses") do
+        Student::STATUSES.collect do |status|
+          link_to Student.human_status(status, count: 2), polymorphic_url(controller_name, status: status), class: 'dropdown-item'
+        end.join.html_safe
+      end
+    end
   end
 end

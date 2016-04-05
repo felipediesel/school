@@ -1,5 +1,6 @@
 class Teacher < Person
-  has_many :classrooms
+  has_many :classroom_schedules
+  has_many :classrooms, through: :classroom_schedules
 
   default_scope { where( teacher: true ) }
 

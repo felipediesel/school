@@ -4,7 +4,10 @@ class TeachersController < ApplicationController
   # GET /teachers
   # GET /teachers.json
   def index
-    @teachers = Teacher.all
+    @status = params.fetch(:status, 'active')
+    redirect :teachers if !Teacher::STATUSES.include? @status
+
+    @teachers = Teacher.where(status: @status).includes(:classrooms).order(:name)
   end
 
   # GET /teachers/1
@@ -51,16 +54,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  # DELETE /teachers/1
-  # DELETE /teachers/1.json
-  def destroy
-    @teacher.destroy
-    respond_to do |format|
-      format.html { redirect_to teachers_url, notice: 'Teacher was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_teacher
@@ -69,6 +62,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:code, :name, :document1, :document2, :birthday, :street, :district, :city, :state, :country, :zip, :phone, :cellphone, :email, :blood_type, :comment)
+      params.require(:teacher).permit(:code, :name, :document1, :document2, :birthday, :status, :street, :district, :city, :state, :country, :zip, :phone, :cellphone, :email, :blood_type, :comment)
     end
 end

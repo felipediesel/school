@@ -1,0 +1,5 @@
+%tr
+  %td.text-xs-center= link_to teacher.code, teacher
+  %td= link_to teacher.name, teacher
+  %td= teacher.classrooms.map(&:name).uniq.to_sentence
+  %td= person_status_label teacher

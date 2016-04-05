@@ -38,12 +38,4 @@ class TeachersControllerTest < ActionController::TestCase
     patch :update, params: { id: @teacher, teacher: { name: @teacher.name, code: @teacher.code } }
     assert_redirected_to teacher_path(assigns(:teacher))
   end
-
-  test "should destroy teacher" do
-    assert_difference('Teacher.count', -1) do
-      delete :destroy, params: { id: @teacher }
-    end
-
-    assert_redirected_to teachers_path
-  end
 end

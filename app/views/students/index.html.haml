@@ -1,12 +1,7 @@
 .content-header
   %nav
-    .btn-group
-      = button_tag t('text.filter'), type: "button", id: 'dropdown-stateses', class: 'btn btn-secondary btn-sm dropdown-toggle', aria: { expanded: "false", haspopup: "true"}, "data-toggle" => "dropdown"
-      .dropdown-menu{"aria-labelledby" => "dropdown-stateses"}
-        - Student::STATUSES.each do |status|
-          = link_to Student.human_status(status, count: 2), students_path(status: status), class: 'dropdown-item'
+    = person_filter_dropdown
     = link_to t('text.new'), new_student_path, class: 'btn btn-primary-outline btn-sm'
-
   %h2= "#{title} #{Student.human_status @status, count: 2}"
 
 = display_when_present @students do

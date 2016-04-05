@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [ :index, :show, :create, :destroy ]
     resource :subscription_bulk_updates, only: [ :new, :create ]
   end
-  resources :teachers
+  resources :teachers, except: [ :destroy ]
   resources :modalities
   resources :users, except: [ :show ]
 end

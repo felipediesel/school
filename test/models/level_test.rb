@@ -15,4 +15,16 @@ class LevelTest < ActiveSupport::TestCase
     level = Level.create name: 'Main'
     assert_not_nil level.position, "Position should have a position bigger than zero"
   end
+
+  test "should allow destroy if do not have any student_levels" do
+    level = levels(:fk_free_1)
+    level.destroy
+    assert level.destroyed?, "Level should be destroyed."
+  end
+
+  test "should not allow destroy if do have any student_levels" do
+    level = levels(:jiujitsu_white)
+    level.destroy
+    assert_not level.destroyed?, "Level should not allow to be destroyed."
+  end
 end

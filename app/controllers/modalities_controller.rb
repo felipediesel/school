@@ -4,7 +4,7 @@ class ModalitiesController < ApplicationController
   # GET /modalities
   # GET /modalities.json
   def index
-    @modalities = Modality.all
+    @modalities = Modality.order(:name)
   end
 
   # GET /modalities/1.json
@@ -41,10 +41,14 @@ class ModalitiesController < ApplicationController
   # DELETE /modalities/1
   # DELETE /modalities/1.json
   def destroy
-    @modality.destroy
-    respond_to do |format|
-      format.html { redirect_to :modalities, notice: t('.notice', name: @modality.name) }
-      format.json { head :no_content }
+    if @modality.can_destroy?
+      @modality.destroy
+      respond_to do |format|
+        format.html { redirect_to :modalities, notice: t('.notice', name: @modality.name) }
+        format.json { head :no_content }
+      end
+    else
+      head :method_not_allowed
     end
   end
 

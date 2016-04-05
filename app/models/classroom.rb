@@ -28,8 +28,3 @@ class Classroom < ApplicationRecord
     self.duration = value.to_f * 3600
   end
 end
-
-
-
-
-

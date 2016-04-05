@@ -26,3 +26,14 @@ muaythai_red:
   modality: muaythai
   color: '#D33E23'
   position: 1
+
+fk_free_1:
+  name: 'Branca'
+  modality: fk_free
+  color: '#FFFFFF'
+  position: 1
+fk_free_2:
+  name: 'Preta'
+  modality: fk_free
+  color: '#000000'
+  position: 1

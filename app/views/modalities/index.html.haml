@@ -2,16 +2,11 @@
   %nav= link_to t('text.new'), new_modality_path, class: 'btn btn-primary-outline btn-sm'
   %h2= title
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th= Modality.human_attribute_name :name
-      %th
-
-  %tbody
-    - @modalities.each do |modality|
+= display_when_present @modalities do
+  %table.table.table-hover
+    %thead
       %tr
-        %td= modality.name
-        %td.actions
-          = link_to t('text.edit'), edit_modality_path(modality)
-          = link_to_destroy modality
+        %th= Modality.human_attribute_name :name
+        %th
+
+    %tbody= render @modalities

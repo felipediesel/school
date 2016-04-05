@@ -1,0 +1,5 @@
+%tr
+  %td= modality.name
+  %td.actions
+    = link_to t('text.edit'), edit_modality_path(modality)
+    = link_to_destroy modality if modality.can_destroy?

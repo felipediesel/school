@@ -39,11 +39,18 @@ class ModalitiesControllerTest < ActionController::TestCase
     assert_redirected_to modalities_path
   end
 
-  test "should destroy modality" do
+  test "should destroy modality that have no classroom or student_levels" do
+    modality = modalities(:fk_free)
     assert_difference('Modality.count', -1) do
-      delete :destroy, params: { id: @modality }
+      delete :destroy, params: { id: modality }
     end
 
     assert_redirected_to modalities_path
+  end
+
+  test "should not destroy modality that have classroom or student_levels" do
+    delete :destroy, params: { id: @modality }
+
+    assert_response :method_not_allowed
   end
 end

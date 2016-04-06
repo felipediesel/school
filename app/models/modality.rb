@@ -1,4 +1,6 @@
 class Modality < ApplicationRecord
+  include CanDestroy
+
   has_many :levels, dependent: :destroy
   has_many :classrooms
   has_many :student_levels
@@ -9,12 +11,5 @@ class Modality < ApplicationRecord
 
   before_destroy :check_if_can_be_destroyed
 
-  def can_destroy?
-    classrooms.empty? and student_levels.empty?
-  end
-
-  private
-    def check_if_can_be_destroyed
-      throw(:abort) if !can_destroy?
-    end
+  self.can_destroy_associations = [:classrooms, :student_levels]
 end

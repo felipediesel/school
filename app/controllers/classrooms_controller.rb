@@ -17,6 +17,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/new
   def new
     @classroom = Classroom.new
+    @classroom.schedules.build
   end
 
   # GET /classrooms/1/edit
@@ -56,10 +57,14 @@ class ClassroomsController < ApplicationController
   # DELETE /classrooms/1
   # DELETE /classrooms/1.json
   def destroy
-    @classroom.destroy
-    respond_to do |format|
-      format.html { redirect_to classrooms_url, notice: t('.notice', name: @classroom.name) }
-      format.json { head :no_content }
+    if @classroom.can_destroy?
+      @classroom.destroy
+      respond_to do |format|
+        format.html { redirect_to :classrooms, notice: t('.notice', name: @classroom.name) }
+        format.json { head :no_content }
+      end
+    else
+      head :method_not_allowed
     end
   end
 

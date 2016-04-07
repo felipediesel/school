@@ -1,9 +1,10 @@
 class Classroom < ApplicationRecord
   include TimeFormatter
+  include CanDestroy
 
   belongs_to :modality
 
-  has_many :schedules, -> { order(:week_day, :start_at) }, class_name: 'ClassroomSchedule'
+  has_many :schedules, -> { order(:week_day, :start_at) }, class_name: 'ClassroomSchedule', dependent: :destroy
   has_many :subscriptions
 
   validates :title, presence: true
@@ -13,6 +14,7 @@ class Classroom < ApplicationRecord
   mattr_accessor :duration_in_hours
 
   time_format :start_at, :duration_in_hours
+  self.can_destroy_associations = [:subscriptions]
 
   accepts_nested_attributes_for :schedules, allow_destroy: true
 

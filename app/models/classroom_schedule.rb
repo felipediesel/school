@@ -1,11 +1,12 @@
 class ClassroomSchedule < ApplicationRecord
   include TimeFormatter
+  include CanDestroy
 
   belongs_to :classroom
   belongs_to :teacher
   belongs_to :room
 
-  has_many :subscriptions
+  has_many :subscriptions, foreign_key: 'schedule_id'
 
   validates :teacher_id, presence: true
   validates :room_id, presence: true

@@ -19,6 +19,11 @@ class ClassroomTest < ActiveSupport::TestCase
     assert_equal [ :title, :modality, :duration ], classroom.errors.keys
   end
 
+  test "should have name" do
+    classroom = Classroom.new title: 'Women', modality: modalities(:muaythai)
+    assert_equal 'Muay Thai Women', classroom.name
+  end
+
   test "should convert duration_in_hours to duration" do
     classroom_schedule = Classroom.new
     {

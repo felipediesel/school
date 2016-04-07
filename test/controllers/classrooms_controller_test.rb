@@ -49,11 +49,18 @@ class ClassroomsControllerTest < ActionController::TestCase
     assert_redirected_to classrooms_path
   end
 
-  test "should destroy classroom" do
+  test "should destroy classroom that have no subscriptions" do
+    classroom = classrooms(:fk_free)
     assert_difference('Classroom.count', -1) do
-      delete :destroy, params: { id: @classroom }
+      delete :destroy, params: { id: classroom }
     end
 
     assert_redirected_to classrooms_path
+  end
+
+  test "should not destroy classroom that have subscriptions" do
+    delete :destroy, params: { id: @classroom }
+
+    assert_response :method_not_allowed
   end
 end

@@ -2,16 +2,11 @@
   %nav= link_to t('text.new'), new_classroom_path, class: 'btn btn-primary-outline btn-sm'
   %h2= title
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th= Classroom.human_attribute_name :title
-      %th.actions
-
-  %tbody
-    - @classrooms.each do |classroom|
+= display_when_present @classrooms do
+  %table.table.table-striped
+    %thead
       %tr
-        %td= classroom.name
-        %td.actions
-          = link_to t('text.edit'), edit_classroom_path(classroom)
-          = link_to_destroy classroom
+        %th= Classroom.human_attribute_name :title
+        %th.actions
+
+    %tbody= render @classrooms

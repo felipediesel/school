@@ -8,3 +8,7 @@ muaythai:
   title: Men
   modality: muaythai
   duration: 3600
+fk_free:
+  title: Free
+  modality: muaythai
+  duration: 3600

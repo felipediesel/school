@@ -4,6 +4,7 @@ pt-BR:
       title: Alterar Turma
     index:
       title: Turmas
+    classroom:
       destroy_confirm: Deseja excluir esta turma?
     new:
       title: Adicionar Turma

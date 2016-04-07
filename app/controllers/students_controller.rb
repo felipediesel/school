@@ -52,7 +52,7 @@ class StudentsController < ApplicationController
     def student_respond(saved, error_view = :edit)
       respond_to do |format|
         if saved
-          format.html { redirect_to :students, notice: t('.notice', name: @student.name) }
+          format.html { redirect_to @student, notice: t('.notice', name: @student.name) }
           format.json { render :show, status: :ok, location: @student }
         else
           format.html { render error_view }

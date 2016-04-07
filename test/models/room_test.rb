@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class RoomTest < ActiveSupport::TestCase
-  test "should have classrooms" do
-    assert Room.reflect_on_association(:classrooms).macro == :has_many, "Room should has many classrooms"
+  test "should have classroom_schedules" do
+    assert Room.reflect_on_association(:classroom_schedules).macro == :has_many, "Room should has many classroom_schedules"
   end
 
   test "should have required validators" do

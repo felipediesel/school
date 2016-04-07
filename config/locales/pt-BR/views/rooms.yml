@@ -4,5 +4,14 @@ pt-BR:
       title: Alterar Sala
     index:
       title: Salas
+    room:
+      destroy_confirm: Deseja excluir esta sala?
     new:
       title: Adicionar Sala
+    create:
+      notice: Sala %{name} criada.
+    update:
+      notice: Sala %{name} atualizada.
+    destroy:
+      notice: Sala %{name} excluída.
+

@@ -7,3 +7,7 @@ main:
 secondary:
   name: Secondary
   position: 2
+
+fk_free:
+  name: Free
+  position: 3

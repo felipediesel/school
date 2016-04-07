@@ -1,0 +1,5 @@
+%tr
+  %td= room.name
+  %td.actions
+    = link_to t('text.edit'), edit_room_path(room)
+    = link_to_destroy room if room.can_destroy?

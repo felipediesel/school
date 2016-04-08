@@ -4,7 +4,12 @@ pt-BR:
       title: Alterar Professor
     index:
       title: Professores
+      empty: Nenhum professor foi encontrado.
     new:
       title: Adicionar Professor
     show:
       title: "Professor: %{name}"
+    create:
+      notice: Professor %{name} criado.
+    update:
+      notice: Professor %{name} atualizado.

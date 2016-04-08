@@ -17,5 +17,3 @@ pt-BR:
       notice: Aluno %{name} criado.
     update:
       notice: Aluno %{name} atualizado.
-    destroy:
-      notice: Aluno %{name} excluído.

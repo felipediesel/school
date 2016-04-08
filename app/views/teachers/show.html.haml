@@ -13,7 +13,9 @@
     .col-md-6= t.attribute :document2
   .row
     .col-md-6= t.attribute :birthday
-    .col-md-6= t.attribute :status
+    .col-md-6
+      = t.attribute :status do
+        = person_status_label @teacher
 
   %hr
   = t.attribute :street

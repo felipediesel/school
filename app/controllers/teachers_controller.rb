@@ -7,7 +7,7 @@ class TeachersController < ApplicationController
     @status = params.fetch(:status, 'active')
     redirect :teachers if !Teacher::STATUSES.include? @status
 
-    @teachers = Teacher.where(status: @status).includes(:classrooms).order(:name)
+    @teachers = Teacher.where(status: @status).includes(classrooms: :modality).order(:name)
   end
 
   # GET /teachers/1
@@ -29,29 +29,13 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(teacher_params)
 
-    respond_to do |format|
-      if @teacher.save
-        format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
-        format.json { render :show, status: :created, location: @teacher }
-      else
-        format.html { render :new }
-        format.json { render json: @teacher.errors, status: :unprocessable_entity }
-      end
-    end
+    teacher_respond @teacher.save, :new
   end
 
   # PATCH/PUT /teachers/1
   # PATCH/PUT /teachers/1.json
   def update
-    respond_to do |format|
-      if @teacher.update(teacher_params)
-        format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
-        format.json { render :show, status: :ok, location: @teacher }
-      else
-        format.html { render :edit }
-        format.json { render json: @teacher.errors, status: :unprocessable_entity }
-      end
-    end
+    teacher_respond @teacher.update(teacher_params), :edit
   end
 
   private
@@ -63,5 +47,17 @@ class TeachersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
       params.require(:teacher).permit(:code, :name, :document1, :document2, :birthday, :status, :street, :district, :city, :state, :country, :zip, :phone, :cellphone, :email, :blood_type, :comment)
+    end
+
+    def teacher_respond(saved, error_view = :edit)
+      respond_to do |format|
+        if saved
+          format.html { redirect_to @teacher, notice: t('.notice', name: @teacher.name) }
+          format.json { render :show, status: :ok, location: @teacher }
+        else
+          format.html { render error_view }
+          format.json { render json: @teacher.errors, status: :unprocessable_entity }
+        end
+      end
     end
 end

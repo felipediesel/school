@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      plan:
+        one: Plano
+        other: Planos
+    attributes:
+      plan:
+        name: Nome
+        amount: Valor
+        comment: Observação

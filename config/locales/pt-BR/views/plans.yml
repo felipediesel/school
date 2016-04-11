@@ -1,0 +1,17 @@
+pt-BR:
+  plans:
+    edit:
+      title: Alterar Plano
+    index:
+      title: Planos
+    room:
+      destroy_confirm: Deseja excluir esta plano?
+    new:
+      title: Adicionar Plano
+    create:
+      notice: Plano %{name} criada.
+    update:
+      notice: Plano %{name} atualizada.
+    destroy:
+      notice: Plano %{name} excluída.
+

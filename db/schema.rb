@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326122323) do
+ActiveRecord::Schema.define(version: 20160411104259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,15 @@ ActiveRecord::Schema.define(version: 20160326122323) do
 
   add_index "people", ["status"], name: "index_people_on_status", using: :btree
 
+  create_table "plans", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "amount",     precision: 13, scale: 2, default: "0.0"
+    t.integer  "position",                            default: 0,     null: false
+    t.text     "comment"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
     t.text     "comment"
@@ -109,6 +118,17 @@ ActiveRecord::Schema.define(version: 20160326122323) do
   add_index "student_levels", ["level_id"], name: "index_student_levels_on_level_id", using: :btree
   add_index "student_levels", ["modality_id"], name: "index_student_levels_on_modality_id", using: :btree
   add_index "student_levels", ["student_id"], name: "index_student_levels_on_student_id", using: :btree
+
+  create_table "student_plans", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "plan_id"
+    t.decimal  "discount",   precision: 13, scale: 2, default: "0.0"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+  end
+
+  add_index "student_plans", ["plan_id"], name: "index_student_plans_on_plan_id", using: :btree
+  add_index "student_plans", ["student_id"], name: "index_student_plans_on_student_id", using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "student_id"
@@ -148,6 +168,8 @@ ActiveRecord::Schema.define(version: 20160326122323) do
   add_foreign_key "student_levels", "levels"
   add_foreign_key "student_levels", "modalities"
   add_foreign_key "student_levels", "people", column: "student_id"
+  add_foreign_key "student_plans", "people", column: "student_id"
+  add_foreign_key "student_plans", "plans"
   add_foreign_key "subscriptions", "classroom_schedules", column: "schedule_id"
   add_foreign_key "subscriptions", "classrooms"
   add_foreign_key "subscriptions", "people", column: "student_id"

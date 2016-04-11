@@ -13,6 +13,7 @@ pt-BR:
       data: Dados
       levels: Graduações
       subscriptions: Horários
+      plans: Planos
     create:
       notice: Aluno %{name} criado.
     update:

@@ -7,3 +7,7 @@ one:
 two:
   name: Twice a week
   amount: 16.99
+
+fk_free:
+  name: Foreign key free
+  amount: 12.34

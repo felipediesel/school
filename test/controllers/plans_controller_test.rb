@@ -39,7 +39,7 @@ class PlansControllerTest < ActionController::TestCase
     assert_redirected_to plans_path
   end
 
-  test "should destroy plan that have no classplan_schedules" do
+  test "should destroy plan that have no student_plan" do
     plan = plans(:fk_free)
     assert_difference('Plan.count', -1) do
       delete :destroy, params: { id: plan }
@@ -48,7 +48,7 @@ class PlansControllerTest < ActionController::TestCase
     assert_redirected_to plans_path
   end
 
-  test "should not destroy plan that have classplan_schedules" do
+  test "should not destroy plan that have student_plan" do
     delete :destroy, params: { id: @plan }
 
     assert_response :method_not_allowed

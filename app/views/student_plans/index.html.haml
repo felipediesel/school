@@ -1,0 +1,17 @@
+.content-header
+  %nav
+    = link_to t('text.new'), new_student_student_plan_path(@student), class: 'btn btn-primary-outline btn-sm'
+  %h2= title t('.title', name: @student.name)
+
+= render 'students/show_nav', active: 'plans'
+
+= display_when_present @student_plans do
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= Plan.human_attribute_name :name
+        %th.text-xs-right= Plan.human_attribute_name :amount
+        %th.text-xs-right= StudentPlan.human_attribute_name :discount
+        %th
+
+    %tbody= render @student_plans

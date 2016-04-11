@@ -1,6 +1,6 @@
 %tr
   %td= plan.name
-  %td.text-xs-right= plan.amount
+  %td.text-xs-right= number_to_currency plan.amount
   %td.actions
     = link_to t('text.edit'), edit_plan_path(plan)
     = link_to_destroy plan if plan.can_destroy?

@@ -13,6 +13,10 @@ class StudentTest < ActiveSupport::TestCase
     assert Student.reflect_on_association(:levels).macro == :has_many, "Student should has many levels"
   end
 
+  test "should have plans" do
+    assert Student.reflect_on_association(:plans).macro == :has_many, "Student should has many plans"
+  end
+
   test "should have responsible if is under 18" do
     student = Student.new name: 'Felipe', birthday: 17.years.ago
 

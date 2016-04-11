@@ -1,0 +1,15 @@
+pt-BR:
+  student_plans:
+    index:
+      title: "Aluno: %{name} - Planos"
+      destroy_confirm: Deseja excluir esta plano?
+    new:
+      title: Adicionar Plano
+    edit:
+      title: Alterar Plano
+    create:
+      notice: Plano criada.
+    update:
+      notice: Plano atualizada.
+    destroy:
+      notice: Plano excluída.

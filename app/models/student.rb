@@ -2,6 +2,7 @@ class Student < Person
   has_many :subscriptions
   has_many :classrooms, through: :subscriptions
   has_many :levels, class_name: 'StudentLevel'
+  has_many :plans, class_name: 'StudentPlan'
 
   default_scope { where(student: true) }
 

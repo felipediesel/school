@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      student_plan:
+        one: Plano
+        other: Planos
+    attributes:
+      student_plan:
+        student: Aluno
+        student_id: Aluno
+        plan: Nome
+        plan_id: Nome
+        discount: Desconto

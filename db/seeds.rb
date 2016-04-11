@@ -24,6 +24,9 @@ modality.levels.create name: 'Marrom', color: '#5F3731', position: 7
 modality.levels.create name: 'Vermelha', color: '#E33624', position: 8
 modality.levels.create name: 'Preta', color: '#000000', position: 9
 
+Plan.create name: 'Once a week', amount: 9.99
+Plan.create name: 'Twice a week', amount: 16.99
+
 Teacher.create code: '1', name: 'Bruce Lee'
 Teacher.create code: '2', name: 'Miyagi'
 
@@ -62,6 +65,8 @@ classroom.schedules.create teacher: Teacher.first, room: Room.first, week_day: 3
 classroom.schedules.create teacher: Teacher.first, room: Room.first, week_day: 4, start_at: 21
 
 Student.all.each do |student|
+  student.plans.create plan: Plan.offset(rand(Plan.count)).first, discount: rand(30)
+
   3.times do
     classroom = Classroom.offset(rand(Classroom.count)).first
     student.subscriptions.create classroom: classroom, schedule: classroom.schedules.first

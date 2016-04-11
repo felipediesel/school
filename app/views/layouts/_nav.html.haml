@@ -1,6 +1,6 @@
 %ul#main-nav.nav.nav-pills.nav-stacked.collapse.navbar-toggleable-xs
   = nav_item t('nav.dashboard'), :dashboard, url: root_path
-  = nav_item Student.model_name.human(count: 2), [ :students, :student_levels, :subscriptions, :subscription_bulk_updates ]
+  = nav_item Student.model_name.human(count: 2), [ :students, :student_levels, :subscriptions, :student_plans, :subscription_bulk_updates ]
   = nav_item Teacher.model_name.human(count: 2), :teachers
   = nav_item Classroom.model_name.human(count: 2), :classrooms
   = nav_item Modality.model_name.human(count: 2), :modalities

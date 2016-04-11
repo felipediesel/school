@@ -1,0 +1,8 @@
+= show_for @student_plan do |l|
+  = l.association :student
+
+= simple_form_for [@student, @student_plan] do |f|
+
+  = f.association :plan, collection: plan_collection_by_student_plan(f.object), include_blank: false
+  = f.input :discount
+  = f.button :submit, class: 'btn-primary'

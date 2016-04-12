@@ -19,7 +19,7 @@ class StudentPlansControllerTest < ActionController::TestCase
 
   test "should create student_plan" do
     assert_difference('StudentPlan.count') do
-      process :create, method: :post, params: { student_id: @student, student_plan: { plan_id: @student_plan.plan_id, discount: @student_plan.discount } }
+      process :create, method: :post, params: { student_id: @student, student_plan: { plan_id: plans(:two), discount: @student_plan.discount } }
     end
 
     assert_redirected_to student_student_plans_path(@student)

@@ -1,7 +1,11 @@
 .content-header
   %nav
-    = link_to t('text.edit'), edit_student_path(@student), class: 'btn btn-primary-outline btn-sm'
-    = link_to t('text.back'), students_path, class: 'btn btn-secondary btn-sm'
+    - if @modalities.any?
+      = dropdown_menu t('text.new') do
+        - @modalities.each do |modality|
+          = link_to modality.name, new_student_student_level_path(@student, modality_id: modality.id), class: 'dropdown-item'
+
+    = link_to t('text.back'), @student, class: 'btn btn-secondary btn-sm'
   %h2= title t('.title', name: @student.name)
 
 = render 'students/show_nav', active: 'levels'

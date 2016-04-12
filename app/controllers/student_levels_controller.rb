@@ -9,6 +9,7 @@ class StudentLevelsController < ApplicationController
 
     respond_to do |format|
       format.html do
+        @modalities = Modality.where.not(id: @student_levels.pluck(:modality_id)).order('modalities.name')
          @student_levels = @student_levels.group_by { |l| l.modality }
       end
       format.json

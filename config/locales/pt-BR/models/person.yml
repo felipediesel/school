@@ -18,6 +18,8 @@ pt-BR:
         email: Email
         blood_type: Tipo sanguíneo
         profession: Profissão
+        student: Estudante
+        teacher: Professor
         status: Situação
         statuses:
           active:

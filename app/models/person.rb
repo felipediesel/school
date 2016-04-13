@@ -4,6 +4,8 @@ class Person < ApplicationRecord
   validates :name, presence: true
   validates :code, uniqueness: true, allow_blank: true
   validates :status, presence: true, inclusion: { in: STATUSES }
+  validates :teacher, presence: true, unless: :student
+  validates :student, presence: true, unless: :teacher
 
   def human_status
     self.class.human_status status

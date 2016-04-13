@@ -9,6 +9,7 @@ pt-BR:
       title: Adicionar Professor
     show:
       title: "Professor: %{name}"
+      as_student: Ver como Aluno
     create:
       notice: Professor %{name} criado.
     update:

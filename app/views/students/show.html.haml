@@ -1,6 +1,8 @@
 .content-header
   %nav
     = link_to t('text.edit'), edit_student_path(@student), class: 'btn btn-primary-outline btn-sm'
+    - if @student.teacher?
+      = link_to t('.as_teacher'), teacher_path(@student), class: 'btn btn-secondary btn-sm'
     = link_to t('text.back'), students_path, class: 'btn btn-secondary btn-sm'
   %h2= title t('.title', name: @student.name)
 
@@ -42,5 +44,7 @@
     .col-md-6= s.attribute :blood_type
   .row
     .col-md-6= s.attribute :profession
+    - if @student.teacher?
+      .col-md-6= s.attribute :teacher
 
   = s.attribute :comment

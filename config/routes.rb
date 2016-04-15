@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   resources :teachers, except: [ :destroy ]
   resources :modalities
   resources :users, except: [ :show ]
+
+  get :options, to: 'options#index'
+  post :options, to: 'options#update'
 end

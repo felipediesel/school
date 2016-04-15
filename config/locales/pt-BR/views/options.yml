@@ -1,0 +1,7 @@
+pt-BR:
+  options:
+    index:
+      title: Opções
+    update:
+      notice: Opções atualizadas.
+      alert: Não foi possível atualizar as opções

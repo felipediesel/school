@@ -1,0 +1,13 @@
+.content-header
+  %h2= title
+
+  = form_for :options do |f|
+    .form-group
+      = label_tag 'options[app_name]', option_label_for(:app_name), class: 'control-label'
+      = text_field_tag 'options[app_name]', @options[:app_name], class: 'form-control'
+
+    .form-group
+      = label_tag 'options[navbar_background]', option_label_for(:navbar_background), class: 'control-label'
+      = select_tag 'options[navbar_background]', options_for_select(navbar_background_options, @options[:navbar_background]), class: 'form-control'
+
+    = f.submit t('helpers.submit.update', model: Option.model_name.human(count: 2)), class: 'btn btn-primary'

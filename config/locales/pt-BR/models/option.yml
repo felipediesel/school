@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    models:
+      option:
+        one: Opção
+        other: Opções
+    attributes:
+      option:
+        name: Nome
+        value: Valor
+        available:
+          app_name: Nome do sistema
+          navbar_background: Cor de fundo da barra de navegação
+          navbar_background_options:
+            bg-primary: Azul
+            bg-success: Verde
+            bg-info: Azul claro
+            bg-warning: Amarelo
+            bg-danger: Vermelho
+            bg-inverse: Escuro

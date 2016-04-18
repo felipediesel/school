@@ -1,8 +1,15 @@
 .content-header
   %nav
+    = form_for :students, method: :get, html: { class: 'form-inline' } do |f|
+      = hidden_field_tag 'status', @filter[:status]
+      = text_field_tag 'name', @filter[:name], class: 'form-control btn-sm', placeholder: t('.search_by_name')
+
+      = button_tag t('text.search'), class: 'btn btn-primary-outline btn-sm sr-only', name: nil
+
     = person_filter_dropdown
+
     = link_to t('text.new'), new_student_path, class: 'btn btn-primary-outline btn-sm'
-  %h2= "#{title} #{Student.human_status @status, count: 2}"
+  %h2= "#{title} #{Student.human_status @filter[:status], count: 2}"
 
 = display_when_present @students do
   %table.table.table-hover

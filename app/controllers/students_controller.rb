@@ -4,10 +4,12 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @status = params.fetch(:status, 'active')
-    redirect :students if !Student::STATUSES.include? @status
+    @filter = { name: params[:name] }
+    @filter[:status] = params.fetch(:status, 'active')
+    redirect :students if !Student::STATUSES.include? @filter[:status]
 
-    @students = Student.where(status: @status).includes(classrooms: :modality).order(:name)
+    @students = Student.where(status: @filter[:status]).includes(classrooms: :modality).order(:name)
+    @students = @students.where("name ILIKE ?", "%#{@filter[:name]}%")
   end
 
   # GET /students/1

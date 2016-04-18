@@ -5,6 +5,7 @@ pt-BR:
     index:
       title: Alunos
       empty: Nenhum aluno foi encontrado.
+      search_by_name: Buscar pelo nome
     new:
       title: Adicionar Aluno
     show:

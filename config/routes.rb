@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
-  root 'dashboard#index'
+  root 'students#index'
 
   resources :classrooms
   resources :rooms

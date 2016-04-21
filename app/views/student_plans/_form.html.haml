@@ -3,6 +3,7 @@
 
 = simple_form_for [@student, @student_plan] do |f|
 
-  = f.association :plan, collection: plan_collection_by_student_plan(f.object), include_blank: false
+  = f.association :plan, collection: plan_collection, include_blank: false
   = f.input :discount
+  = f.input :comment
   = f.button :submit, class: 'btn-primary'

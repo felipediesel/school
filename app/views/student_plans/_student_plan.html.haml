@@ -1,5 +1,9 @@
 %tr
-  %td= student_plan.name
+  %td
+    = student_plan.name
+    - if student_plan.comment?
+      \-
+      = student_plan.comment
   %td.text-xs-right= number_to_currency student_plan.amount
   %td.text-xs-right= number_to_percentage student_plan.discount, strip_insignificant_zeros: true
   %td.actions

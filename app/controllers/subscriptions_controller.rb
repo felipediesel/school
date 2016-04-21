@@ -5,7 +5,7 @@ class SubscriptionsController < ApplicationController
   # GET /students/1/subscriptions
   # GET /students/1/subscriptions.json
   def index
-    @subscriptions = @student.subscriptions.joins(classroom: :modality).order('modalities.name', 'classrooms.title')
+    @subscriptions = @student.subscriptions.joins(classroom: :modality).joins(:schedule).order('classroom_schedules.week_day', 'classroom_schedules.start_at')
   end
 
   # GET /students/1/subscriptions/1.json

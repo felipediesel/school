@@ -2,7 +2,7 @@
   "use strict";
 
   var _ = function () {
-    nested_fields();
+    nestedFields();
   };
 
   self.App.modalities = _;

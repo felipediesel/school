@@ -2,12 +2,11 @@
   "use strict";
 
   var _ = function () {
-    $('form .remove_fields').on('click', function(event) {
-      $(this).prev('input[type=hidden]').val('1');
-      $(this).closest('fieldset').hide();
-      event.preventDefault();
-    });
+    _.add_event();
+    _.remove_event();
+  };
 
+  _.add_event = function () {
     $('form .add_fields').on('click', function(event) {
       var regexp = new RegExp($(this).data('id'), 'g'),
         time = new Date().getTime();
@@ -17,7 +16,16 @@
     });
   };
 
-  self.nested_fields = _;
+  _.remove_event = function () {
+    $('form').on('click', '.remove_fields', function(event) {
+      alert('aaaa')
+      $(this).prev('input[type=hidden]').val('1');
+      $(this).closest('fieldset').hide();
+      event.preventDefault();
+    });
+  };
+
+  self.nestedFields = _;
 
   return _;
 } ());

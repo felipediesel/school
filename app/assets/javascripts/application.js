@@ -18,10 +18,10 @@
 //= require init
 //= require_directory ./controllers
 //= require nested_fields
+//= require dragula
 
 App.ready = function () {
 
 };
 App.change = function () {
-
 };

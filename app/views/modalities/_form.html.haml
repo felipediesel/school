@@ -6,7 +6,7 @@
     = Level.model_name.human(count: 2)
     %small= link_to_add_fields t('text.new'), f, :levels
 
-  #levels_fields
+  #levels_fields.sortable
     = f.simple_fields_for :levels do |l|
       = render 'level_fields', f: l
 

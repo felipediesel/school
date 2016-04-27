@@ -1,7 +1,7 @@
 class Modality < ApplicationRecord
   include CanDestroy
 
-  has_many :levels, dependent: :destroy
+  has_many :levels, -> { order(:position) }, dependent: :destroy
   has_many :classrooms
   has_many :student_levels
 

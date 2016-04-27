@@ -2,7 +2,7 @@
   "use strict";
 
   var _ = function () {
-    nestedFields();
+    nestedFields().sort();
   };
 
   self.App.modalities = _;

@@ -3,5 +3,6 @@
     .col-md-6= f.input :name, label: false
     .col-md-5= f.input :color, label: false, collection: level_colors_options, include_blank: false
     .col-md-1
-      = f.hidden_field :_destroy
-      = link_to "&times;".html_safe, '#', class: "remove_fields btn btn-danger btn-block" if f.object.can_destroy?
+      = f.hidden_field :_destroy, data: { destroy: true }
+      = f.hidden_field :position, class: 'position'
+      = button_tag "&times;".html_safe, type: 'button', class: "remove_fields btn btn-danger btn-block" if f.object.can_destroy?

@@ -21,6 +21,7 @@
         %ul.list-group.list-group-flush
           - levels.each do |level|
             %li.list-group-item
+              %span.label.label-pill.level-color{style: "background:#{level.level.color}"} &nbsp;
               = level.level.name
               \:
               = l level.date

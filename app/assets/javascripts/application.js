@@ -24,4 +24,5 @@ App.ready = function () {
 
 };
 App.change = function () {
+  $('#content > form :input:visible:first').focus();
 };

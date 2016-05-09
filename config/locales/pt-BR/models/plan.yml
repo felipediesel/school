@@ -8,4 +8,5 @@ pt-BR:
       plan:
         name: Nome
         amount: Valor
+        amount_formatted: Valor
         comment: Observação

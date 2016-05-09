@@ -11,4 +11,5 @@ pt-BR:
         plan: Nome
         plan_id: Nome
         discount: Desconto
+        discount_formatted: Desconto
         comment: Observação

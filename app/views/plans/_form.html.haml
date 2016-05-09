@@ -1,5 +1,6 @@
 = simple_form_for @plan do |f|
-  = f.input :name
-  = f.input :amount_formatted
+  .row
+    .col-md-6= f.input :name
+    .col-md-6= f.input :amount_formatted
   = f.input :comment
   = f.button :submit, class: 'btn-primary'

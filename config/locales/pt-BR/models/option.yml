@@ -11,6 +11,7 @@ pt-BR:
         available:
           app_name: Nome do sistema
           navbar_background: Cor de fundo da barra de navegação
+          invoice_comment: Observação padrão do Carnê
           navbar_background_options:
             bg-primary: Azul
             bg-success: Verde

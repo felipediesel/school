@@ -7,4 +7,8 @@ class StudentPlan < ApplicationRecord
   delegate :name, :amount, to: :plan
 
   decimal_format :discount
+
+  def total_amount
+    amount - amount * discount / 100
+  end
 end

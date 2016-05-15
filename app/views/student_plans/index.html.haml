@@ -1,5 +1,6 @@
 .content-header
   %nav
+    = link_to t('.invoice'), new_student_invoice_path(@student), remote: true, class: 'btn btn-secondary btn-sm'
     = link_to t('text.new'), new_student_student_plan_path(@student), class: 'btn btn-primary-outline btn-sm'
   %h2= title t('.title', name: @student.name)
 

@@ -20,6 +20,9 @@ gem 'show_for'
 gem 'devise'
 gem 'haml'
 
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'coveralls', require: false

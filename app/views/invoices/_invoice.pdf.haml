@@ -1,0 +1,32 @@
+= show_for @student do |s|
+  = s.attribute :name
+.row
+  .col-xs-4
+    .wrapper
+      %dt Parcela
+      %dd.content= "#{i+1}/#{@invoice_options[:months]}"
+  .col-xs-4
+    .wrapper
+      %dt Vencimento
+      %dd.content= l @invoice_options[:first_month] + i.months + 10.days
+  .col-xs-4
+    .wrapper
+      %dt Valor da Parcela
+      %dd.content= number_to_currency @student.plans.collect(&:total_amount).sum
+.row
+  .col-xs-4
+    .wrapper
+      %dt Desconto
+      %dd.content &nbsp;
+  .col-xs-4
+    .wrapper
+      %dt Juros / Multa
+      %dd.content &nbsp;
+  .col-xs-4
+    .wrapper
+      %dt Valor Recebido
+      %dd.content &nbsp;
+- if @invoice_options[:comment].present?
+  .wrapper
+    %dt Observação
+    %dd.content= html_escape(@invoice_options[:comment]).gsub("\n", "<br>").html_safe

@@ -1,0 +1,16 @@
+html {
+  font-size: 11px !important
+}
+html, body {
+  margin: 0;
+}
+
+.content {
+  border: 1px solid #666;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.pbi_avoid {
+  page-break-inside:avoid !important;
+}

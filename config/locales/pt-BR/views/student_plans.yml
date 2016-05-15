@@ -3,6 +3,7 @@ pt-BR:
     index:
       title: "Aluno: %{name} - Planos"
       destroy_confirm: Deseja excluir esta plano?
+      invoice: Carnê
     new:
       title: Adicionar Plano
     edit:

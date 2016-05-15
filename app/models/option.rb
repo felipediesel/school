@@ -1,8 +1,7 @@
 class Option < ApplicationRecord
-  AVAILABLE = %w( app_name navbar_background)
+  AVAILABLE = %w( app_name navbar_background invoice_comment )
 
   validates :name, presence: true, uniqueness: true, inclusion: { in: AVAILABLE }
-  validates :value, presence: true
 
   def self.set(name, value = nil)
     option = find_or_initialize_by name: name

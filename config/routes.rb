@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :rooms
   resources :plans
   resources :students, except: [ :destroy ] do
+    resource :invoice, only: [ :new, :create ]
     resources :student_levels, path: :levels
     resources :student_plans, path: :plans
     resources :subscriptions, only: [ :index, :show, :create, :destroy ]

@@ -1,0 +1,18 @@
+pt-BR:
+  invoices:
+    new:
+      title: Gerar Carnê
+    create:
+      filename: carne_%{student}.pdf
+
+  simple_form:
+    labels:
+      invoice:
+        first_month: Mês Inicial
+        months: Número de Meses
+        comment: Observação
+
+  helpers:
+    submit:
+      invoice:
+        submit: "Gerar Carnê"

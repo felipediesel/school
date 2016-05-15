@@ -4,7 +4,7 @@ class OptionTest < ActiveSupport::TestCase
   test "should have required validators" do
     option = Option.new
     assert_not option.valid?
-    assert_equal [ :name, :value ], option.errors.keys
+    assert_equal [ :name ], option.errors.keys
   end
 
   test "name should be uniq" do

@@ -18,6 +18,7 @@
 //= require init
 //= require_directory ./controllers
 //= require nested_fields
+//= require modal
 //= require dragula
 
 App.ready = function () {

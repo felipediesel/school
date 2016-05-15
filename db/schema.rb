@@ -24,11 +24,10 @@ ActiveRecord::Schema.define(version: 20160421130311) do
     t.decimal  "start_at",     default: "19.0"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.index ["classroom_id"], name: "index_classroom_schedules_on_classroom_id", using: :btree
+    t.index ["room_id"], name: "index_classroom_schedules_on_room_id", using: :btree
+    t.index ["teacher_id"], name: "index_classroom_schedules_on_teacher_id", using: :btree
   end
-
-  add_index "classroom_schedules", ["classroom_id"], name: "index_classroom_schedules_on_classroom_id", using: :btree
-  add_index "classroom_schedules", ["room_id"], name: "index_classroom_schedules_on_room_id", using: :btree
-  add_index "classroom_schedules", ["teacher_id"], name: "index_classroom_schedules_on_teacher_id", using: :btree
 
   create_table "classrooms", force: :cascade do |t|
     t.string   "title"
@@ -38,9 +37,8 @@ ActiveRecord::Schema.define(version: 20160421130311) do
     t.text     "comment"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.index ["modality_id"], name: "index_classrooms_on_modality_id", using: :btree
   end
-
-  add_index "classrooms", ["modality_id"], name: "index_classrooms_on_modality_id", using: :btree
 
   create_table "levels", force: :cascade do |t|
     t.integer  "modality_id"
@@ -49,9 +47,8 @@ ActiveRecord::Schema.define(version: 20160421130311) do
     t.integer  "position",    default: 0,         null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.index ["modality_id"], name: "index_levels_on_modality_id", using: :btree
   end
-
-  add_index "levels", ["modality_id"], name: "index_levels_on_modality_id", using: :btree
 
   create_table "modalities", force: :cascade do |t|
     t.string   "name"
@@ -92,9 +89,8 @@ ActiveRecord::Schema.define(version: 20160421130311) do
     t.text     "comment"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+    t.index ["status"], name: "index_people_on_status", using: :btree
   end
-
-  add_index "people", ["status"], name: "index_people_on_status", using: :btree
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"
@@ -120,11 +116,10 @@ ActiveRecord::Schema.define(version: 20160421130311) do
     t.date     "date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["level_id"], name: "index_student_levels_on_level_id", using: :btree
+    t.index ["modality_id"], name: "index_student_levels_on_modality_id", using: :btree
+    t.index ["student_id"], name: "index_student_levels_on_student_id", using: :btree
   end
-
-  add_index "student_levels", ["level_id"], name: "index_student_levels_on_level_id", using: :btree
-  add_index "student_levels", ["modality_id"], name: "index_student_levels_on_modality_id", using: :btree
-  add_index "student_levels", ["student_id"], name: "index_student_levels_on_student_id", using: :btree
 
   create_table "student_plans", force: :cascade do |t|
     t.integer  "student_id"
@@ -133,10 +128,9 @@ ActiveRecord::Schema.define(version: 20160421130311) do
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.string   "comment"
+    t.index ["plan_id"], name: "index_student_plans_on_plan_id", using: :btree
+    t.index ["student_id"], name: "index_student_plans_on_student_id", using: :btree
   end
-
-  add_index "student_plans", ["plan_id"], name: "index_student_plans_on_plan_id", using: :btree
-  add_index "student_plans", ["student_id"], name: "index_student_plans_on_student_id", using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "student_id"
@@ -144,10 +138,9 @@ ActiveRecord::Schema.define(version: 20160421130311) do
     t.integer  "schedule_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["schedule_id"], name: "index_subscriptions_on_schedule_id", using: :btree
+    t.index ["student_id"], name: "index_subscriptions_on_student_id", using: :btree
   end
-
-  add_index "subscriptions", ["schedule_id"], name: "index_subscriptions_on_schedule_id", using: :btree
-  add_index "subscriptions", ["student_id"], name: "index_subscriptions_on_student_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "", null: false
@@ -163,10 +156,9 @@ ActiveRecord::Schema.define(version: 20160421130311) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "classroom_schedules", "classrooms"
   add_foreign_key "classroom_schedules", "people", column: "teacher_id"

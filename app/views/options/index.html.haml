@@ -10,4 +10,8 @@
       = label_tag 'options[navbar_background]', option_label_for(:navbar_background), class: 'control-label'
       = select_tag 'options[navbar_background]', options_for_select(navbar_background_options, @options[:navbar_background]), class: 'form-control'
 
+    .form-group
+      = label_tag 'options[invoice_comment]', option_label_for(:invoice_comment), class: 'control-label'
+      = text_area_tag 'options[invoice_comment]', @options[:invoice_comment], class: 'form-control'
+
     = f.submit t('helpers.submit.update', model: Option.model_name.human(count: 2)), class: 'btn btn-primary'

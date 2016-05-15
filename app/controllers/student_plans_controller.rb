@@ -64,7 +64,7 @@ class StudentPlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_plan_params
-      params.require(:student_plan).permit(:plan_id, :discount, :dicsount_formatted, :comment)
+      params.require(:student_plan).permit(:plan_id, :discount, :discount_formatted, :comment)
     end
 
     def student_plan_respond(saved, error_view = :edit)

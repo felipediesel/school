@@ -9,6 +9,7 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice_options = invoice_params
+    @invoice_options[:day] = Option.get(:invoice_day, 10).to_i
 
     respond_to do |format|
       format.pdf do

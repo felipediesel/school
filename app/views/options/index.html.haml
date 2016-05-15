@@ -14,4 +14,8 @@
       = label_tag 'options[invoice_comment]', option_label_for(:invoice_comment), class: 'control-label'
       = text_area_tag 'options[invoice_comment]', @options[:invoice_comment], class: 'form-control'
 
+    .form-group
+      = label_tag 'options[invoice_day]', option_label_for(:invoice_day), class: 'control-label'
+      = select_tag 'options[invoice_day]', options_for_select(1..28, @options[:invoice_day]), class: 'form-control'
+
     = f.submit t('helpers.submit.update', model: Option.model_name.human(count: 2)), class: 'btn btn-primary'

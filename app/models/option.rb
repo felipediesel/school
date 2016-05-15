@@ -1,5 +1,5 @@
 class Option < ApplicationRecord
-  AVAILABLE = %w( app_name navbar_background invoice_comment )
+  AVAILABLE = %w( app_name navbar_background invoice_comment invoice_day )
 
   validates :name, presence: true, uniqueness: true, inclusion: { in: AVAILABLE }
 

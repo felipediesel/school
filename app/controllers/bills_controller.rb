@@ -64,6 +64,12 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:student_id, :description, :amount, :amount_formatted, :discount, :discount_formatted, :due_at, :paid_at)
+      my_params = params.require(:bill).permit(:student_id, :description, :amount, :amount_formatted, :discount, :discount_formatted, :due_at, :paid, :paid_at)
+
+      if my_params[:paid].present? and %w(0 false).include?(my_params[:paid])
+        my_params.except! :paid_at, "paid_at(3i)", "paid_at(2i)", "paid_at(1i)"
+      end
+
+      my_params
     end
 end

@@ -3,10 +3,11 @@
     .col-md-6= f.association :student
     .col-md-6= f.input :description
   .row
-    .col-md-6= f.input :amount_formatted
-    .col-md-6= f.input :discount_formatted
+    .col-md-4= f.input :amount_formatted
+    .col-md-4= f.input :discount_formatted
   .row
-    .col-md-6= f.input :due_at
-    .col-md-6= f.input :paid_at
+    .col-md-4= f.input :due_at
+    .col-md-4= f.input :paid, as: :select, include_blank: false
+    .col-md-4= f.input :paid_at, wrapper_html: { hidden: !f.object.paid? }
 
   = f.button :submit, class: 'btn-primary'

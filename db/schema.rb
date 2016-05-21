@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421130311) do
+ActiveRecord::Schema.define(version: 20160520231720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
+    t.integer  "student_id"
+    t.date     "reference"
+    t.string   "description"
+    t.decimal  "amount",      precision: 13, scale: 2, default: "0.0"
+    t.decimal  "discount",    precision: 13, scale: 2, default: "0.0"
+    t.decimal  "total",       precision: 13, scale: 2, default: "0.0"
+    t.date     "due_at"
+    t.date     "paid_at"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.index ["student_id"], name: "index_bills_on_student_id", using: :btree
+  end
 
   create_table "classroom_schedules", force: :cascade do |t|
     t.integer  "classroom_id"
@@ -160,6 +174,7 @@ ActiveRecord::Schema.define(version: 20160421130311) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bills", "people", column: "student_id"
   add_foreign_key "classroom_schedules", "classrooms"
   add_foreign_key "classroom_schedules", "people", column: "teacher_id"
   add_foreign_key "classroom_schedules", "rooms"

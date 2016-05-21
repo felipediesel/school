@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      bill:
+        one: Cobrança
+        other: Cobranças
+    attributes:
+      bill:
+        student_id: Aluno
+        student: Aluno
+        reference: Referente a
+        description: Descrição
+        amount: Valor
+        amount_formatted: Valor
+        discount: Desconto
+        discount_formatted: Desconto
+        total: Total
+        due_at: Vencimento
+        paid_at: Pagamento

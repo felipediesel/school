@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
   devise_for :users, skip: [:registrations]
   root 'students#index'
 
+  resources :bills, except: [ :show ]
   resources :classrooms
   resources :rooms
   resources :plans

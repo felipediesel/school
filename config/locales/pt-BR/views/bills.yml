@@ -1,0 +1,16 @@
+pt-BR:
+  bills:
+    edit:
+      title: Alterar Cobrança
+    index:
+      title: Cobranças
+    classroom:
+      destroy_confirm: Deseja excluir esta cobrança?
+    new:
+      title: Adicionar Cobrança
+    create:
+      notice: Cobrança %{description} criada.
+    update:
+      notice: Cobrança %{description} atualizada.
+    destroy:
+      notice: Cobrança %{description} excluída.

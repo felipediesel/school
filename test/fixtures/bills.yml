@@ -1,0 +1,14 @@
+paid:
+  student: daniel
+  description: Paid Bill
+  amount: 19.99
+  discount: 4.99
+  due_at: 2016-04-10
+  paid_at: 2016-04-10
+
+unpaid:
+  student: daniel
+  description: Unpaid Bill
+  amount: 29.99
+  discount: 9.99
+  due_at: 2016-04-10

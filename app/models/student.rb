@@ -2,6 +2,7 @@ class Student < Person
   has_many :subscriptions
   has_many :classrooms, through: :subscriptions
   has_many :levels, -> { order(:date) }, class_name: 'StudentLevel'
+  has_many :bills, -> { order(:due_at) }
   has_many :plans, class_name: 'StudentPlan'
 
   default_scope { where(student: true) }
@@ -22,5 +23,4 @@ class Student < Person
       self.responsible_document = nil
     end
   end
-
 end

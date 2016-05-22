@@ -1,0 +1,16 @@
+pt-BR:
+  bill_generators:
+    new:
+      title: Gerar Cobranças
+    create:
+      notice: Cobranças geradas.
+      notice_error: Cobrançås não puderam ser geradas.
+  simple_form:
+    labels:
+      bill_generator:
+        reference: Mês de referência
+
+  helpers:
+    submit:
+      bill_generator:
+        submit: Gerar Cobranças

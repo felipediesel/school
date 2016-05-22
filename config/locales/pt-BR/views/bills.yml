@@ -4,7 +4,8 @@ pt-BR:
       title: Alterar Cobrança
     index:
       title: Cobranças
-    classroom:
+      bill_generator: Gerar Cobranças
+    bill:
       destroy_confirm: Deseja excluir esta cobrança?
     new:
       title: Adicionar Cobrança
@@ -14,3 +15,5 @@ pt-BR:
       notice: Cobrança %{description} atualizada.
     destroy:
       notice: Cobrança %{description} excluída.
+    text:
+      description: Mensalidade de %{month}

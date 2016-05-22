@@ -1,5 +1,7 @@
 .content-header
-  %nav= link_to t('text.new'), new_bill_path, class: 'btn btn-primary-outline btn-sm'
+  %nav
+    = link_to t('.bill_generator'), new_bill_generator_path, remote: true, class: 'btn btn-primary-outline btn-sm'
+    = link_to t('text.new'), new_bill_path, class: 'btn btn-primary-outline btn-sm'
   %h2= title
 
 = display_when_present @bills do

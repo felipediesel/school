@@ -1,0 +1,10 @@
+.modal-header
+  %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+    %span{"aria-hidden" => "true"} ×
+  %h4.modal-title= title
+= simple_form_for :bill_generator, url: bill_generator_path do |f|
+  .modal-body
+    = f.input :reference, collection: bill_reference_collection, selected: Date.today.month , required: false
+
+  .modal-footer
+    = f.button :submit, class: 'btn-primary', disable_with: nil

@@ -4,7 +4,7 @@ class BillsController < ApplicationController
   # GET /bills
   # GET /bills.json
   def index
-    @bills = Bill.order :due_at, :amount
+    @bills = Bill.includes(:student).order :due_at, :amount
   end
 
   # GET /bills/new

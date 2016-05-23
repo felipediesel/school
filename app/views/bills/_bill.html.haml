@@ -3,9 +3,7 @@
   %td= bill.description
   %td= l bill.due_at
   %td= l bill.paid_at if bill.paid_at.present?
-  %td= number_to_currency bill.amount
-  %td= number_to_currency bill.discount
-  %td= number_to_currency bill.total
+  %td.text-nowrap= number_to_currency bill.total
   %td.actions
     = link_to t('text.edit'), edit_bill_path(bill)
     = link_to_destroy bill

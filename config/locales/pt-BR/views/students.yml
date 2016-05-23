@@ -16,6 +16,7 @@ pt-BR:
       levels: Graduações
       subscriptions: Horários
       plans: Planos
+      bills: Cobranças
     create:
       notice: Aluno %{name} criado.
     update:

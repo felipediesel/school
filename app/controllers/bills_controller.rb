@@ -1,15 +1,16 @@
 class BillsController < ApplicationController
   before_action :set_bill, only: [ :edit, :update, :destroy]
+  before_action :set_student
 
   # GET /bills
   # GET /bills.json
   def index
-    @bills = Bill.includes(:student).order :due_at, :amount
+    @bills = get_bills.includes(:student).order :due_at, :amount
   end
 
   # GET /bills/new
   def new
-    @bill = Bill.new
+    @bill = get_bills.new
   end
 
   # GET /bills/1/edit
@@ -19,11 +20,11 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
-    @bill = Bill.new bill_params
+    @bill = get_bills.new bill_params
 
     respond_to do |format|
       if @bill.save
-        format.html { redirect_to bills_path, notice: t('.notice', description: @bill.description) }
+        format.html { redirect_to [ @student, :bills ], notice: t('.notice', description: @bill.description) }
         format.json { render :show, status: :created, location: @bill }
       else
         format.html { render :new }
@@ -37,7 +38,7 @@ class BillsController < ApplicationController
   def update
     respond_to do |format|
       if @bill.update(bill_params)
-        format.html { redirect_to bills_path, notice: t('.notice', description: @bill.description) }
+        format.html { redirect_to [ @student, :bills ], notice: t('.notice', description: @bill.description) }
         format.json { render :show, status: :ok, location: @bill }
       else
         format.html { render :edit }
@@ -51,7 +52,7 @@ class BillsController < ApplicationController
   def destroy
     @bill.destroy
     respond_to do |format|
-      format.html { redirect_to bills_url, notice: t('.notice', description: @bill.description) }
+      format.html { redirect_to [ @student, :bills ], notice: t('.notice', description: @bill.description) }
       format.json { head :no_content }
     end
   end
@@ -60,6 +61,14 @@ class BillsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_bill
       @bill = Bill.find(params[:id])
+    end
+
+    def get_bills
+      @student.present? ? @student.bills : Bill
+    end
+
+    def set_student
+      @student = Student.find_by_id(params[:student_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

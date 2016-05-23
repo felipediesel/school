@@ -41,7 +41,8 @@ module ApplicationHelper
     link_to t('text.destroy'), object, method: :delete, data: { confirm: t(".destroy_confirm", default: t('text.destroy_confirm')) }, class: 'text-danger'
   end
 
-  def title(text = '')
+  def title(text = '', &block)
+    text = capture(&block) if block_given?
     text = t('.title') if text.blank?
 
     content_for :title, text

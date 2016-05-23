@@ -1,6 +1,12 @@
-= simple_form_for @bill do |f|
+= simple_form_for [ @student, @bill ] do |f|
   .row
-    .col-md-6= f.association :student
+    .col-md-6
+      - if @student
+        = show_for @student do |s|
+          = s.attribute :name
+          = f.input :student_id, as: :hidden
+      - else
+        = f.association :student
     .col-md-6= f.input :description
   .row
     .col-md-4= f.input :amount_formatted

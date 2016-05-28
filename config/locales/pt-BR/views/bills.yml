@@ -5,6 +5,11 @@ pt-BR:
     index:
       title: Cobranças
       bill_generator: Gerar Cobranças
+      filter:
+        paid: Pago
+        not_paid: Em Aberto
+        overdue: Atrasado
+        all: Tudo
     bill:
       destroy_confirm: Deseja excluir esta cobrança?
     new:

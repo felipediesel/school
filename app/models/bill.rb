@@ -3,6 +3,10 @@ class Bill < ApplicationRecord
 
   belongs_to :student
 
+  scope :not_paid, -> { where(paid_at: nil) }
+  scope :paid, -> { where.not(paid_at: nil) }
+  scope :overdue, -> { not_paid.where("due_at < ?", Date.today) }
+
   attr_accessor :paid
 
   validates :student_id, presence: true
@@ -39,7 +43,7 @@ class Bill < ApplicationRecord
     end
   end
 
-  def late?
+  def overdue?
     due_at < lambda { Date.today }.call and !paid?
   end
 

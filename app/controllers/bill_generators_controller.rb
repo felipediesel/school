@@ -8,10 +8,12 @@ class BillGeneratorsController < ApplicationController
   end
 
   def create
-    bill_generator_service = BillGeneratorService.new(Date.parse(params[:bill_generator][:reference]), [@student])
+    students = [ @student ] if @student
+    reference_date = Date.parse(params[:bill_generator][:reference])
+    bill_generator_service = BillGeneratorService.new(reference_date, students)
 
     if bill_generator_service.call
-      redirect_to [@student, :bills], notice: t('.notice', created_bills: bill_generator_service.created_bills)
+      redirect_to [@student, :bills], notice: t('.notice', count: bill_generator_service.created_bills)
     elsif bill_generator_service.students.empty?
       redirect_to [@student, :bills], notice: t('.notice_empty')
     else

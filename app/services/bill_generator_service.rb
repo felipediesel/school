@@ -1,9 +1,9 @@
 class BillGeneratorService
   attr_accessor :reference_date, :students, :created_bills
 
-  def initialize(reference_date, students = [])
+  def initialize(reference_date, students = nil)
     self.reference_date = reference_date.beginning_of_month
-    self.students = students.any? ? students : Student.where.not(id: Bill.where(reference: self.reference_date).pluck(:student_id)).includes(plans: :plan)
+    self.students = students || Student.where.not(id: Bill.where(reference: self.reference_date).pluck(:student_id)).includes(plans: :plan)
     self.created_bills = 0
   end
 
@@ -12,7 +12,6 @@ class BillGeneratorService
 
     Bill.transaction do
       begin
-        byebug
         students.each do |student|
           create_bill student
           self.created_bills += 1

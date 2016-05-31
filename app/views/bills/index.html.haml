@@ -2,7 +2,7 @@
   %nav
     = bill_filter_dropdown
 
-    = link_to t('.bill_generator'), new_bill_generator_path, remote: true, class: 'btn btn-primary-outline btn-sm'
+    = link_to t('.bill_generator'), [:new, @student, :bill_generator], remote: true, class: 'btn btn-primary-outline btn-sm'
     = link_to t('text.new'), [ :new, @student, :bill ], class: 'btn btn-primary-outline btn-sm'
   %h2
     = title do

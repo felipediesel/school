@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :plans
   resources :students, except: [ :destroy ] do
     resources :bills, except: [ :show ]
+    resource :bill_generator, only: [ :new, :create ]
+
     resource :invoice, only: [ :new, :create ]
     resources :student_levels, path: :levels
     resources :student_plans, path: :plans

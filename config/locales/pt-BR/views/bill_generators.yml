@@ -3,8 +3,9 @@ pt-BR:
     new:
       title: Gerar Cobranças
     create:
-      notice: Cobranças geradas.
-      notice_error: Cobrançås não puderam ser geradas.
+      notice: Foram geradas %{created_bills} cobranças.
+      notice_empty: Não nenhuma cobranças para gerar no mês selecionado.
+      notice_error: As cobranças não puderam ser geradas.
   simple_form:
     labels:
       bill_generator:

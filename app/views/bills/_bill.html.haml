@@ -5,5 +5,5 @@
   %td= l bill.paid_at if bill.paid_at.present?
   %td.text-nowrap= number_to_currency bill.total
   %td.actions
-    = link_to t('text.edit'), [ :edit, @student, bill ]
+    = link_to icon_for(:edit), [ :edit, @student, bill ], title: t('text.edit'), 'data-toggle' => 'tooltip'
     = link_to_destroy [ @student, bill ]

@@ -1,5 +1,5 @@
 %tr
   %td= room.name
   %td.actions
-    = link_to t('text.edit'), edit_room_path(room)
+    = link_to icon_for(:edit), edit_room_path(room), title: t('text.edit'), 'data-toggle' => 'tooltip'
     = link_to_destroy room if room.can_destroy?

@@ -13,5 +13,5 @@
       %tr
         %td= user.name
         %td.actions
-          = link_to t('text.edit'), edit_user_path(user)
+          = link_to icon_for(:edit), edit_user_path(user), title: t('text.edit'), 'data-toggle' => 'tooltip'
           = link_to_destroy user if user != current_user

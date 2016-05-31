@@ -1,6 +1,6 @@
 .content-header
   %nav
-    = link_to t('text.edit'), edit_student_path(@student), class: 'btn btn-primary-outline btn-sm'
+    = link_to icon_for(:edit, t('text.edit')), edit_student_path(@student), class: 'btn btn-primary-outline btn-sm'
     - if @student.teacher?
       = link_to t('.as_teacher'), teacher_path(@student), class: 'btn btn-secondary btn-sm'
     = link_to t('text.back'), students_path, class: 'btn btn-secondary btn-sm'

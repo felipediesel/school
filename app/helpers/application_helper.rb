@@ -38,7 +38,7 @@ module ApplicationHelper
   end
 
   def link_to_destroy(object)
-    link_to t('text.destroy'), object, method: :delete, data: { confirm: t(".destroy_confirm", default: t('text.destroy_confirm')) }, class: 'text-danger'
+    link_to icon_for(:destroy), object, method: :delete, title: t('text.destroy'), data: { toggle: 'tooltip', confirm: t(".destroy_confirm", default: t('text.destroy_confirm')) }, class: 'text-danger'
   end
 
   def title(text = '', &block)

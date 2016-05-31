@@ -1,5 +1,5 @@
 %tr
   %td= classroom.name
   %td.actions
-    = link_to t('text.edit'), edit_classroom_path(classroom)
+    = link_to icon_for(:edit), edit_classroom_path(classroom), title: t('text.edit'), 'data-toggle' => 'tooltip'
     = link_to_destroy classroom if classroom.can_destroy?

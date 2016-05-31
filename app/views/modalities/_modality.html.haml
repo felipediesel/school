@@ -5,5 +5,5 @@
     - modality.levels.pluck(:color).each do |color|
       %span.label.label-pill.level-color{style: "background:#{color}"} &nbsp;
   %td.actions
-    = link_to t('text.edit'), edit_modality_path(modality)
+    = link_to icon_for(:edit), edit_modality_path(modality), title: t('text.edit'), 'data-toggle' => 'tooltip'
     = link_to_destroy modality if modality.can_destroy?

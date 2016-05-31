@@ -7,5 +7,5 @@
   %td.text-xs-right= number_to_currency student_plan.amount
   %td.text-xs-right= number_to_percentage student_plan.discount, strip_insignificant_zeros: true
   %td.actions
-    = link_to t('text.edit'), [:edit, @student, student_plan]
+    = link_to icon_for(:edit), [:edit, @student, student_plan], title: t('text.edit'), 'data-toggle' => 'tooltip'
     = link_to_destroy [@student, student_plan]

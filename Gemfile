@@ -19,6 +19,7 @@ gem 'country_select'
 gem 'show_for'
 gem 'devise'
 gem 'haml'
+gem 'font-awesome-sass'
 
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'

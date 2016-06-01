@@ -14,5 +14,7 @@ class StudentPlanTest < ActiveSupport::TestCase
 
     assert_equal student_plan.total_amount.to_f, 42.25, "StudentPlan total_amount should be discounted."
 
+    student_plan.save
+    assert_equal student_plan.read_attribute(:total_amount).to_f, 42.25, "StudentPlan total_amount should be saved in the DB."
   end
 end

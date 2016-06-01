@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520231720) do
+ActiveRecord::Schema.define(version: 20160601002330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,10 +138,11 @@ ActiveRecord::Schema.define(version: 20160520231720) do
   create_table "student_plans", force: :cascade do |t|
     t.integer  "student_id"
     t.integer  "plan_id"
-    t.decimal  "discount",   precision: 13, scale: 2, default: "0.0"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
+    t.decimal  "discount",     precision: 13, scale: 2, default: "0.0"
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
     t.string   "comment"
+    t.decimal  "total_amount", precision: 13, scale: 2, default: "0.0"
     t.index ["plan_id"], name: "index_student_plans_on_plan_id", using: :btree
     t.index ["student_id"], name: "index_student_plans_on_student_id", using: :btree
   end

@@ -1,7 +1,7 @@
 module IconHelper
   def icon(kind, text = nil)
     options = { class: "fa fa-#{kind}" }
-    "#{content_tag(:span, nil, options)} #{h text}".html_safe
+    "#{content_tag(:span, nil, options)} #{h text}".strip.html_safe
   end
 
   def icon_for(action, text = nil)

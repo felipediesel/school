@@ -10,7 +10,7 @@ class BillGeneratorServiceTest < ActiveSupport::TestCase
 
   test "should load students if is not provided" do
     bill_generator_service = BillGeneratorService.new(Date.today)
-    assert_not bill_generator_service.students.empty?, 'BillGeneratorService should load students'
+    assert_not bill_generator_service.students.nil?, 'BillGeneratorService should load students'
   end
 
   test "should create one bill for each students" do
@@ -21,7 +21,7 @@ class BillGeneratorServiceTest < ActiveSupport::TestCase
     end
   end
 
-  test "should create a bill with the amount of student plans." do
+  test "should create a bill with the amount of student plans" do
     student = Student.create name: 'Jerry'
     student.plans.create plan: Plan.create(name: "Jerry's plan", amount: 50), discount: 10.5
 
@@ -30,5 +30,4 @@ class BillGeneratorServiceTest < ActiveSupport::TestCase
 
     assert_equal bill.amount.to_f, student.plans.collect(&:total_amount).sum.to_f, "Bill shoud have the same value as the plans of a student"
   end
-
 end

@@ -15,6 +15,13 @@ class Student < Person
     birthday.present? and birthday > lambda { 18.years.ago }.call
   end
 
+  def self.to_generate_bills(reference_date)
+    self.where(status: :active)
+      .where.not(id: Bill.where(reference: reference_date).pluck(:student_id))
+      .joins(:plans).where('student_plans.total_amount > 0')
+      .includes(plans: :plan)
+  end
+
   private
 
   def empty_responsible_name_if_is_over_18

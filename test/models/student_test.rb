@@ -33,4 +33,36 @@ class StudentTest < ActiveSupport::TestCase
 
     assert student.responsible_name.blank?
   end
+
+  test "should load only active students to generate bills" do
+    plan = Plan.create name: "Active Student's plan", amount: 50
+
+    active_student = Student.create name: 'Active Student', status: :active
+    active_student.plans.create plan: plan
+    suspended_student = Student.create name: 'Active Student', status: :suspended
+    suspended_student.plans.create plan: plan
+    inactive_student = Student.create name: 'Active Student', status: :inactive
+    inactive_student.plans.create plan: plan
+
+    students = Student.to_generate_bills(Date.today)
+
+    assert_includes students, active_student, "Students should load active students"
+    assert_not_includes students, suspended_student, "Students should not load suspended students"
+    assert_not_includes students, inactive_student, "Students should not load inactive students"
+  end
+
+  test "should load only students that have an amount to generate bills" do
+    student_ten = Student.create name: 'Ten'
+    student_ten.plans.create plan: Plan.create(name: "Ten's plan", amount: 10)
+    student_zero = Student.create name: 'Zero'
+    student_zero.plans.create plan: Plan.create(name: "Zero's plan", amount: 0)
+    student_discount = Student.create name: 'Discount'
+    student_discount.plans.create plan: Plan.create(name: "Discount's plan", amount: 10), discount: 100
+
+    students = Student.to_generate_bills(Date.today)
+
+    assert_includes students, student_ten, "Students should load students with amount bigger then zero"
+    assert_not_includes students, student_zero, "Students should not load students with amount of zero"
+    assert_not_includes students, student_discount, "Students should not load student if discount is 100%"
+  end
 end

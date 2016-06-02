@@ -3,7 +3,7 @@ class BillGeneratorService
 
   def initialize(reference_date, students = nil)
     self.reference_date = reference_date.beginning_of_month
-    self.students = students || Student.where.not(id: Bill.where(reference: self.reference_date).pluck(:student_id)).includes(plans: :plan)
+    self.students = students || Student.to_generate_bills(reference_date)
     self.created_bills = 0
   end
 

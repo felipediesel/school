@@ -1,0 +1,11 @@
+pt-BR:
+  bill_payments:
+    new:
+      title: Pagar Cobrança
+      submit: Pagar Cobrança
+    create:
+      notice:
+        one: Foi gerada %{count} cobrança.
+        other: Foram geradas %{count} cobranças.
+      notice_empty: Não nenhuma cobranças para gerar no mês selecionado.
+      notice_error: As cobranças não puderam ser geradas.

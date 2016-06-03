@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
   root 'students#index'
 
-  resources :bills, except: [ :show ]
+  resources :bills, except: [ :show ] do
+    resource :bill_payments, only: [ :new, :create ], path: :payment
+  end
   resource :bill_generator, only: [ :new, :create ]
   resources :classrooms
   resources :rooms

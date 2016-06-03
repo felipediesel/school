@@ -7,7 +7,8 @@ module IconHelper
   def icon_for(action, text = nil)
     icons = {
       destroy: :times,
-      edit: :pencil
+      edit: :pencil,
+      check: 'check-circle'
     }
     kind = icons[action] || action
 

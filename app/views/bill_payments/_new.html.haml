@@ -1,0 +1,20 @@
+.modal-header
+  = close_button
+  %h4.modal-title= title
+
+= simple_form_for @bill, url: [ @bill, :bill_payments ], method: :post, remote: true do |f|
+  = f.input :paid, as: :hidden
+  .modal-body
+    = show_for f.object do |b|
+      .row
+        .col-md-6= b.attribute :name, in: :student
+        .col-md-6= b.attribute :description
+      .row
+        .col-md-6= b.attribute :due_at
+        .col-md-6= b.attribute :amount_formatted
+    .row
+      .col-md-6= f.input :paid_at, wrapper_html: { hidden: !f.object.paid? }
+      .col-md-6= f.input :discount_formatted
+
+  .modal-footer
+    = f.button :submit, t('.submit'), class: 'btn-primary', disable_with: nil

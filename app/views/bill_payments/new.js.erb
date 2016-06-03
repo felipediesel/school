@@ -1,0 +1,3 @@
+modal("<%= j render(partial: 'new', layout: 'layouts/modal') %>").on('shown.bs.modal', function (){
+  $(':input:visible:first', '.modal form').focus();
+});

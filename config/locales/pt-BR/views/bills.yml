@@ -11,6 +11,7 @@ pt-BR:
         overdue: Atrasado
         all: Tudo
     bill:
+      pay: Pagar Cobrança
       destroy_confirm: Deseja excluir esta cobrança?
     new:
       title: Adicionar Cobrança

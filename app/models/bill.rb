@@ -36,7 +36,7 @@ class Bill < ApplicationRecord
   def paid=(value)
     value = ['1', 'true'].include?(value) unless !!value == value
 
-    if value and value != '0'
+    if value
       self.paid_at ||= lambda { Date.today }.call
     else
       self.paid_at = nil

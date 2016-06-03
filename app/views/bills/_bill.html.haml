@@ -1,9 +1,10 @@
-%tr{ class: bill_tr_class(bill) }
+%tr{ class: bill_tr_class(bill) }[bill]
   %td= link_to bill.student.name, bill.student
   %td= bill.description
   %td= l bill.due_at
-  %td= l bill.paid_at if bill.paid_at.present?
+  %td= l bill.paid_at if bill.paid?
   %td.text-nowrap= number_to_currency bill.total
   %td.actions
+    = link_to icon_for(:check), [ :new, bill, :bill_payments ], remote: true, title: t('.pay'), 'data-toggle' => 'tooltip', class: 'text-success' if ! bill.paid?
     = link_to icon_for(:edit), [ :edit, @student, bill ], title: t('text.edit'), 'data-toggle' => 'tooltip'
     = link_to_destroy [ @student, bill ]

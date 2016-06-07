@@ -12,9 +12,11 @@
       .row
         .col-md-6= b.attribute :due_at
         .col-md-6= b.attribute :amount_formatted
+
+    = f.input :paid_at, wrapper_html: { hidden: !f.object.paid? }
     .row
-      .col-md-6= f.input :paid_at, wrapper_html: { hidden: !f.object.paid? }
       .col-md-6= f.input :discount_formatted
+      .col-md-6= f.input :increase_formatted
 
   .modal-footer
     = f.button :submit, t('.submit'), class: 'btn-primary', disable_with: nil

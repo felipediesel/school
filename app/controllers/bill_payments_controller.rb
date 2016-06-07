@@ -15,6 +15,6 @@ class BillPaymentsController < ApplicationController
     end
 
     def bill_params
-      params.require(:bill).permit(:discount, :discount_formatted, :paid_at)
+      params.require(:bill).permit(:discount, :discount_formatted, :increase, :increase_formatted,  :paid_at)
     end
 end

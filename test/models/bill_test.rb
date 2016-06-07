@@ -12,15 +12,15 @@ class BillTest < ActiveSupport::TestCase
   end
 
   test "should have required validators" do
-    bill = Bill.new amount: nil, discount: nil, total: nil
+    bill = Bill.new amount: nil, discount: nil, increase: nil, total: nil
     assert_not bill.valid?
-    assert_equal [ :student_id, :description, :amount, :discount, :total, :due_at ], bill.errors.keys
+    assert_equal [ :student_id, :description, :amount, :discount, :increase, :total, :due_at ], bill.errors.keys
   end
 
   test "should calculate total" do
-    bill = Bill.new amount: 50, discount: 10.5
+    bill = Bill.new amount: 50, discount: 10.5, increase: 6
 
-    assert_equal 39.5, bill.total.to_f, "Bill total should be discounted"
+    assert_equal 45.5, bill.total.to_f, "Bill total should be calculated"
   end
 
   test "should be paid if paid_at is blank" do

@@ -13,19 +13,25 @@ class Bill < ApplicationRecord
   validates :description, presence: true
   validates :amount, numericality: true
   validates :discount, numericality: true
+  validates :increase, numericality: true
   validates :total, numericality: true
   validates :due_at, presence: true
 
-  decimal_format :amount, :discount
+  decimal_format :amount, :discount, :increase
 
   def amount=(value)
     self.write_attribute :amount, value
-    write_total value, discount
+    write_total value, discount, increase
   end
 
   def discount=(value)
     self.write_attribute :discount, value
-    write_total amount, value
+    write_total amount, value, increase
+  end
+
+  def increase=(value)
+    self.write_attribute :increase, value
+    write_total amount, discount, value
   end
 
   def paid
@@ -49,9 +55,10 @@ class Bill < ApplicationRecord
 
   private
 
-    def write_total(amount, discount = 0)
+    def write_total(amount, discount = 0, increase = 0)
       amount ||= 0
       discount ||= 0
-      self.write_attribute :total, amount - discount
+      increase ||= 0
+      self.write_attribute :total, amount - discount + increase
     end
 end

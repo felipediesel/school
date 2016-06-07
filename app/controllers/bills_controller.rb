@@ -7,7 +7,7 @@ class BillsController < ApplicationController
   def index
     @status = %w( not_paid paid overdue all ).include?(params[:status]) ? params[:status] : 'not_paid'
 
-    @bills = get_bills.joins(:student).includes(:student).send(@status).order(:due_at, :amount)
+    @bills = get_bills.joins(:student).includes(:student).send(@status).order(:due_at, 'people.name', :created_at)
   end
 
   # GET /bills/new

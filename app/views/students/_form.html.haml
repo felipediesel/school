@@ -6,7 +6,7 @@
     .col-md-6= f.input :document1
     .col-md-6= f.input :document2
   .row
-    .col-md-6= f.input :birthday, { include_blank: true, default: nil }
+    .col-md-6= f.input :birthday, { include_blank: true, default: nil, start_year: Date.today.year - 70, end_year: Date.today.year }
     .col-md-6= f.input :status, collection: person_status_options_for_select, include_blank: false
 
   #responsible_fields

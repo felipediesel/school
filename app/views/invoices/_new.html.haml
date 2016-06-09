@@ -1,7 +1,5 @@
-.modal-header
-  %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-    %span{"aria-hidden" => "true"} ×
-  %h4.modal-title= title
+= modal_header
+
 = simple_form_for :invoice, url: student_invoice_path(@student, format: :pdf), html: { target: '_blank' } do |f|
   .modal-body
     = show_for @student do |s|

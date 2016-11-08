@@ -1,0 +1,10 @@
+.content-header
+  %h2= title
+
+= simple_form_for :student_report, url: student_report_path(format: :pdf) do |f|
+  .row
+    .col-md-6= f.input :classroom_id, collection: Classroom.all
+    .col-md-6= f.input :plan_id, collection: Plan.all
+    .col-md-6= f.input :status, collection: person_status_options_for_select
+
+  = f.button :submit, t('.submit'), class: 'btn-primary'

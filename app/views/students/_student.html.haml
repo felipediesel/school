@@ -2,4 +2,5 @@
   %td.text-xs-center= link_to student.code, student
   %td= link_to student.name, student
   %td= student.classrooms.map(&:name).uniq.to_sentence
+  %td= student.plans.joins(:plan).map(&:name).uniq.to_sentence
   %td= person_status_label student

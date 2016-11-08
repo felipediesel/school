@@ -1,0 +1,18 @@
+%h2= title
+
+%table.table
+  %thead
+    %tr
+      %th.text-xs-center= Student.human_attribute_name :code
+      %th= Student.human_attribute_name :name
+      %th= Classroom.model_name.human count: 2
+      %th= Plan.model_name.human count: 2
+      %th= Student.human_attribute_name :status
+  %tbody
+    - @students.each do |student|
+      %tr
+        %td.text-xs-center= student.code
+        %td= student.name
+        %td= student.classrooms.map(&:name).uniq.to_sentence
+        %td= student.plans.map(&:name).uniq.to_sentence
+        %td= person_status_label student

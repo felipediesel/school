@@ -1,0 +1,14 @@
+pt-BR:
+  student_reports:
+    new:
+      title: Relatório de Alunos
+      submit: Gerar Relatório
+    create:
+      title: Relatório de Alunos
+      filename: relatorio_de_alunos.pdf
+  simple_form:
+    labels:
+      student_report:
+        classroom: Turma
+        plan: Plano
+        status: Situação

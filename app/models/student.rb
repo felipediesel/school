@@ -1,4 +1,6 @@
 class Student < Person
+  include Report
+
   has_many :subscriptions
   has_many :classrooms, through: :subscriptions
   has_many :levels, -> { order(:date) }, class_name: 'StudentLevel'

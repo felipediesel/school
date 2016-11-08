@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   resources :modalities
   resources :users, except: [ :show ]
 
+  resource :student_report, only: [ :new, :create ]
+
   get :options, to: 'options#index'
   post :options, to: 'options#update'
 end

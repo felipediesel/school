@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -20,9 +19,9 @@ ActiveRecord::Schema.define(version: 20160607101118) do
     t.integer  "student_id"
     t.date     "reference"
     t.string   "description"
-    t.decimal  "amount",      precision: 13, scale: 2, default: "0.0"
-    t.decimal  "discount",    precision: 13, scale: 2, default: "0.0"
-    t.decimal  "total",       precision: 13, scale: 2, default: "0.0"
+    t.decimal  "amount",      precision: 13, scale: 2, default: "0.0", null: false
+    t.decimal  "discount",    precision: 13, scale: 2, default: "0.0", null: false
+    t.decimal  "total",       precision: 13, scale: 2, default: "0.0", null: false
     t.date     "due_at"
     t.date     "paid_at"
     t.datetime "created_at",                                           null: false

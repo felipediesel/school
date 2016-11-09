@@ -9,6 +9,6 @@ pt-BR:
   simple_form:
     labels:
       student_report:
-        classroom: Turma
-        plan: Plano
+        classroom_id: Turma
+        plan_id: Plano
         status: Situação

@@ -10,5 +10,5 @@ pt-BR:
     labels:
       student_report:
         classroom_id: Turma
-        plan_id: Plano
+        plan_ids: Planos
         status: Situação

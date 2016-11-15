@@ -18,6 +18,6 @@ class StudentReportsController < ApplicationController
 
   private
     def student_report_params
-      params[:student_report].blank? ? {} : params.require(:student_report).permit(:classroom_id, :plan_id, :status)
+      params[:student_report].blank? ? {} : params.require(:student_report).permit(:classroom_id, :status, plan_ids: [])
     end
 end

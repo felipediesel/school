@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
     @filter[:status] = params.fetch(:status, 'active')
     redirect :students if !Student::STATUSES.include? @filter[:status]
 
-    @students = Student.where(status: @filter[:status]).includes(classrooms: :modality).order(:name)
+    @students = Student.where(status: @filter[:status]).order(:name)
     @students = @students.where("name ILIKE ?", "%#{@filter[:name]}%")
   end
 

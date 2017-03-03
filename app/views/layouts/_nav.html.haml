@@ -1,4 +1,5 @@
-%ul#main-nav.nav.nav-pills.nav-stacked.collapse.navbar-toggleable-xs
+-# %ul#main-nav.nav.nav-pills.nav-stacked.collapse.navbar-toggleable-xs
+%ul#main-nav.nav.nav-pills.flex-column.collapse.navbar-toggleable-xs
   = nav_item Student.model_name.human(count: 2), [ :students, :student_levels, :subscriptions, :student_plans, :subscription_bulk_updates ]
   = nav_item Bill.model_name.human(count: 2), :bills
   = nav_item Teacher.model_name.human(count: 2), :teachers

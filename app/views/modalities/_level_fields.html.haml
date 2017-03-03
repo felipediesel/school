@@ -4,7 +4,7 @@
     .col-md-4
       .row
         .col-md-2
-          %span.label.label-pill.level-color{style: "background:#{f.object.color}"} &nbsp;
+          %span.badge.level-color{style: "background:#{f.object.color}"} &nbsp;
         .col-md-10= f.input :color, label: false, collection: level_colors_options, include_blank: false
     .col-md-1
       = f.hidden_field :_destroy, data: { destroy: true }

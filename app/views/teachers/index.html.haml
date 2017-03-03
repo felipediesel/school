@@ -1,7 +1,7 @@
 .content-header
   %nav
     = person_filter_dropdown
-    = link_to t('text.new'), new_teacher_path, class: 'btn btn-primary-outline btn-sm'
+    = link_to t('text.new'), new_teacher_path, class: 'btn btn-outline-primary btn-sm'
   %h2= "#{title} #{Teacher.human_status @status, count: 2}"
 
 = display_when_present @teachers do

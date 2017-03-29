@@ -1,28 +1,28 @@
 = show_for @student do |s|
   = s.attribute :name
 .row
-  .col-xs-4
+  .col-4
     .wrapper
       %dt Parcela
       %dd.content= "#{i+1}/#{@invoice_options[:months]}"
-  .col-xs-4
+  .col-4
     .wrapper
       %dt Vencimento
       %dd.content= l @invoice_options[:first_month] + i.months + @invoice_options[:day] - 1
-  .col-xs-4
+  .col-4
     .wrapper
       %dt Valor da Parcela
       %dd.content= number_to_currency @student.plans.collect(&:total_amount).sum
 .row
-  .col-xs-4
+  .col-4
     .wrapper
       %dt Desconto
       %dd.content &nbsp;
-  .col-xs-4
+  .col-4
     .wrapper
       %dt Juros / Multa
       %dd.content &nbsp;
-  .col-xs-4
+  .col-4
     .wrapper
       %dt Valor Recebido
       %dd.content &nbsp;

@@ -3,30 +3,30 @@
 .row
   .col-4
     .wrapper
-      %dt Parcela
+      %dt= I18n.t 'invoices.create.parcel'
       %dd.content= "#{i+1}/#{@invoice_options[:months]}"
   .col-4
     .wrapper
-      %dt Vencimento
+      %dt= I18n.t 'invoices.create.due_day'
       %dd.content= l @invoice_options[:first_month] + i.months + @invoice_options[:day] - 1
   .col-4
     .wrapper
-      %dt Valor da Parcela
+      %dt= I18n.t 'invoices.create.amount'
       %dd.content= number_to_currency @student.plans.collect(&:total_amount).sum
 .row
   .col-4
     .wrapper
-      %dt Desconto
+      %dt= I18n.t 'invoices.create.discount'
       %dd.content &nbsp;
   .col-4
     .wrapper
-      %dt Juros / Multa
+      %dt= I18n.t 'invoices.create.interest'
       %dd.content &nbsp;
   .col-4
     .wrapper
-      %dt Valor Recebido
+      %dt= I18n.t 'invoices.create.received_amount'
       %dd.content &nbsp;
 - if @invoice_options[:comment].present?
   .wrapper
-    %dt Observação
+    %dt= I18n.t 'invoices.create.comment'
     %dd.content= html_escape(@invoice_options[:comment]).gsub("\n", "<br>").html_safe

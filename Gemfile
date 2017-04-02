@@ -43,8 +43,4 @@ group :test do
   gem 'rails-controller-testing'
 end
 
-group :production do
-  gem 'rails_12factor'
-end
-
 ruby "2.3.3"

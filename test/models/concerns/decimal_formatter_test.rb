@@ -11,7 +11,7 @@ class DecimalFormatterTest < ActiveSupport::TestCase
       '12345,6789' => 12_345.68,
       '11.22' => 1_122,
       '11,15TEXT' => 11.15,
-      'TEXT' => 0
+      '2TEXT' => 2
     }.each do |value_formatted, value|
       plan.amount_formatted = value_formatted
       assert_equal plan.amount.to_f, value, "#{value_formatted} should be converted to #{value}"

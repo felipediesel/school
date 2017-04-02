@@ -54,7 +54,7 @@ class BillTest < ActiveSupport::TestCase
   test "should set paid_at to nil if paid is false" do
     bill = Bill.new paid: false
 
-    assert_equal bill.paid_at, nil, "Bill paid_at should be nil"
+    assert_nil bill.paid_at, "Bill paid_at should be nil"
   end
 
   test "should be overdue if due_at is before today" do

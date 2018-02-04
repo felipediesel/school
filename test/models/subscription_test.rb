@@ -12,6 +12,6 @@ class SubscriptionTest < ActiveSupport::TestCase
   test "should have required validators" do
     subscription = Subscription.new
     assert_not subscription.valid?
-    assert_equal [:student_id, :classroom_id, :schedule_id], subscription.errors.keys
+    assert_equal [:student, :classroom, :schedule].sort, subscription.errors.keys.sort
   end
 end

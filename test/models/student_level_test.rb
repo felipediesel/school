@@ -16,6 +16,6 @@ class StudentLevelTest < ActiveSupport::TestCase
   test "should have required validators" do
     student_level = StudentLevel.new
     assert_not student_level.valid?
-    assert_equal [:student_id, :modality_id, :level_id], student_level.errors.keys
+    assert_equal [:student, :modality, :level].sort, student_level.errors.keys.sort
   end
 end

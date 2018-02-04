@@ -16,7 +16,7 @@ class ClassroomTest < ActiveSupport::TestCase
   test "should have required validators" do
     classroom = Classroom.new duration: nil
     assert_not classroom.valid?
-    assert_equal [ :title, :modality, :duration ], classroom.errors.keys
+    assert_equal [ :title, :modality, :duration ].sort, classroom.errors.keys.sort
   end
 
   test "should have name" do

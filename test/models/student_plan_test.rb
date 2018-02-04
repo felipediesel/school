@@ -10,11 +10,11 @@ class StudentPlanTest < ActiveSupport::TestCase
   end
 
   test "should calculate total_amount" do
-    student_plan = StudentPlan.new plan: Plan.new(amount: 50), discount: 15.5
+    student_plan = StudentPlan.new plan: Plan.create(amount: 50), discount: 15.5
 
     assert_equal student_plan.total_amount.to_f, 42.25, "StudentPlan total_amount should be discounted."
 
-    student_plan.save
+    student_plan.save!
     assert_equal student_plan.read_attribute(:total_amount).to_f, 42.25, "StudentPlan total_amount should be saved in the DB."
   end
 end

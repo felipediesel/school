@@ -14,7 +14,7 @@ class BillTest < ActiveSupport::TestCase
   test "should have required validators" do
     bill = Bill.new amount: nil, discount: nil, increase: nil, total: nil
     assert_not bill.valid?
-    assert_equal [ :student_id, :description, :amount, :discount, :increase, :total, :due_at ], bill.errors.keys
+    assert_equal [ :student, :student_id, :description, :amount, :discount, :increase, :total, :due_at ], bill.errors.keys
   end
 
   test "should calculate total" do

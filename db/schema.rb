@@ -15,164 +15,165 @@ ActiveRecord::Schema.define(version: 20160607101118) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bills", force: :cascade do |t|
-    t.integer  "student_id"
-    t.date     "reference"
-    t.string   "description"
-    t.decimal  "amount",      precision: 13, scale: 2, default: "0.0", null: false
-    t.decimal  "discount",    precision: 13, scale: 2, default: "0.0", null: false
-    t.decimal  "total",       precision: 13, scale: 2, default: "0.0", null: false
-    t.date     "due_at"
-    t.date     "paid_at"
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.decimal  "increase",    precision: 13, scale: 2, default: "0.0"
-    t.index ["student_id"], name: "index_bills_on_student_id", using: :btree
+  create_table "bills", id: :serial, force: :cascade do |t|
+    t.integer "student_id"
+    t.date "reference"
+    t.string "description"
+    t.decimal "amount", precision: 13, scale: 2, default: "0.0", null: false
+    t.decimal "discount", precision: 13, scale: 2, default: "0.0", null: false
+    t.decimal "total", precision: 13, scale: 2, default: "0.0", null: false
+    t.date "due_at"
+    t.date "paid_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "increase", precision: 13, scale: 2, default: "0.0"
+    t.index ["student_id"], name: "index_bills_on_student_id"
   end
 
-  create_table "classroom_schedules", force: :cascade do |t|
-    t.integer  "classroom_id"
-    t.integer  "teacher_id"
-    t.integer  "room_id"
-    t.integer  "week_day",     default: 1
-    t.decimal  "start_at",     default: "19.0"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.index ["classroom_id"], name: "index_classroom_schedules_on_classroom_id", using: :btree
-    t.index ["room_id"], name: "index_classroom_schedules_on_room_id", using: :btree
-    t.index ["teacher_id"], name: "index_classroom_schedules_on_teacher_id", using: :btree
+  create_table "classroom_schedules", id: :serial, force: :cascade do |t|
+    t.integer "classroom_id"
+    t.integer "teacher_id"
+    t.integer "room_id"
+    t.integer "week_day", default: 1
+    t.decimal "start_at", default: "19.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_classroom_schedules_on_classroom_id"
+    t.index ["room_id"], name: "index_classroom_schedules_on_room_id"
+    t.index ["teacher_id"], name: "index_classroom_schedules_on_teacher_id"
   end
 
   create_table "classrooms", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "modality_id"
-    t.boolean  "personal"
-    t.integer  "duration",    default: 3600
-    t.text     "comment"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.index ["modality_id"], name: "index_classrooms_on_modality_id", using: :btree
+    t.string "title"
+    t.bigint "modality_id"
+    t.boolean "personal"
+    t.integer "duration", default: 3600
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["modality_id"], name: "index_classrooms_on_modality_id"
   end
 
   create_table "levels", force: :cascade do |t|
-    t.integer  "modality_id"
-    t.string   "name"
-    t.string   "color",       default: "#FFFFFF"
-    t.integer  "position",    default: 0,         null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.index ["modality_id"], name: "index_levels_on_modality_id", using: :btree
+    t.bigint "modality_id"
+    t.string "name"
+    t.string "color", default: "#FFFFFF"
+    t.integer "position", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["modality_id"], name: "index_levels_on_modality_id"
   end
 
   create_table "modalities", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "options", force: :cascade do |t|
-    t.string   "name"
-    t.string   "value"
+  create_table "options", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|
-    t.string   "code"
-    t.boolean  "student",              default: false
-    t.boolean  "teacher",              default: false
-    t.string   "name"
-    t.string   "document1"
-    t.string   "document2"
-    t.date     "birthday"
-    t.string   "status",               default: "active"
-    t.string   "responsible_name"
-    t.string   "responsible_document"
-    t.string   "street"
-    t.string   "district"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "cellphone"
-    t.string   "email"
-    t.string   "blood_type"
-    t.string   "profession"
-    t.text     "comment"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.index ["status"], name: "index_people_on_status", using: :btree
+    t.string "code"
+    t.boolean "student", default: false
+    t.boolean "teacher", default: false
+    t.string "name"
+    t.string "document1"
+    t.string "document2"
+    t.date "birthday"
+    t.string "status", default: "active"
+    t.string "responsible_name"
+    t.string "responsible_document"
+    t.string "street"
+    t.string "district"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "zip"
+    t.string "phone"
+    t.string "cellphone"
+    t.string "email"
+    t.string "blood_type"
+    t.string "profession"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["status"], name: "index_people_on_status"
   end
 
-  create_table "plans", force: :cascade do |t|
-    t.string   "name"
-    t.decimal  "amount",     precision: 13, scale: 2, default: "0.0"
-    t.integer  "position",                            default: 0,     null: false
-    t.text     "comment"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.string   "name"
-    t.text     "comment"
-    t.integer  "position",   null: false
+  create_table "plans", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.decimal "amount", precision: 13, scale: 2, default: "0.0"
+    t.integer "position", default: 0, null: false
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "student_levels", force: :cascade do |t|
-    t.integer  "student_id"
-    t.integer  "modality_id"
-    t.integer  "level_id"
-    t.date     "date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["level_id"], name: "index_student_levels_on_level_id", using: :btree
-    t.index ["modality_id"], name: "index_student_levels_on_modality_id", using: :btree
-    t.index ["student_id"], name: "index_student_levels_on_student_id", using: :btree
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.text "comment"
+    t.integer "position", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "student_plans", force: :cascade do |t|
-    t.integer  "student_id"
-    t.integer  "plan_id"
-    t.decimal  "discount",     precision: 13, scale: 2, default: "0.0"
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
-    t.string   "comment"
-    t.decimal  "total_amount", precision: 13, scale: 2, default: "0.0"
-    t.index ["plan_id"], name: "index_student_plans_on_plan_id", using: :btree
-    t.index ["student_id"], name: "index_student_plans_on_student_id", using: :btree
+  create_table "student_levels", id: :serial, force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "modality_id"
+    t.integer "level_id"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level_id"], name: "index_student_levels_on_level_id"
+    t.index ["modality_id"], name: "index_student_levels_on_modality_id"
+    t.index ["student_id"], name: "index_student_levels_on_student_id"
+  end
+
+  create_table "student_plans", id: :serial, force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "plan_id"
+    t.decimal "discount", precision: 13, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "comment"
+    t.decimal "total_amount", precision: 13, scale: 2, default: "0.0"
+    t.index ["plan_id"], name: "index_student_plans_on_plan_id"
+    t.index ["student_id"], name: "index_student_plans_on_student_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.integer  "student_id"
-    t.integer  "classroom_id"
-    t.integer  "schedule_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["schedule_id"], name: "index_subscriptions_on_schedule_id", using: :btree
-    t.index ["student_id"], name: "index_subscriptions_on_student_id", using: :btree
+    t.bigint "student_id"
+    t.bigint "classroom_id"
+    t.bigint "schedule_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_subscriptions_on_classroom_id"
+    t.index ["schedule_id"], name: "index_subscriptions_on_schedule_id"
+    t.index ["student_id"], name: "index_subscriptions_on_student_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "name",                   default: "", null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bills", "people", column: "student_id"

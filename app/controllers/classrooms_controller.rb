@@ -28,7 +28,6 @@ class ClassroomsController < ApplicationController
   # POST /classrooms.json
   def create
     @classroom = Classroom.new(classroom_params)
-
     respond_to do |format|
       if @classroom.save
         format.html { redirect_to classrooms_url, notice: t('.notice', name: @classroom.name) }
@@ -43,6 +42,7 @@ class ClassroomsController < ApplicationController
   # PATCH/PUT /classrooms/1
   # PATCH/PUT /classrooms/1.json
   def update
+
     respond_to do |format|
       if @classroom.update(classroom_params)
         format.html { redirect_to classrooms_url, notice: t('.notice', name: @classroom.name) }

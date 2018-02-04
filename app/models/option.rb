@@ -15,6 +15,6 @@ class Option < ApplicationRecord
 
   def self.as_hash # It would be good to use cache here
     options = Option.all.pluck :name, :value
-    HashWithIndifferentAccess[options]
+    ActiveSupport::HashWithIndifferentAccess[options]
   end
 end

@@ -20,11 +20,15 @@ class ClassroomsControllerTest < ActionController::TestCase
   test "should create classroom" do
     assert_difference('Classroom.count') do
       process :create, method: :post, params: { classroom: {
-        title: @classroom.title, modality_id: @classroom.modality, duration: @classroom.duration , schedules_attributes: {
-          '0' => { teacher_id: @schedule.teacher_id, room_id: @schedule.room_id, week_day: @schedule.week_day, start_at: @schedule.start_at}
+        title: @classroom.title, modality_id: @classroom.modality, duration: @classroom.duration, schedules_attributes: {
+          '0' => {
+            teacher_id: @schedule.teacher_id,
+            room_id: @schedule.room_id,
+            week_day: @schedule.week_day,
+            start_at: @schedule.start_at
+          }
         }
       }}
-
     end
 
     assert_redirected_to classrooms_path

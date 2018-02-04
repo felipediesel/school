@@ -1,4 +1,4 @@
-class CreateModalities < ActiveRecord::Migration
+class CreateModalities < ActiveRecord::Migration[5.1]
   def change
     create_table :modalities do |t|
       t.string :name

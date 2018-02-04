@@ -20,8 +20,7 @@ class ClassroomScheduleTest < ActiveSupport::TestCase
   test "should have required validators" do
     classroom_schedule = ClassroomSchedule.new start_at: nil, week_day: nil
     assert_not classroom_schedule.valid?
-    assert_equal [:teacher_id, :room_id, :week_day, :start_at], classroom_schedule.errors.keys
-
+    assert_equal [:teacher, :room, :week_day, :start_at], classroom_schedule.errors.keys
   end
 
   test "should convert start_at_formatted" do # it should be tested outside of here using Mock

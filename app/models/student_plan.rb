@@ -1,8 +1,8 @@
 class StudentPlan < ApplicationRecord
   include DecimalFormatter
 
-  belongs_to :student
-  belongs_to :plan
+  belongs_to :student, optional: true
+  belongs_to :plan, optional: true
 
   delegate :name, :amount, to: :plan
 

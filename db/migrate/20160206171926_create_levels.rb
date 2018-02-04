@@ -1,4 +1,4 @@
-class CreateLevels < ActiveRecord::Migration
+class CreateLevels < ActiveRecord::Migration[5.1]
   def change
     create_table :levels do |t|
       t.references :modality, index: true, foreign_key: true

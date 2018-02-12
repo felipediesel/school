@@ -5,6 +5,6 @@
   %td= l bill.paid_at if bill.paid?
   %td.text-nowrap= number_to_currency bill.total
   %td.actions
-    = link_to icon_for(:check), [ :new, bill, :bill_payments ], remote: true, title: t('.pay'), 'data-toggle' => 'tooltip', class: 'text-success' if ! bill.paid?
+    = link_to icon_for(:check), [ :new, bill, :bill_payments ], data: { modal: true }, title: t('.pay'), 'data-toggle' => 'tooltip', class: 'text-success' if !bill.paid?
     = link_to icon_for(:edit), [ :edit, @student, bill ], title: t('text.edit'), 'data-toggle' => 'tooltip'
     = link_to_destroy [ @student, bill ]

@@ -2,9 +2,7 @@ class InvoicesController < ApplicationController
   before_action :set_student
 
   def new
-    respond_to do |format|
-      format.js
-    end
+    render layout: 'modal'
   end
 
   def create
@@ -14,8 +12,8 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.pdf do
         kit = PDFKit.new render_to_string
-        kit.stylesheets << Rails.root.join('vendor', 'assets', 'stylesheets', 'bootstrap.css')
-        kit.stylesheets << Rails.root.join('app', 'assets', 'stylesheets', 'invoice.css')
+        kit.stylesheets << Rails.root.join('node_modules', 'bootstrap', 'dist', 'css', 'bootstrap.css')
+        kit.stylesheets << Rails.root.join('app', 'javascript', 'packs', 'invoice.css')
         send_data kit.to_pdf, disposition: 'inline', filename: t('.filename', student: @student.name.parameterize(separator: '_'))
       end
     end

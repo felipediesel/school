@@ -9,7 +9,7 @@ class BootstrapHelperTest < ActionView::TestCase
     dropdown_menu_empty: %(<div class="btn-group"><button name="button" type="button" class="btn btn-secondary btn-sm dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown">Text</button><div class="dropdown-menu"></div></div>),
     dropdown_menu: %(<div class="btn-group"><button name="button" type="button" class="btn btn-secondary btn-sm dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown">Text</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Item 1</a><a href="#" class="dropdown-item">Item 2</a></div></div>)
   }
-  TEMPLATE[:modal_header] = %(<div class="modal-header">#{TEMPLATE[:modal_close_button]}<h4 class="modal-title">Title</h4></div>)
+  TEMPLATE[:modal_header] = %(<div class="modal-header"><h5 class="modal-title">Title</h5>#{TEMPLATE[:modal_close_button]}</div>)
 
   test "should return the alert" do
     actual = alert(:info, 'Content')

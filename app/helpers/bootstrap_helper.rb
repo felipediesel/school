@@ -17,8 +17,8 @@ module BootstrapHelper
 
     content_tag :div, class: 'modal-header' do
       html = []
+      html << content_tag(:h5, title_content, class: 'modal-title')
       html << modal_close_button if options.delete(:close)
-      html << content_tag(:h4, title_content, class: 'modal-title')
 
       safe_join html
     end

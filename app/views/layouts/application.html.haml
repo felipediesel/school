@@ -7,8 +7,8 @@
     %title
       = Option.get(:app_name, 'School')
       = " - #{show_title}" if show_title.present?
-    = stylesheet_link_tag    'vendor', 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'vendor', 'application', 'data-turbolinks-track' => true
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': true
+    = javascript_pack_tag 'application', 'data-turbolinks-track': true
     = csrf_meta_tags
 
   %body{ id: controller_name, class: action_name }

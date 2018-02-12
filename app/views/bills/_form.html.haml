@@ -1,4 +1,4 @@
-= simple_form_for [ @student, @bill ] do |f|
+= simple_form_for [ @student, @bill ], { data: { controller: "bill-form" } } do |f|
   .row
     .col-md-6
       - if @student
@@ -14,7 +14,7 @@
     .col-md-4= f.input :increase_formatted
   .row
     .col-md-4= f.input :due_at
-    .col-md-4= f.input :paid, as: :select, include_blank: false
-    .col-md-4= f.input :paid_at, wrapper_html: { hidden: !f.object.paid? }
+    .col-md-4= f.input :paid, as: :select, include_blank: false, input_html: { data: { target: "bill-form.paid", action: 'bill-form#update' } }
+    .col-md-4= f.input :paid_at, wrapper_html: { hidden: !f.object.paid?, data: { target: "bill-form.paidAtWrapper" } }
 
   = f.button :submit, class: 'btn-primary'

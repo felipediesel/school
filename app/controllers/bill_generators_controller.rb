@@ -2,9 +2,7 @@ class BillGeneratorsController < ApplicationController
   before_action :set_student
 
   def new
-    respond_to do |format|
-      format.js
-    end
+    render layout: 'modal'
   end
 
   def create

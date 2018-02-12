@@ -2,10 +2,10 @@
   .row
     .col-md-6= f.input :name, label: false
     .col-md-4
-      .row
+      .row{ data: { controller: "level-color" } }
         .col-md-2
-          %span.badge.level-color{style: "background:#{f.object.color}"} &nbsp;
-        .col-md-10= f.input :color, label: false, collection: level_colors_options, include_blank: false
+          %span.badge.level-color{ style: "background:#{f.object.color}", data: { target: 'level-color.badge' } } &nbsp;
+        .col-md-10= f.input :color, label: false, collection: level_colors_options, include_blank: false, input_html: { data: { target: "level-color.select", action: 'level-color#change' } }
     .col-md-1
       = f.hidden_field :_destroy, data: { destroy: true }
       = f.hidden_field :position, class: 'position'

@@ -6,11 +6,12 @@ class StudentReportsController < ApplicationController
   def create
     @students = Student.includes(classrooms: :modality, plans: :plan).report student_report_params
 
+
     respond_to do |format|
       format.pdf do
         kit = PDFKit.new render_to_string
-        kit.stylesheets << Rails.root.join('vendor', 'assets', 'stylesheets', 'bootstrap.css')
-        kit.stylesheets << Rails.root.join('app', 'assets', 'stylesheets', 'pdf.css')
+        kit.stylesheets << Rails.root.join('node_modules', 'bootstrap', 'dist', 'css', 'bootstrap.css')
+        kit.stylesheets << Rails.root.join('app', 'javascript', 'packs', 'pdf.css')
         send_data kit.to_pdf, disposition: 'inline', filename: t('.filename')
       end
     end
@@ -18,6 +19,12 @@ class StudentReportsController < ApplicationController
 
   private
     def student_report_params
-      params[:student_report].blank? ? {} : params.require(:student_report).permit(:classroom_id, :status, plan_ids: [])
+      if params[:student_report].blank?
+        {}
+      else
+        permited_params = params.require(:student_report).permit(:classroom_id, :status, plan_ids: [])
+        permited_params[:plan_ids].reject!(&:empty?) if permited_params[:plan_ids]
+        permited_params
+      end
     end
 end

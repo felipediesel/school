@@ -2,6 +2,7 @@ class BillPaymentsController < ApplicationController
   before_action :set_bill
 
   def new
+    render layout: 'modal'
   end
 
   def create

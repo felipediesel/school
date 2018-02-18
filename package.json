@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.2.2",
-    "bootstrap": "4.0.0-alpha.6",
+    "bootstrap": "^4.0.0",
     "dragula": "^3.7.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",

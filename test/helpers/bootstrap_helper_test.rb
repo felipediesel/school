@@ -6,8 +6,8 @@ class BootstrapHelperTest < ActionView::TestCase
     translated_alert: %(<div class="alert alert-danger" role="alert">Content</div>),
     close_button: %(<button name="button" type="button" class="close" data-dismiss="alert" aria-label="Fechar"><span aria-hidden="true">×</span></button>),
     modal_close_button: %(<button name="button" type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">×</span></button>),
-    dropdown_menu_empty: %(<div class="btn-group"><button name="button" type="button" class="btn btn-secondary btn-sm dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown">Text</button><div class="dropdown-menu"></div></div>),
-    dropdown_menu: %(<div class="btn-group"><button name="button" type="button" class="btn btn-secondary btn-sm dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown">Text</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Item 1</a><a href="#" class="dropdown-item">Item 2</a></div></div>)
+    dropdown_menu_empty: %(<div class="btn-group"><button name="button" type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown">Text</button><div class="dropdown-menu"></div></div>),
+    dropdown_menu: %(<div class="btn-group"><button name="button" type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown">Text</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Item 1</a><a href="#" class="dropdown-item">Item 2</a></div></div>)
   }
   TEMPLATE[:modal_header] = %(<div class="modal-header"><h5 class="modal-title">Title</h5>#{TEMPLATE[:modal_close_button]}</div>)
 

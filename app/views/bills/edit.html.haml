@@ -1,5 +1,5 @@
 .content-header
-  %nav= link_to t('text.back'), [ @student, :bills ], class: 'btn btn-secondary btn-sm'
+  %nav= link_to t('text.back'), [ @student, :bills ], class: 'btn btn-outline-secondary btn-sm'
   %h2= title
 
 = render 'students/show_nav', active: 'bills' if @student

@@ -37,7 +37,7 @@ module BootstrapHelper
   def dropdown_menu(text, &block)
     button_options = {
       type: "button",
-      class: 'btn btn-secondary btn-sm dropdown-toggle',
+      class: 'btn btn-outline-secondary btn-sm dropdown-toggle',
       aria: { expanded: "false", haspopup: "true"},
       data: { toggle: "dropdown"}
     }

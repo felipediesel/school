@@ -12,15 +12,14 @@
     = csrf_meta_tags
 
   %body{ id: controller_name, class: action_name }
-    %nav{ class: "navbar navbar-toggleable-md navbar-inverse #{Option.get(:navbar_background, 'bg-primary')}" }
-      %button.navbar-toggler.navbar-toggler-right{ type: "button", data: { toggle: "collapse", target: "#main-nav" } }
-        %span.navbar-toggler-icon
-
+    %nav{ class: "navbar navbar-expand-sm navbar-dark #{Option.get(:navbar_background, 'bg-primary')}" }
       .container
         = link_to Option.get(:app_name, 'School'), root_url, class: 'navbar-brand'
         %ul.navbar-nav.ml-auto
           %li.nav-item.navbar-text.mr-md-3= current_user.name
           %li.nav-item= link_to t('text.sign_out'), destroy_user_session_path, method: :delete, class: 'nav-link'
+        %button.navbar-toggler{ type: "button", data: { toggle: "collapse", target: "#main-nav" } }
+          %span.navbar-toggler-icon
 
     #container.container
       .row

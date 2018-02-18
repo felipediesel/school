@@ -1,6 +1,6 @@
 .content-header
   %nav
-    = form_for :students, method: :get, html: { class: 'form-inline' } do |f|
+    = form_for :students, method: :get, html: { class: 'form-inline mr-1' } do |f|
       = hidden_field_tag 'status', @filter[:status]
       = text_field_tag 'name', @filter[:name], class: 'form-control btn-sm', placeholder: t('.search_by_name')
 

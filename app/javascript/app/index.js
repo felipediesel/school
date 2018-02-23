@@ -1,7 +1,9 @@
 import 'jquery';
 import 'bootstrap';
 
-import "./modal"
+import Modal from "./modal"
+Modal.start();
+
 import "./vendor/rails";
 import "./vendor/stimulus";
 import "./vendor/turbolinks";

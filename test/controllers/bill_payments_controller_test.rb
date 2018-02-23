@@ -11,7 +11,7 @@ class BillPaymentsControllerTest < ActionController::TestCase
   end
 
   test "should create bill payment" do
-    post :create, xhr: true, format: 'js', params: { bill_id: @bill, bill: { discount_formatted: @bill.discount_formatted, paid_at: @bill.paid_at } }
+    post :create, xhr: true, format: 'json', params: { bill_id: @bill, bill: { discount_formatted: @bill.discount_formatted, paid_at: @bill.paid_at } }
 
     assert_response :success
   end

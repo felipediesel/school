@@ -1,11 +1,13 @@
-document.addEventListener("turbolinks:load", () => {
-  $('[data-modal]').on("click", function (e) {
-    e.preventDefault();
-    Modal.fetch(this.href);
-  });
-});
+export default class Modal {
+  static start(expression = '[data-modal]') {
+    document.addEventListener("turbolinks:load", () => {
+      $(expression).on("click", function (e) {
+        e.preventDefault();
+        Modal.fetch(this.href);
+      });
+    });
 
-class Modal {
+  }
   static show(html, options) {
     var modalObj, exp;
     if (options === undefined) {
@@ -18,6 +20,10 @@ class Modal {
     });
 
     return modalObj;
+  }
+
+  static hide() {
+    $('.modal').modal('hide');
   }
 
   static fetch(url) {

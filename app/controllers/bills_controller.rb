@@ -78,7 +78,7 @@ class BillsController < ApplicationController
       my_params = params.require(:bill).permit(:student_id, :description, :amount, :amount_formatted, :discount, :discount_formatted, :increase, :increase_formatted, :due_at, :paid, :paid_at)
 
       if my_params[:paid].present? and %w(0 false).include?(my_params[:paid])
-        my_params.except! :paid_at, "paid_at(3i)", "paid_at(2i)", "paid_at(1i)"
+        my_params = my_params.except :paid_at, "paid_at(3i)", "paid_at(2i)", "paid_at(1i)"
       end
 
       my_params

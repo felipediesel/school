@@ -1,6 +1,6 @@
 = modal_header
 
-= simple_form_for @bill, url: [ @bill, :bill_payments ], method: :post, remote: true do |f|
+= simple_form_for @bill, url: bill_bill_payments_path(@bill, format: :json), remote: true, method: :post, data: { controller: 'bill-payment-form', target: 'bill-payment-form.form'} do |f|
   = f.input :paid, as: :hidden
   .modal-body
     = show_for f.object do |b|

@@ -6,7 +6,13 @@ class BillPaymentsController < ApplicationController
   end
 
   def create
-    render :new if ! @bill.update_attributes(bill_params)
+    respond_to do |format|
+      format.json do
+        if !@bill.update(bill_params)
+          render json: @bill.errors, status: :unprocessable_entity
+        end
+      end
+    end
   end
 
   private

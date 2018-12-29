@@ -3,7 +3,7 @@ module DecimalFormatter
 
   module DecimalFormatterParser
     def self.parse(value)
-      BigDecimal.new value.gsub(delimiter, '').gsub(separator, '.')
+      (value.gsub(delimiter, '').gsub(separator, '.')).to_f
     end
 
     def self.format(value)

@@ -1,6 +1,9 @@
 {
   "name": "school",
   "private": true,
+  "engines": {
+    "node": "10.16.2"
+  },
   "dependencies": {
     "@rails/webpacker": "^3.5.5",
     "bootstrap": "^4.0.0",

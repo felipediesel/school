@@ -15,7 +15,7 @@ module TimeFormatter
       time_format_columns.each do |column_name|
         define_method :"#{column_name}_formatted" do
           column = send(column_name).to_f.abs
-          seconds = BigDecimal.new(column.to_s, 2).frac # frac does not work with float, only BigDecimal
+          seconds = BigDecimal(column.to_s, 2).frac # frac does not work with float, only BigDecimal
           "#{column.floor}:#{(seconds * 60).to_i.to_s.rjust(2, '0')}"
         end
 

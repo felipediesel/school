@@ -1,11 +1,13 @@
 language: ruby
 rvm:
   - 2.6.6
+env:
+  - TRAVIS_NODE_VERSION="10.16.2"
 services:
   - postgresql
 install:
   - bundle install
-  - nvm install node
+  - nvm install 10.16.2
   - node -v
   - npm i -g yarn
   - yarn
